@@ -2,6 +2,16 @@
   text-align: center;
 }
 
+html, body {
+  height: 100%;
+}
+
+.home-page {
+  text-align: center;
+  background-color:rgb(233, 242, 253);
+  min-height: 100vh;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -24,34 +34,18 @@
   color: white;
 }
 
-.article-container {
-  background-color: lightgrey;
-  width: 300px;
-  border: 15px solid rgb(108, 132, 160);
-  padding: 50px;
-  margin: 20px;
+.route-link {
+  color: #61dafb;
 }
 
-.article-title {
-  color: rgb(108, 132, 160);
-}
-
-.article-grid-container {
+.links-container {
   display: grid;
   grid-template-columns: auto auto auto;
   padding: 10px;
 }
 
-.article-grid-item {
-  background-color: rgba(255, 255, 255, 0.8);
-  border: 1px solid rgba(0, 0, 0, 0.8);
+.links-container a {
   padding: 20px;
-  font-size: 30px;
-  text-align: center;
-}
-
-.App-link {
-  color: #61dafb;
 }
 
 @keyframes App-logo-spin {
@@ -61,4 +55,59 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+/******************
+*****ARTICLES*****
+******************/
+.article-container {
+  background-color: lightgrey;
+  width: 300px;
+  border: 15px solid rgb(108, 132, 160);
+  padding: 50px;
+  margin: 20px;
+  align-items: center;
+  justify-content: center;
+}
+
+.article-title {
+  color: rgb(108, 132, 160);
+}
+
+.article-grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  padding: 15px;
+  align-items: center;
+  justify-content: center;
+}
+
+.article-grid-item {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  padding: 20px;
+  font-size: 30px;
+  text-align: center;
+}
+/******************
+*****PROJECTS*****
+******************/
+.project-container {
+  background-color: lightgrey;
+  width: 300px;
+  border: 15px solid rgb(108, 132, 160);
+  padding: 50px;
+  margin: 20px;
+}
+
+.project-title {
+  color: rgb(108, 132, 160);
+}
+
+.project-grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  padding: 15px;
+  align-items: center;
+  justify-content: center;
 }
