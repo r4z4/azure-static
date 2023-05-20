@@ -1,13 +1,13 @@
 import React from 'react';
 
 interface ProjectProps {
-  active?: boolean;
+  id: number;
 }
 
-function Project({ active = false }: ProjectProps) {
+function Project({ id }: ProjectProps) {
   return (
     <div className={'project-container'}>
-      <h4 className={'project-title'}>Elm App #1</h4>
+      <h4 className={'project-title'}>Elm App #{id}</h4>
       <div className={'project-body'}>
         <p>Description of the app etc...</p>
       </div>

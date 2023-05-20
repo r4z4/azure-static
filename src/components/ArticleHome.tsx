@@ -14,9 +14,9 @@ function ArticleHome({ active = false }: ArticleHomeProps) {
           <a href="/projects">Projects</a>
         </nav>
         <div className={'article-grid-container'}>
-          <Article />
-          <Article />
-          <Article />
+          <Article id={1} />
+          <Article id={2} />
+          <Article id={2} />
         </div>
     </div>
   );

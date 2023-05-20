@@ -1,0 +1,14 @@
+{
+    "1": {
+      "title": "Article #1",
+      "date": "05/11/2023",
+      "author": "Author One",
+      "body": "Content of the article will go here."
+    },
+    "2": {
+      "title": "Article #2",
+      "date": "05/11/2023",
+      "author": "Author Two",
+      "body": "Content of the article will go here."
+    }
+  }
