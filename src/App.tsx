@@ -1,7 +1,6 @@
 import React from 'react';
 import gear from './gear.svg';
 import './App.css';
-import Article from './components/Article';
 
 function App() {
   return (
