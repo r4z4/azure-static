@@ -26,13 +26,13 @@ function App() {
         >
           Articles
         </a>
-        {/* <a
+        <a
           className="route-link"
           href="/projects"
           rel="noopener noreferrer"
         >
           Projects
-        </a> */}
+        </a>
         </div>
       </header>
     </div>
