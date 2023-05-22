@@ -1,8 +1,8 @@
 FROM node:20.2-bullseye-slim
 
 RUN apt-get -y update && \
-	DEBIAN_FRONTEND=noninteractive \
 	apt-get -y --no-install-recommends install ca-certificates build-essential git curl nano zsh
+RUN sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
 WORKDIR /code
 
