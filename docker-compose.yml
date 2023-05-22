@@ -7,6 +7,8 @@ services:
       dockerfile: ./Dockerfile
     volumes:
       - .:/code
+      - ~/.zshrc:/root/.zshrc
+      - ~/.zsh_history:/root/.zsh_history
     ports:
       - 8080:8080
     init: true
