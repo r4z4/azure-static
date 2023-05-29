@@ -1,5 +1,4 @@
 import '../App.css';
-import Article from './Article';
 import MdArticlePrev from './MdArticlePrev';
 
 interface ArticleHomeProps {

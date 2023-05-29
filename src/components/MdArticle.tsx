@@ -16,7 +16,7 @@ function MdArticle({ title }: MdArticleProps) {
             setTerms(text)
         })
         // setTerms(markdownTable)
-    }, [])
+    }, [mdPath])
 
     return (
       <div className="content">
