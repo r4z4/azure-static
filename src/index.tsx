@@ -4,6 +4,7 @@ import './index.css';
 import App from './App';
 import ArticleHome from './components/ArticleHome';
 import ProjectHome from './components/ProjectHome';
+import MdArticle from './components/MdArticle';
 import {
   createBrowserRouter,
   RouterProvider,
@@ -18,6 +19,10 @@ const router = createBrowserRouter([
   {
     path: "/articles",
     element: <ArticleHome />,
+  },
+  {
+    path: `/articles/Run_01`,
+    element: <MdArticle title={'Run_01'} />,
   },
   {
     path: "/projects",
