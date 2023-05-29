@@ -20,7 +20,8 @@ function ArticleHome({ active = false }: ArticleHomeProps) {
           <Article id={2} />
         </div> */}
         <div className={'article-grid-container'}>
-          <MdArticlePrev title={'Run_01'} desc={'Initial Run for the Text REtrieval Conference (TREC) Question Classification dataset.'}/>
+          <MdArticlePrev title={'Run_01'} desc={'Initial Run for the Text REtrieval Conference (TREC) Question Classification dataset.'} concepts={['Multilabel Confusion Matrix', 'Tokenizer/CountVectorizer']} hangups={['Concat/Merge/Join']} />
+          <MdArticlePrev title={'Run_02'} desc={'Second Run for (TREC) Question Classification dataset.'} concepts={['Data Augmentation', 'NLTK']} hangups={['Wordnet']} />
           {/* <MdArticlePrev title={'run_01'} />
           <MdArticlePrev title={'run_01'} /> */}
         </div>
