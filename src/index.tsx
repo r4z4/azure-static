@@ -25,6 +25,10 @@ const router = createBrowserRouter([
     element: <MdArticle title={'Run_01'} />,
   },
   {
+    path: `/articles/Run_02`,
+    element: <MdArticle title={'Run_02'} />,
+  },
+  {
     path: "/projects",
     element: <ProjectHome />,
   }
