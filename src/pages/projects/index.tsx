@@ -1,10 +1,12 @@
-import Project from './Project'
+import { useRouter } from 'next/router'
+import Project from '../../components/Project'
 
 interface ProjectHomeProps {
   active?: boolean;
 }
 
 function ProjectHome({ active = false }: ProjectHomeProps) {
+  const router = useRouter();
   return (
     <div className="home-page">
         <nav>

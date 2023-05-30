@@ -1,11 +1,12 @@
-import '../App.css';
-import MdArticlePrev from './MdArticlePrev';
+import { useRouter } from 'next/router'
+import MdArticlePrev from '../../components/MdArticlePrev'
 
 interface ArticleHomeProps {
   active?: boolean;
 }
 
 function ArticleHome({ active = false }: ArticleHomeProps) {
+  const router = useRouter();
   return (
     <div className="App">
         <nav>
