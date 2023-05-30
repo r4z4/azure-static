@@ -1,4 +1,5 @@
 import React from 'react'
+import { useRouter } from 'next/router'
 
 interface MdArticlePrevProps {
     title: string
@@ -8,6 +9,7 @@ interface MdArticlePrevProps {
 }
 
 function MdArticle({ title, desc, concepts, hangups }: MdArticlePrevProps) {
+  const router = useRouter();
 
     // const [terms, setTerms] = React.useState('')
 
@@ -24,7 +26,7 @@ function MdArticle({ title, desc, concepts, hangups }: MdArticlePrevProps) {
       <h4 className={'article-title'}>{title}</h4>
       <div className={'article-body'}>
         <span className={'byline'}>
-            <p><a href={`/articles/${title}`}>Link to Article</a></p>
+            <p><a href={`/articles/${router.query.title}`}>Link to Article</a></p>
             <p>{desc}</p>
         </span>
       <div className={'prev-list'}>
