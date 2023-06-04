@@ -199,5 +199,6 @@ Let's see if it works with Notebook Output
 
 #### Plot History Images
 
-![Run_01 Result: Accuracy Metric](images/run_01.png)
+![Run_01 Result: Accuracy Metric](../assets/article_images/run_01.png)
+![Run_01 Result: Accuracy Metric](https://upload.wikimedia.org/wikipedia/commons/4/4d/DrudeModelComplexConductivity.png)
 
