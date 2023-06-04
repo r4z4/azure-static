@@ -1,10 +1,13 @@
 import React from 'react'
 import ReactMarkdown from 'react-markdown'
+import SidePanelImageDisplay from './SidePanelImageDisplay'
 import style from './markdown-styles.module.css';
 
 interface MdArticleProps {
     title: string;
 }
+
+const imagePaths = ['../assets/folder_closed.svg', '../assets/folder_open.svg', '../assets/article_images/run_01.png']
 
 function MdArticle({ title }: MdArticleProps) {
     const mdPath = require(`../articles/${title}.md`)
@@ -19,8 +22,13 @@ function MdArticle({ title }: MdArticleProps) {
     }, [mdPath])
 
     return (
-      <div className="content">
-        <ReactMarkdown className={style.reactMarkDown} children={terms} />
+      <div className="grid-container">
+        <div>
+          <ReactMarkdown className={style.reactMarkDown} children={terms} />
+        </div>
+        <div className='flex-container'>
+          <SidePanelImageDisplay imagePaths={imagePaths} />
+        </div>
       </div>
     )
   }
