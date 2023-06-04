@@ -9,6 +9,7 @@ export interface CollapsePanelProps {
 export interface PanelData {
     name: String;
     date: String;
+    desc: String;
     category: String;
     documents: PanelDocument[];
 }
@@ -16,6 +17,8 @@ export interface PanelData {
 export interface PanelDocument {
     id: number;
     filename: String;
+    url: string;
+    previewComponent?: JSX.Element;
 }
 
 // const panelData {
@@ -29,20 +32,24 @@ function CollapsePanel({ panelData }: CollapsePanelProps) {
   const [expanded, setExpanded] = useState(false);
 
   return (
-    <div className="movie">
+    <div className="collapse-panel">
       <p>{panelData.name + " " + panelData.category}</p>
-      <span className="showMore" onClick={() => setExpanded(!expanded)}>
+      <span className="show-more" onClick={() => setExpanded(!expanded)}>
         {expanded ? <img width={'35px'} src={FolderOpenIcon} alt='folderClosedIcon'/> : <img width={'35px'} src={FolderClosedIcon} alt='folderOpenIcon'/>}
-        {'  '} 
-        <b>Directory Name</b>
+        <b className='panel-dir-name'>{panelData.name}</b>
       </span>
+        <p>Last Updated: {panelData.date}</p>
       {expanded ? (
         <div className="expandable">
-            <p>{panelData.date}</p>
-            <p>Actors:</p>
-            <ul>
+            <p>{panelData.desc}</p>
+            <ul className='panel-doc-list'>
             {panelData.documents.map((doc: PanelDocument) => (
-                <li key={doc.id}>{doc.filename}</li>
+              <>
+              <div className='file-grid'>
+                <li className="prev-toggle" key={doc.id}><a href={doc.url}>{doc.filename}</a></li>
+                <div className="hide" key={doc.previewComponent?.key}>{doc.previewComponent}</div>
+              </div>
+              </>
             ))}
             </ul>
         </div>

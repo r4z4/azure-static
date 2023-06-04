@@ -8,12 +8,14 @@ interface ProjectHomeProps {
 
 const panelDocOne: PanelDocument = {
   id: 1,
-  filename: "doc_1"
+  filename: 'Run 01',
+  url: '/articles/Run_01'
 }
 
 const panelDocTwo: PanelDocument = {
-  id: 1,
-  filename: "doc_2"
+  id: 2,
+  filename: 'Run 02',
+  url: '/articles/Run_02'
 }
 
 function ProjectHome({ active = false }: ProjectHomeProps) {
@@ -21,14 +23,15 @@ function ProjectHome({ active = false }: ProjectHomeProps) {
   const testPanelData: PanelData = {
     name: 'Panel Name',
     date: '05-22-2020',
+    desc: 'E.g. Panel Desc',
     category: 'Government',
     documents: [panelDocOne, panelDocTwo]
   }
   
   return (
-    <div className="home-page">
+    <div className='home-page'>
         <nav>
-          <a href="/">Home</a>
+          <a href='/'>Home</a>
           {' '}
           <a href="/articles">Articles</a>
         </nav>
