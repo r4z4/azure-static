@@ -21,12 +21,28 @@ const router = createBrowserRouter([
     element: <ArticleHome />,
   },
   {
-    path: `/articles/Run_01`,
-    element: <MdArticle title={'Run_01'} />,
+    path: `/articles/trec/Run_01`,
+    element: <MdArticle subDir={'trec'} title={'Run_01'} />,
   },
   {
-    path: `/articles/Run_02`,
-    element: <MdArticle title={'Run_02'} />,
+    path: `/articles/trec/Run_02`,
+    element: <MdArticle subDir={'trec'} title={'Run_02'} />,
+  },
+  {
+    path: `/articles/glove/Run_01`,
+    element: <MdArticle subDir={'glove'} title={'Run_01'} />,
+  },
+  {
+    path: `/articles/glove/Run_02`,
+    element: <MdArticle subDir={'glove'} title={'Run_02'} />,
+  },
+  {
+    path: `/articles/glove/Run_03`,
+    element: <MdArticle subDir={'glove'} title={'Run_03'} />,
+  },
+  {
+    path: `/articles/glove/Run_04`,
+    element: <MdArticle subDir={'glove'} title={'Run_04'} />,
   },
   {
     path: "/projects",
