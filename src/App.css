@@ -116,3 +116,22 @@ html, body {
   list-style: none;
   padding-left: 0;
 }
+
+/*******************
+***** Markdown *****
+*******************/
+
+pre { 
+  font-family: Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", Monaco, "Courier New", Courier, monospace;
+  width: min-content;
+  margin-left: 5%;
+  tab-size: 4; 
+  padding: 4px;
+  border: 0.5px solid #d3d3d3;
+  border-radius: 5px;
+  background-color: #E6E6E6;
+}
+
+code {
+  background-color: #E6E6E6;
+}
