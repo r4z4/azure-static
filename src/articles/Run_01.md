@@ -114,6 +114,14 @@ revisit them later. I will just simply create a directory to store them for late
     label', 'http://cogcomp.org/Data/QA/QC/TREC_10.label'], fine_grained=False)
 ```        
 
+### HiLiteMe
+
+<!-- HTML generated using hilite.me -->
+<div style="background: #202020; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">    <span style="color: #d0d0d0">torchnlp.datasets.trec_dataset(directory=</span><span style="color: #ed9d13">&#39;data/trec/&#39;</span><span style="color: #d0d0d0">,</span> <span style="color: #d0d0d0">train=</span><span style="color: #24909d">False</span><span style="color: #d0d0d0">,</span> <span style="color: #d0d0d0">test=</span><span style="color: #24909d">False</span><span style="color: #d0d0d0">,</span> <span style="color: #d0d0d0">train_filename=</span><span style="color: #ed9d13">&#39;train_5500.label&#39;</span><span style="color: #d0d0d0">,</span>
+    <span style="color: #d0d0d0">test_filename=</span><span style="color: #ed9d13">&#39;TREC_10.label&#39;</span><span style="color: #d0d0d0">,</span> <span style="color: #d0d0d0">check_files=[</span><span style="color: #ed9d13">&#39;train_5500.label&#39;</span><span style="color: #d0d0d0">],</span> <span style="color: #d0d0d0">urls=[</span><span style="color: #ed9d13">&#39;http://cogcomp.org/Data/QA/QC/train_5500</span>
+    <span style="color: #d0d0d0">label</span><span style="color: #ed9d13">&#39;, &#39;</span><span style="color: #d0d0d0">http://cogcomp.org/Data/QA/QC/TREC_10.label</span><span style="color: #ed9d13">&#39;], fine_grained=False)</span>
+</pre></div>
+
         
 ---
 
@@ -164,7 +172,32 @@ Let's see if it works with Notebook Output
         _________________________________________________________________
 ```
 ---
+
+#### NumPy Emacs
+
+<!-- HTML generated using hilite.me -->
+<div style="background: #f8f8f8; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">        _________________________________________________________________
+        Layer (<span style="color: #AA22FF">type</span>)                Output Shape              Param <span style="color: #008800; font-style: italic">#   </span>
+        <span style="color: #666666">=================================================================</span>
+        embedding (Embedding)       (<span style="color: #AA22FF">None</span>, <span style="color: #666666">120</span>, <span style="color: #666666">128</span>)          <span style="color: #666666">1663616</span>   
+                                                                        
+        global_average_pooling1d (G  (<span style="color: #AA22FF">None</span>, <span style="color: #666666">128</span>)              <span style="color: #666666">0</span>         
+        lobalAveragePooling1D)                                          
+                                                                        
+        dense (Dense)               (<span style="color: #AA22FF">None</span>, <span style="color: #666666">24</span>)                <span style="color: #666666">3096</span>      
+                                                                        
+        dense_1 (Dense)             (<span style="color: #AA22FF">None</span>, <span style="color: #666666">6</span>)                 <span style="color: #666666">150</span>       
+                                                                        
+        <span style="color: #666666">=================================================================</span>
+        Total params: <span style="color: #666666">1</span>,<span style="color: #666666">666</span>,<span style="color: #666666">862</span>
+        Trainable params: <span style="color: #666666">1</span>,<span style="color: #666666">666</span>,<span style="color: #666666">862</span>
+        Non<span style="color: #666666">-</span>trainable params: <span style="color: #666666">0</span>
+        _________________________________________________________________
+</pre></div>
+
+---
+
 #### Plot History Images
 
-![Run_01 Result: Accuracy Metric](run_01.png)
+![Run_01 Result: Accuracy Metric](images/run_01.png)
 
