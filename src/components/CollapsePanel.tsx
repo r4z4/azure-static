@@ -1,4 +1,6 @@
 import { useState } from "react";
+import FolderClosedIcon from '../assets/folder_closed.svg'
+import FolderOpenIcon from '../assets/folder_open.svg'
 
 export interface CollapsePanelProps {
     panelData: PanelData;
@@ -30,7 +32,7 @@ function CollapsePanel({ panelData }: CollapsePanelProps) {
     <div className="movie">
       <p>{panelData.name + " " + panelData.category}</p>
       <span className="showMore" onClick={() => setExpanded(!expanded)}>
-        <b>Directory Name</b>
+        <img width={'35px'} src={FolderClosedIcon} />{'  '}<b>Directory Name</b>
       </span>
       {expanded ? (
         <div className="expandable">
