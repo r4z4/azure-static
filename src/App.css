@@ -61,7 +61,7 @@ html, body {
 *****ARTICLES*****
 ******************/
 .article-container {
-  background-color: lightgrey;
+  background-color: rgb(237, 233, 233);
   width: 300px;
   border: 15px solid rgb(108, 132, 160);
   padding: 50px;
@@ -123,8 +123,9 @@ html, body {
 
 pre { 
   font-family: Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", Monaco, "Courier New", Courier, monospace;
+  font-size:85%;
   width: min-content;
-  margin-left: 5%;
+  margin-left: 3%;
   tab-size: 4; 
   padding: 4px;
   border: 0.5px solid #d3d3d3;
@@ -134,4 +135,53 @@ pre {
 
 code {
   background-color: #E6E6E6;
+}
+
+/*******************
+**** Side Panel ****
+*******************/
+
+aside {
+  border: 1px solid rgb(174, 236, 247);
+  word-wrap: break-word;
+  display: block;
+}
+
+.side-panel-aside {
+  text-align: center;
+  background-color:rgb(237, 233, 233);
+  right: 0;
+  padding: 0 10px 0 20px;
+  top: 0px;
+  bottom: 0px;
+  position: relative;
+}
+
+.side-panel-container {
+  height: 100vh;
+  display: block;
+}
+
+.side-panel-image {
+  width: 100%;
+}
+
+.side-panel-list {
+  padding: 2px;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 80% 20%;
+}
+
+.flex-container {
+  display: flex;
+}
+
+.mapped-image {
+  display: inline-block;
+  padding: 10px 0;
+  max-width:100%;
+  max-height:100%;
 }
