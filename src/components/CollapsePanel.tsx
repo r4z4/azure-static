@@ -32,7 +32,9 @@ function CollapsePanel({ panelData }: CollapsePanelProps) {
     <div className="movie">
       <p>{panelData.name + " " + panelData.category}</p>
       <span className="showMore" onClick={() => setExpanded(!expanded)}>
-        <img width={'35px'} src={FolderClosedIcon} />{'  '}<b>Directory Name</b>
+        {expanded ? <img width={'35px'} src={FolderOpenIcon} alt='folderClosedIcon'/> : <img width={'35px'} src={FolderClosedIcon} alt='folderOpenIcon'/>}
+        {'  '} 
+        <b>Directory Name</b>
       </span>
       {expanded ? (
         <div className="expandable">
