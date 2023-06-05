@@ -21,63 +21,7 @@ df = pd.read_pickle('./data/dataframes/outer_merged_normalized_deduped.pkl')
 df.head()
 ```
 
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>newsgroup</th>
-      <th>subject</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>autos</td>
-      <td>saturn's pricing policy</td>
-    </tr>
-    <tr>
-      <th>10</th>
-      <td>autos</td>
-      <td>are bmw's worth the price</td>
-    </tr>
-    <tr>
-      <th>12</th>
-      <td>autos</td>
-      <td>re headlights problem</td>
-    </tr>
-    <tr>
-      <th>14</th>
-      <td>autos</td>
-      <td>left turn signal won't stop automaticaly</td>
-    </tr>
-    <tr>
-      <th>16</th>
-      <td>autos</td>
-      <td>what is volvo</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
-
-
+---
 
 ```python
 all_categories = ['sport', 'autos', 'religion', 'comp_elec', 'sci_med', 'seller', 'politics']
@@ -292,9 +236,6 @@ model.fit(X_train_vect, y_train, batch_size=32, epochs=8, validation_data=(X_tes
     199/199 [==============================] - 1s 6ms/step - loss: 0.1449 - accuracy: 0.9616 - val_loss: 1.2295 - val_accuracy: 0.7066
 
 
-
-
-
     <keras.callbacks.History at 0x7f5a9e0cad00>
 
 
@@ -348,15 +289,6 @@ model_file = 'models/sparse_cat_entire'
 model.save(model_file)
 ```
 
-    WARNING:absl:Found untraced functions such as _update_step_xla while saving (showing 1 of 1). These functions will not be directly callable after loading.
-
-
-    INFO:tensorflow:Assets written to: models/sparse_cat_entire/assets
-
-
-    INFO:tensorflow:Assets written to: models/sparse_cat_entire/assets
-
-
 
 ```python
 !pip install scikit-plot
@@ -374,31 +306,6 @@ skplt.metrics.plot_confusion_matrix([target_categories[i] for i in y_test], [tar
                                     );
 plt.xticks(rotation=90);
 ```
-
-    Requirement already satisfied: scikit-plot in /usr/local/lib/python3.8/site-packages (0.3.7)
-    Requirement already satisfied: matplotlib>=1.4.0 in /root/.local/lib/python3.8/site-packages (from scikit-plot) (3.7.1)
-    Requirement already satisfied: scikit-learn>=0.18 in /root/.local/lib/python3.8/site-packages (from scikit-plot) (1.2.2)
-    Requirement already satisfied: scipy>=0.9 in /root/.local/lib/python3.8/site-packages (from scikit-plot) (1.10.1)
-    Requirement already satisfied: joblib>=0.10 in /root/.local/lib/python3.8/site-packages (from scikit-plot) (1.2.0)
-    Requirement already satisfied: contourpy>=1.0.1 in /root/.local/lib/python3.8/site-packages (from matplotlib>=1.4.0->scikit-plot) (1.0.7)
-    Requirement already satisfied: cycler>=0.10 in /root/.local/lib/python3.8/site-packages (from matplotlib>=1.4.0->scikit-plot) (0.11.0)
-    Requirement already satisfied: fonttools>=4.22.0 in /root/.local/lib/python3.8/site-packages (from matplotlib>=1.4.0->scikit-plot) (4.39.4)
-    Requirement already satisfied: kiwisolver>=1.0.1 in /root/.local/lib/python3.8/site-packages (from matplotlib>=1.4.0->scikit-plot) (1.4.4)
-    Requirement already satisfied: numpy>=1.20 in /root/.local/lib/python3.8/site-packages (from matplotlib>=1.4.0->scikit-plot) (1.23.5)
-    Requirement already satisfied: packaging>=20.0 in /root/.local/lib/python3.8/site-packages (from matplotlib>=1.4.0->scikit-plot) (23.1)
-    Requirement already satisfied: pillow>=6.2.0 in /root/.local/lib/python3.8/site-packages (from matplotlib>=1.4.0->scikit-plot) (9.5.0)
-    Requirement already satisfied: pyparsing>=2.3.1 in /root/.local/lib/python3.8/site-packages (from matplotlib>=1.4.0->scikit-plot) (3.0.9)
-    Requirement already satisfied: python-dateutil>=2.7 in /root/.local/lib/python3.8/site-packages (from matplotlib>=1.4.0->scikit-plot) (2.8.2)
-    Requirement already satisfied: importlib-resources>=3.2.0 in /root/.local/lib/python3.8/site-packages (from matplotlib>=1.4.0->scikit-plot) (5.12.0)
-    Requirement already satisfied: threadpoolctl>=2.0.0 in /root/.local/lib/python3.8/site-packages (from scikit-learn>=0.18->scikit-plot) (3.1.0)
-    Requirement already satisfied: zipp>=3.1.0 in /root/.local/lib/python3.8/site-packages (from importlib-resources>=3.2.0->matplotlib>=1.4.0->scikit-plot) (3.15.0)
-    Requirement already satisfied: six>=1.5 in /root/.local/lib/python3.8/site-packages (from python-dateutil>=2.7->matplotlib>=1.4.0->scikit-plot) (1.16.0)
-    [33mWARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv[0m[33m
-    [0m
-
-
-![png](run_03_files/run_03_21_1.png)
-
 
 ### Custom Test
 
@@ -421,7 +328,6 @@ cstm_test_preds = model.predict(doc_array_vect).argmax(axis=-1)
     1/1 [==============================] - 0s 21ms/step
 
 
-
 ```python
 print(doc_array)
 ```
@@ -429,7 +335,6 @@ print(doc_array)
     ['Democrats the Reuplicans are both the worst!' 'Coyotes win 10-0'
      'Houston Astros defeat the Cubs'
      'Apple and Microsoft both make great computers' 'New washer 4sale. $200']
-
 
 
 ```python
@@ -456,7 +361,6 @@ print(doc_array_vect)
          0    0    0    0    0    0    0    0    0    0    0    0    0    0
          0    0    0    0    0    0    0    0    0    0    0    0    0    0
          0    0    0    0    0    0    0    0]]
-
 
 
 ```python

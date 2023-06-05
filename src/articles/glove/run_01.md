@@ -17,46 +17,25 @@ from keras.preprocessing.text import Tokenizer
 from keras.utils import pad_sequences
 ```
 
-    2023-05-31 22:58:22.130770: I tensorflow/tsl/cuda/cudart_stub.cc:28] Could not find cuda drivers on your machine, GPU will not be used.
-    2023-05-31 22:58:22.648417: I tensorflow/tsl/cuda/cudart_stub.cc:28] Could not find cuda drivers on your machine, GPU will not be used.
-    2023-05-31 22:58:22.650174: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
-    To enable the following instructions: AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
-    2023-05-31 22:58:24.940136: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
-
-
-
 ```python
 df = pd.read_pickle('./data/dataframes/outer_merged_normalized.pkl')
 df.shape
 ```
 
-
-
-
     (37660, 2)
-
-
-
 
 ```python
 df.drop_duplicates(inplace = True)
 df.shape
 ```
 
-
-
-
     (8479, 2)
-
-
-
 
 ```python
 all_categories = ['sport', 'autos', 'religion', 'comp_elec', 'sci_med', 'seller', 'politics']
 # We'll use all
 target_categories = ['sport', 'autos', 'religion', 'comp_elec', 'sci_med', 'seller', 'politics']
 ```
-
 
 ```python
 # container for sentences
@@ -65,13 +44,11 @@ X = np.array([subject for subject in df['subject']])
 y = np.array([subject for subject in df['newsgroup']])
 ```
 
-
 ```python
 from sklearn.preprocessing import LabelEncoder
 encoder = LabelEncoder()
 y = encoder.fit_transform(df['newsgroup'])
 ```
-
 
 ```python
 from sklearn.model_selection import train_test_split
@@ -85,9 +62,6 @@ mapping = dict(zip(classes, target_categories))
 len(X_train), len(X_test), classes, mapping
 ```
 
-
-
-
     (6359,
      2120,
      array([0, 1, 2, 3, 4, 5, 6]),
@@ -98,8 +72,6 @@ len(X_train), len(X_test), classes, mapping
       4: 'sci_med',
       5: 'seller',
       6: 'politics'})
-
-
 
 
 ```python
@@ -131,12 +103,7 @@ X_train_vect.shape, X_test_vect.shape
          0    0    0    0    0    0    0    0]]
 
 
-
-
-
     ((6359, 50), (2120, 50))
-
-
 
 
 ```python
@@ -144,8 +111,6 @@ print("Vocab Size : {}".format(len(tokenizer.word_index)))
 ```
 
     Vocab Size : 9734
-
-
 
 ```python
 path = './glove.6B.50d.txt'
@@ -159,7 +124,6 @@ with open(path) as f:
             continue
 ```
 
-
 ```python
 embed_len = 50
 
@@ -169,17 +133,12 @@ for idx, word in tokenizer.index_word.items():
     word_embeddings[idx] = glove_embeddings.get(word, np.zeros(embed_len))
 ```
 
-
 ```python
 word_embeddings[1][:10]
 ```
 
-
-
-
     array([ 0.15272   ,  0.36181   , -0.22168   ,  0.066051  ,  0.13029   ,
             0.37075001, -0.75874001, -0.44722   ,  0.22563   ,  0.10208   ])
-
 
 
 ### Approach 1: GloVe Embeddings Flattened (Max Tokens=50, Embedding Length=300) 
@@ -224,16 +183,11 @@ model.summary()
 model.weights[0][1][:10], word_embeddings[1][:10]
 ```
 
-
-
-
     (<tf.Tensor: shape=(10,), dtype=float32, numpy=
      array([ 0.15272 ,  0.36181 , -0.22168 ,  0.066051,  0.13029 ,  0.37075 ,
             -0.75874 , -0.44722 ,  0.22563 ,  0.10208 ], dtype=float32)>,
      array([ 0.15272   ,  0.36181   , -0.22168   ,  0.066051  ,  0.13029   ,
              0.37075001, -0.75874001, -0.44722   ,  0.22563   ,  0.10208   ]))
-
-
 
 
 ```python
@@ -263,12 +217,7 @@ model.fit(X_train_vect, y_train, batch_size=32, epochs=8, validation_data=(X_tes
     199/199 [==============================] - 1s 6ms/step - loss: 0.1769 - accuracy: 0.9533 - val_loss: 1.2192 - val_accuracy: 0.6943
 
 
-
-
-
     <keras.callbacks.History at 0x7fefde115520>
-
-
 
 
 ```python
@@ -319,15 +268,6 @@ model_file = 'models/sparse_cat_entire'
 model.save(model_file)
 ```
 
-    WARNING:absl:Found untraced functions such as _update_step_xla while saving (showing 1 of 1). These functions will not be directly callable after loading.
-
-
-    INFO:tensorflow:Assets written to: models/sparse_cat_entire/assets
-
-
-    INFO:tensorflow:Assets written to: models/sparse_cat_entire/assets
-
-
 
 ```python
 !pip install scikit-plot
@@ -346,33 +286,7 @@ skplt.metrics.plot_confusion_matrix([target_categories[i] for i in y_test], [tar
 plt.xticks(rotation=90);
 ```
 
-    Requirement already satisfied: scikit-plot in /usr/local/lib/python3.8/site-packages (0.3.7)
-    Requirement already satisfied: matplotlib>=1.4.0 in /root/.local/lib/python3.8/site-packages (from scikit-plot) (3.7.1)
-    Requirement already satisfied: scikit-learn>=0.18 in /root/.local/lib/python3.8/site-packages (from scikit-plot) (1.2.2)
-    Requirement already satisfied: scipy>=0.9 in /root/.local/lib/python3.8/site-packages (from scikit-plot) (1.10.1)
-    Requirement already satisfied: joblib>=0.10 in /root/.local/lib/python3.8/site-packages (from scikit-plot) (1.2.0)
-    Requirement already satisfied: contourpy>=1.0.1 in /root/.local/lib/python3.8/site-packages (from matplotlib>=1.4.0->scikit-plot) (1.0.7)
-    Requirement already satisfied: cycler>=0.10 in /root/.local/lib/python3.8/site-packages (from matplotlib>=1.4.0->scikit-plot) (0.11.0)
-    Requirement already satisfied: fonttools>=4.22.0 in /root/.local/lib/python3.8/site-packages (from matplotlib>=1.4.0->scikit-plot) (4.39.4)
-    Requirement already satisfied: kiwisolver>=1.0.1 in /root/.local/lib/python3.8/site-packages (from matplotlib>=1.4.0->scikit-plot) (1.4.4)
-    Requirement already satisfied: numpy>=1.20 in /root/.local/lib/python3.8/site-packages (from matplotlib>=1.4.0->scikit-plot) (1.23.5)
-    Requirement already satisfied: packaging>=20.0 in /root/.local/lib/python3.8/site-packages (from matplotlib>=1.4.0->scikit-plot) (23.1)
-    Requirement already satisfied: pillow>=6.2.0 in /root/.local/lib/python3.8/site-packages (from matplotlib>=1.4.0->scikit-plot) (9.5.0)
-    Requirement already satisfied: pyparsing>=2.3.1 in /root/.local/lib/python3.8/site-packages (from matplotlib>=1.4.0->scikit-plot) (3.0.9)
-    Requirement already satisfied: python-dateutil>=2.7 in /root/.local/lib/python3.8/site-packages (from matplotlib>=1.4.0->scikit-plot) (2.8.2)
-    Requirement already satisfied: importlib-resources>=3.2.0 in /root/.local/lib/python3.8/site-packages (from matplotlib>=1.4.0->scikit-plot) (5.12.0)
-    Requirement already satisfied: threadpoolctl>=2.0.0 in /root/.local/lib/python3.8/site-packages (from scikit-learn>=0.18->scikit-plot) (3.1.0)
-    Requirement already satisfied: zipp>=3.1.0 in /root/.local/lib/python3.8/site-packages (from importlib-resources>=3.2.0->matplotlib>=1.4.0->scikit-plot) (3.15.0)
-    Requirement already satisfied: six>=1.5 in /root/.local/lib/python3.8/site-packages (from python-dateutil>=2.7->matplotlib>=1.4.0->scikit-plot) (1.16.0)
-    [33mWARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv[0m[33m
-    [0m
-
-
-![png](run_01_files/run_01_19_1.png)
-
-
 ### Custom Test
-
 
 ```python
 # define documents
@@ -391,8 +305,6 @@ cstm_test_preds = model.predict(doc_array_vect).argmax(axis=-1)
 
     1/1 [==============================] - 0s 20ms/step
 
-
-
 ```python
 print(doc_array)
 ```
@@ -400,8 +312,6 @@ print(doc_array)
     ['Democrats the Reuplicans are both the worst!' 'Coyotes win 10-0'
      'Houston Astros defeat the Cubs'
      'Apple and Microsoft both make great computers' 'New washer 4sale. $200']
-
-
 
 ```python
 print(doc_array_vect)
@@ -427,7 +337,6 @@ print(doc_array_vect)
          0    0    0    0    0    0    0    0    0    0    0    0    0    0
          0    0    0    0    0    0    0    0    0    0    0    0    0    0
          0    0    0    0    0    0    0    0]]
-
 
 
 ```python

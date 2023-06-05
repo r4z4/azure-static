@@ -5,9 +5,11 @@ import Glove01 from '../assets/article_images/glove/run_01.png'
 import Glove02 from '../assets/article_images/glove/run_01.png'
 import Glove03 from '../assets/article_images/glove/run_01.png'
 import Glove04 from '../assets/article_images/glove/run_01.png'
+import parse from 'html-react-parser';
 
 export interface SidePanelImageDisplayProps {
     imagePaths: string[];
+    html: string;
 }
 
 // Create map eventually
@@ -32,7 +34,7 @@ const getImage = (path: string) => {
   }
 }
 
-function SidePanelImageDisplay({ imagePaths }: SidePanelImageDisplayProps) {
+function SidePanelImageDisplay({ imagePaths, html }: SidePanelImageDisplayProps) {
 
   return (
     <aside className='side-panel-aside'>
@@ -45,6 +47,10 @@ function SidePanelImageDisplay({ imagePaths }: SidePanelImageDisplayProps) {
             </div>
           ))}
         </ul>
+
+        <div>
+          {parse(html)}
+        </div>
       </div>
     </aside>
   );
