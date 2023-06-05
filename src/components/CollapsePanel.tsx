@@ -1,6 +1,7 @@
 import { useState } from "react";
 import FolderClosedIcon from '../assets/folder_closed.svg'
 import FolderOpenIcon from '../assets/folder_open.svg'
+import NotebookSimple from '../assets/notebook_simple.svg'
 
 export interface CollapsePanelProps {
     panelData: PanelData;
@@ -45,7 +46,7 @@ function CollapsePanel({ panelData }: CollapsePanelProps) {
             {panelData.documents.map((doc: PanelDocument) => (
               <>
               <div className='file-grid'>
-                <li className="prev-toggle" key={doc.id}><a href={doc.url}>{doc.filename}</a></li>
+                <li className="prev-toggle" key={doc.id}><a href={doc.url}><img width={'25px'} src={NotebookSimple} alt='notebookSimpleIcon'/>{doc.filename}</a></li>
                 <div className="hide" key={doc.previewComponent?.key}>{doc.previewComponent}</div>
               </div>
               </>
