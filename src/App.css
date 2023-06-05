@@ -233,3 +233,7 @@ aside {
   display: grid;
   grid-template-columns: 50% 50%;
 }
+
+.file-grid img {
+  padding: 0px;
+}

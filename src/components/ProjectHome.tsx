@@ -30,11 +30,6 @@ function ProjectHome({ active = false }: ProjectHomeProps) {
   
   return (
     <div className='home-page'>
-        <nav>
-          <a href='/'>Home</a>
-          {' '}
-          <a href="/articles">Articles</a>
-        </nav>
         <div className={'article-grid-container'}>
           <Project id={1} />
           <Project id={2} />
