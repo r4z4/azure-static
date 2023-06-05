@@ -5,13 +5,14 @@ import style from './markdown-styles.module.css';
 
 interface MdArticleProps {
     title: string;
+    subDir: string;
 }
 
-const imagePaths = ['../assets/folder_closed.svg', '../assets/folder_open.svg', '../assets/article_images/run_01.png']
-
-function MdArticle({ title }: MdArticleProps) {
-    const mdPath = require(`../articles/${title}.md`)
+function MdArticle({ title, subDir }: MdArticleProps) {
+    const mdPath = require(`../articles/${subDir}/${title}.md`)
     const [terms, setTerms] = React.useState('')
+
+    const imagePaths = [`../assets/article_images/${subDir}/${title}.png`]
 
     React.useEffect(() => {
         fetch(mdPath).then((response) => response.text()).then((text) => {

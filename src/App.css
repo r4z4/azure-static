@@ -1,5 +1,16 @@
 .App {
-  text-align: center;
+  padding: 2px;
+  background-color: #fafdfd;
+  min-height: 100vh;
+}
+
+nav {
+  margin-left: 2%;
+  background-color: #fafdfd;
+}
+
+nav a {
+  padding: 0px 10px;
 }
 
 html, body {
@@ -75,11 +86,11 @@ html, body {
 }
 
 .article-grid-container {
-  display: grid;
-  grid-template-columns: auto auto auto;
+  display: inline-block;
   padding: 15px;
-  align-items: center;
-  justify-content: center;
+  margin-left: 1%;
+  /* align-items: center;
+  justify-content: center; */
 }
 
 .article-grid-item {

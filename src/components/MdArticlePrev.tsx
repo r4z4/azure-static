@@ -24,7 +24,6 @@ function MdArticle({ title, desc, concepts, hangups }: MdArticlePrevProps) {
       <h4 className={'article-title'}>{title}</h4>
       <div className={'article-body'}>
         <span className={'byline'}>
-            <p><a href={`/articles/${title}`}>Link to Article</a></p>
             <p>{desc}</p>
         </span>
       <div className={'prev-list'}>
