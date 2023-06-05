@@ -1,9 +1,16 @@
 .App {
   padding: 2px;
+  background-color: #fafdfd;
+  min-height: 100vh;
 }
 
 nav {
   margin-left: 2%;
+  background-color: #fafdfd;
+}
+
+nav a {
+  padding: 0px 10px;
 }
 
 html, body {

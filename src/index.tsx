@@ -21,28 +21,28 @@ const router = createBrowserRouter([
     element: <ArticleHome />,
   },
   {
-    path: `/articles/trec/Run_01`,
-    element: <MdArticle subDir={'trec'} title={'Run_01'} />,
+    path: `/articles/trec/run_01`,
+    element: <MdArticle subDir={'trec'} title={'run_01'} />,
   },
   {
-    path: `/articles/trec/Run_02`,
-    element: <MdArticle subDir={'trec'} title={'Run_02'} />,
+    path: `/articles/trec/run_02`,
+    element: <MdArticle subDir={'trec'} title={'run_02'} />,
   },
   {
-    path: `/articles/glove/Run_01`,
-    element: <MdArticle subDir={'glove'} title={'Run_01'} />,
+    path: `/articles/glove/run_01`,
+    element: <MdArticle subDir={'glove'} title={'run_01'} />,
   },
   {
-    path: `/articles/glove/Run_02`,
-    element: <MdArticle subDir={'glove'} title={'Run_02'} />,
+    path: `/articles/glove/run_02`,
+    element: <MdArticle subDir={'glove'} title={'run_02'} />,
   },
   {
-    path: `/articles/glove/Run_03`,
-    element: <MdArticle subDir={'glove'} title={'Run_03'} />,
+    path: `/articles/glove/run_03`,
+    element: <MdArticle subDir={'glove'} title={'run_03'} />,
   },
   {
-    path: `/articles/glove/Run_04`,
-    element: <MdArticle subDir={'glove'} title={'Run_04'} />,
+    path: `/articles/glove/run_04`,
+    element: <MdArticle subDir={'glove'} title={'run_04'} />,
   },
   {
     path: "/projects",
@@ -55,6 +55,13 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
+    <nav>
+      <a href="/">Home</a>
+      {' '}
+      <a href="/projects">Projects</a>
+      {' '}
+      <a href="/articles">Articles</a>
+    </nav>
     <RouterProvider router={router} />
   </React.StrictMode>
 );

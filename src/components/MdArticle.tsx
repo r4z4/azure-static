@@ -8,11 +8,11 @@ interface MdArticleProps {
     subDir: string;
 }
 
-const imagePaths = ['../assets/folder_closed.svg', '../assets/folder_open.svg', '../assets/article_images/run_01.png']
-
 function MdArticle({ title, subDir }: MdArticleProps) {
     const mdPath = require(`../articles/${subDir}/${title}.md`)
     const [terms, setTerms] = React.useState('')
+
+    const imagePaths = [`../assets/article_images/${subDir}/${title}.png`]
 
     React.useEffect(() => {
         fetch(mdPath).then((response) => response.text()).then((text) => {
