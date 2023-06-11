@@ -44,6 +44,22 @@ const runTwoDocFour: PanelDocument = {
   previewComponent: <MdArticlePrev title={'Run_04'} desc={'Fouth Run for 20_Newsgroups dataset using GloVe Embeddings.'} concepts={['Data Augmentation', 'NLTK']} hangups={['Wordnet']} />
 }
 
+const TopicModelingDocOne: PanelDocument = {
+  id: 7,
+  filename: '01_Transformers',
+  url: '/articles/topic-modeling/01_transformers',
+  previewComponent: <MdArticlePrev title={'01_Transformers'} desc={'Topic Modeling on Trivia Dataset for Surface Trivia App. Using SentenceTransformers.'} concepts={['Transformers', 'Attention', 'BERT']} hangups={['Input Shape']} />
+}
+
+
+const TopicModelingDocTwo: PanelDocument = {
+  id: 8,
+  filename: '02_LDA',
+  url: '/articles/topic-modeling/02_lda',
+  previewComponent: <MdArticlePrev title={'02_LDA'} desc={'Topic Modeling on Trivia Dataset for Surface Trivia App. Using LDA and visualizing with PyLDAvis.'} concepts={['Data Visualization', 'LDA']} hangups={['LDA']} />
+}
+
+
 interface ArticleHomeProps {
   active?: boolean;
 }
@@ -66,11 +82,20 @@ function ArticleHome({ active = false }: ArticleHomeProps) {
     documents: [runTwoDocOne, runTwoDocTwo, runTwoDocThree, runTwoDocFour],
   }
 
+  const TopicModelingData: PanelData = {
+    name: 'Topic Modeling',
+    date: '05-11-2023',
+    desc: 'Topic Modeling Techniques: Transformers, LDA, SKMeans',
+    category: 'NLP',
+    documents: [TopicModelingDocOne, TopicModelingDocTwo],
+  }
+
   return (
     <div className="App">
         <div className={'article-grid-container'}>
           <CollapsePanel panelData={runOneData}></CollapsePanel>
           <CollapsePanel panelData={runTwoData}></CollapsePanel>
+          <CollapsePanel panelData={TopicModelingData}></CollapsePanel>
         </div>
     </div>
   );

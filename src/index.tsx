@@ -7,9 +7,11 @@ import ProjectHome from './components/ProjectHome';
 import MdArticle from './components/MdArticle';
 import {
   createBrowserRouter,
+  Navigate,
   RouterProvider,
 } from "react-router-dom";
 import reportWebVitals from './reportWebVitals';
+
 
 const router = createBrowserRouter([
   {
@@ -44,6 +46,21 @@ const router = createBrowserRouter([
     path: `/articles/glove/run_04`,
     element: <MdArticle subDir={'glove'} title={'run_04'} />,
   },
+  {
+    path: `/articles/topic-modeling/01_transformers`,
+    element: <MdArticle subDir={'topic-modeling'} title={'01_transformers'} />,
+  },
+  {
+    path: `/articles/topic-modeling/02_LDA`,
+    element: <MdArticle subDir={'topic-modeling'} title={'02_LDA'} />,
+  },
+  {
+    path: `/articles/topic-modeling/02_LDA/pyLDAvis`,
+    element: <Navigate to={"/public/ldavis_prepared_10.html"} />,
+  },
+
+   
+
   {
     path: "/projects",
     element: <ProjectHome />,
