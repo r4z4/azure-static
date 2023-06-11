@@ -29,13 +29,13 @@ function MdArticle({ title, desc, concepts, hangups }: MdArticlePrevProps) {
       <div className={'prev-list'}>
         <h6>Concepts</h6>
         <ul>
-          {concepts.map((concept)=><li>{concept}</li>)}
+          {concepts.map((concept: string, index: number)=><li key={index}>{concept}</li>)}
         </ul>
       </div>
       <div className={'prev-list'}>
         <h6>HangUps</h6>
         <ul>
-          {hangups.map((hangup)=><li>{hangup}</li>)}
+          {hangups.map((hangup: string, index: number)=><li key={index}>{hangup}</li>)}
         </ul>
       </div>
       </div>
