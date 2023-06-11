@@ -48,20 +48,22 @@ function SidePanelImageDisplay({ imagePaths, html }: SidePanelImageDisplayProps)
 
   return (
     <>
-      <aside className='side-panel-aside'>
+      <aside aria-label="sidePanel" className='side-panel-aside'>
         <div className='side-panel-container'>
+        <h3>Artifacts</h3>
           <ul className='side-panel-list'>
-            <h3>Artifacts</h3>
-            {imagePaths.map((path: string) => (
-              <div className='mapped-image'>
-              {/* Wrap LDA image in anchor tag */}
-              {getImage(path) === TM02 ? <a href="/articles/topic-modeling/02_LDA/pyLDAvis"><img className={'side-panel-image'} src={getImage(path)} alt={path} /></a> : 
-                <div className="tooltip">
-                  <span className="tooltipText">Click to Enlarge</span>
-                  <img onClick={() => setModalOpen(modalOpen === '' ? path : '')} className={'side-panel-image'} src={getImage(path)} alt={path} />
+            {imagePaths.map((path: string, index: number) => (
+              <li key={index}>
+                <div className='mapped-image'>
+                {/* Wrap LDA image in anchor tag */}
+                {getImage(path) === TM02 ? <a href="/articles/topic-modeling/02_LDA/pyLDAvis"><img className={'side-panel-image'} src={getImage(path)} alt={path} /></a> : 
+                  <div className="tooltip">
+                    <span aria-label="tooltipText" className="tooltipText">Click to Enlarge</span>
+                    <img onClick={() => setModalOpen(modalOpen === '' ? path : '')} className={'side-panel-image'} src={getImage(path)} alt={path} />
+                  </div>
+                }
                 </div>
-              }
-              </div>
+              </li>
             ))}
           </ul>
 
