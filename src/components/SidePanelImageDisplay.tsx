@@ -44,26 +44,48 @@ const getImage = (path: string) => {
 
 function SidePanelImageDisplay({ imagePaths, html }: SidePanelImageDisplayProps) {
 
-  return (
-    <aside className='side-panel-aside'>
-      <div className='side-panel-container'>
-        <ul className='side-panel-list'>
-          <h3>Artifacts</h3>
-          {imagePaths.map((path: string) => (
-            <div className='mapped-image'>
-            {/* Wrap LDA image in anchor tag */}
-            {getImage(path) === TM02 ? <a href="/articles/topic-modeling/02_LDA/pyLDAvis"><img className={'side-panel-image'} src={getImage(path)} alt={path} /></a> : 
-              <img className={'side-panel-image'} src={getImage(path)} alt={path} />
-            }
-            </div>
-          ))}
-        </ul>
+  const [modalOpen, setModalOpen] = React.useState('')
 
-        <div>
-          {parse(html)}
+  return (
+    <>
+      <aside className='side-panel-aside'>
+        <div className='side-panel-container'>
+          <ul className='side-panel-list'>
+            <h3>Artifacts</h3>
+            {imagePaths.map((path: string) => (
+              <div className='mapped-image'>
+              {/* Wrap LDA image in anchor tag */}
+              {getImage(path) === TM02 ? <a href="/articles/topic-modeling/02_LDA/pyLDAvis"><img className={'side-panel-image'} src={getImage(path)} alt={path} /></a> : 
+                <div className="tooltip">
+                  <span className="tooltipText">Click to Enlarge</span>
+                  <img onClick={() => setModalOpen(modalOpen === '' ? path : '')} className={'side-panel-image'} src={getImage(path)} alt={path} />
+                </div>
+              }
+              </div>
+            ))}
+          </ul>
+
+          <div>
+            {parse(html)}
+          </div>
         </div>
-      </div>
-    </aside>
+      </aside>
+
+      {modalOpen && modalOpen !== '' && (
+        <dialog
+          className="dialog"
+          style={{ position: 'absolute' }}
+          open
+          onClick={() => setModalOpen('')}
+        >
+          <img
+            className="image"
+            src={getImage(modalOpen)}
+            alt="enlargedImg"
+          />
+        </dialog>
+      )}
+    </>
   );
 }
 

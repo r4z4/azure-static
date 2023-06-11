@@ -1,3 +1,12 @@
+#### GloVe Run 03
+
+---
+
+We are continuing to augment our data here. Now we will move on to the next simple augmentation techinque: Synonym Insertion. We simply find a synonym for a random word in the text, and add it in.
+
+---
+
+
 ```python
 import numpy as np
 import regex as re
@@ -158,7 +167,6 @@ word_embeddings[1][:10]
 
 
 
-
     array([ 0.15272   ,  0.36181   , -0.22168   ,  0.066051  ,  0.13029   ,
             0.37075001, -0.75874001, -0.44722   ,  0.22563   ,  0.10208   ])
 
@@ -203,14 +211,11 @@ model.weights[0][1][:10], word_embeddings[1][:10]
 ```
 
 
-
-
     (<tf.Tensor: shape=(10,), dtype=float32, numpy=
      array([ 0.15272 ,  0.36181 , -0.22168 ,  0.066051,  0.13029 ,  0.37075 ,
             -0.75874 , -0.44722 ,  0.22563 ,  0.10208 ], dtype=float32)>,
      array([ 0.15272   ,  0.36181   , -0.22168   ,  0.066051  ,  0.13029   ,
              0.37075001, -0.75874001, -0.44722   ,  0.22563   ,  0.10208   ]))
-
 
 
 
@@ -237,8 +242,6 @@ model.fit(X_train_vect, y_train, batch_size=32, epochs=8, validation_data=(X_tes
 
 
     <keras.callbacks.History at 0x7f5a9e0cad00>
-
-
 
 
 ```python
@@ -291,7 +294,6 @@ model.save(model_file)
 
 
 ```python
-!pip install scikit-plot
 from sklearn.metrics import confusion_matrix
 import scikitplot as skplt
 import matplotlib.pyplot as plt
