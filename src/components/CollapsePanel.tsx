@@ -35,8 +35,10 @@ function CollapsePanel({ panelData }: CollapsePanelProps) {
   return (
     <div className="collapse-panel">
       <span className="show-more" onClick={() => setExpanded(!expanded)}>
-        {expanded ? <img width={'35px'} src={FolderOpenIcon} alt='folderClosedIcon'/> : <img width={'35px'} src={FolderClosedIcon} alt='folderOpenIcon'/>}
-        <b className='panel-dir-name'>{panelData.name}</b>
+        <div className="collapse-img">
+          {expanded ? <img width={'35px'} src={FolderOpenIcon} alt='folderClosedIcon'/> : <img width={'35px'} src={FolderClosedIcon} alt='folderOpenIcon'/>}
+        </div>
+        <p className='panel-dir-name'>{panelData.name}</p>
       </span>
         <p>Last Updated: {panelData.date}</p>
       {expanded ? (
