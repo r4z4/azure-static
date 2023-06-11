@@ -5,12 +5,18 @@
 }
 
 nav {
-  margin-left: 2%;
-  background-color: #fafdfd;
+  text-align: center;
+  background-color: #f1e4f9;
+  border-radius: 10px;
+  border: 1px solid black;
+  width: 80%;
+  margin: auto;
 }
 
 nav a {
   padding: 0px 10px;
+  text-decoration: none;
+  padding: 3px;
 }
 
 html, body {
@@ -35,18 +41,25 @@ html, body {
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #f1e4f9;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: rgb(39, 10, 34);
+  border-radius: 10px;
+  border: 1px solid black;
 }
 
 .route-link {
-  color: #61dafb;
+  color: #260a2649;
+  text-decoration: none;
+}
+
+.route-link:visited {
+  color: rgb(58, 49, 107);
 }
 
 .links-container {
@@ -68,11 +81,15 @@ html, body {
   }
 }
 
+.subText {
+  font-size: 50%;
+}
+
 /******************
 *****ARTICLES*****
 ******************/
 .article-container {
-  background-color: rgb(237, 233, 233);
+  background-color: #f1e4f9;
   width: 300px;
   border: 15px solid rgb(108, 132, 160);
   padding: 50px;
@@ -94,7 +111,7 @@ html, body {
 }
 
 .article-grid-item {
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: #f1e4f9;
   border: 1px solid rgba(0, 0, 0, 0.8);
   padding: 20px;
   font-size: 30px;
@@ -104,7 +121,7 @@ html, body {
 *****PROJECTS*****
 ******************/
 .project-container {
-  background-color: lightgrey;
+  background-color: #f1e4f9;
   width: 300px;
   border: 15px solid rgb(108, 132, 160);
   padding: 50px;
@@ -206,12 +223,21 @@ aside {
   cursor: pointer;
   width: auto;
   text-align: left;
-  height: 20px;
   display: inline-block;
 }
 
+.show-more img {
+  margin-top: 10px;
+}
+
 .panel-dir-name {
-  vertical-align: middle;
+  display: inline;
+  font-weight: bold;
+  margin-left: 4px;
+}
+
+.collapse-img {
+  display: inline;
 }
 
 .prev-toggle:hover + .hide {
