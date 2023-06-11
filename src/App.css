@@ -182,12 +182,12 @@ aside {
 }
 
 .grid-container {
-  display: grid;
-  grid-template-columns: 80% 20%;
+  display: flex;
 }
 
 .flex-container {
   display: flex;
+  width: 20%;
 }
 
 .mapped-image {
@@ -236,4 +236,14 @@ aside {
 
 .file-grid img {
   padding: 0px;
+}
+
+.openbtn {
+  font-size: 20px;
+  cursor: pointer;
+  background-color: #111;
+  color: white;
+  padding: 3px 3px;
+  border: none;
+  position: fixed;
 }
