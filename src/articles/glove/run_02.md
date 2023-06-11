@@ -1,3 +1,12 @@
+#### GloVe Run 02
+
+---
+
+Now we will start to augment our data in order to get a better understand of what kinds of parameters matter and how they all interact. The benefit of keeping things relatively simple will allow us to see a lot more of the details that may be hidden away in some of the more complex examples that you may come across.
+
+---
+
+
 ```python
 import numpy as np
 import regex as re
