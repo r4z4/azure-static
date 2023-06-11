@@ -56,7 +56,7 @@ const router = createBrowserRouter([
   },
   {
     path: `/articles/topic-modeling/02_LDA/pyLDAvis`,
-    element: <Navigate to={"/public/ldavis_prepared_10.html"} />,
+    element: <Navigate to={"/ldavis_prepared_10.html"} />,
   },
 
    
