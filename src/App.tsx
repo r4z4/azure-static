@@ -8,9 +8,9 @@ function App() {
       <header className="App-header">
         <img src={gear} className="App-logo" alt="logo" />
         <p>
-          Explore Articles for various NLP trial runs.
+          Various NLP trial runs.
         </p>
-        <p className="subText">Projects will contain links to current project, but for now you can just select 'Just For Now' to visit the current Project page (hosted on GitHub)</p>
+        <p className="subText">For now you can just select 'Just For Now' to visit the current page (hosted on GitHub)</p>
         <a
           className="route-link"
           href="https://r4z4.github.io"
