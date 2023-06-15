@@ -1,10 +1,11 @@
 import React from 'react'
 import ReactMarkdown from 'react-markdown'
+import remarkGfm from 'remark-gfm'
 import { PrismLight as SyntaxHighlighter } from 'react-syntax-highlighter';
 import jsx from 'react-syntax-highlighter/dist/esm/languages/prism/jsx';
 import js from 'react-syntax-highlighter/dist/esm/languages/prism/javascript';
 import python from 'react-syntax-highlighter/dist/esm/languages/prism/python';
-import { dark } from "react-syntax-highlighter/dist/esm/styles/prism";
+import { hopscotch } from "react-syntax-highlighter/dist/esm/styles/prism";
 import SidePanelImageDisplay from './SidePanelImageDisplay'
 import style from './markdown-styles.module.css';
 import dfHtml from '../utils/Dataframes'
@@ -65,6 +66,7 @@ function MdArticle({ title, subDir }: MdArticleProps) {
           <ReactMarkdown 
             className={style.reactMarkDown} 
             children={terms}
+            remarkPlugins={[[remarkGfm, {tableCellPadding: true, tablePipeAlign: true}]]}
             components={{
               code({node, inline, className, children, ...props}) {
                 const match = /language-(\w+)/.exec(className || '')
@@ -72,7 +74,7 @@ function MdArticle({ title, subDir }: MdArticleProps) {
                   <SyntaxHighlighter
                     {...props}
                     children={String(children).replace(/\n$/, '')}
-                    style={dark}
+                    style={hopscotch}
                     language={match[1]}
                     PreTag="div"
                   />
