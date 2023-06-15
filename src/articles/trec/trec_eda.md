@@ -48,10 +48,6 @@ df5 = pd.read_csv('data/clean/processed/train_5500.txt', sep='@@')
 df_test = pd.read_csv('data/clean/processed/test_100.txt', sep='@@')
 ```
 
-    /root/.local/lib/python3.8/site-packages/pandas/util/_decorators.py:311: ParserWarning: Falling back to the 'python' engine because the 'c' engine does not support regex separators (separators > 1 char and different from '\s+' are interpreted as regex); you can avoid this warning by specifying engine='python'.
-      return func(*args, **kwargs)
-
-
 
 ```python
 frames = [df1, df2, df3, df4, df5]
@@ -60,12 +56,7 @@ df = pd.concat(frames)
 df.shape
 ```
 
-
-
-
     (15452, 4)
-
-
 
 
 ```python
@@ -215,8 +206,6 @@ df['question_cleaned'] = [utils.clean_text(s) for s in df['question']]
 ```python
 df.head(20)
 ```
-
-
 
 
 <div>
@@ -397,8 +386,6 @@ df.head(20)
 df_grouped=df[['entity','question_cleaned']].groupby(by='entity').agg(lambda x:' '.join(x))
 df_grouped.head()
 ```
-
-
 
 
 <div>

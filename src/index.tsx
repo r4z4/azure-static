@@ -23,6 +23,10 @@ const router = createBrowserRouter([
     element: <ArticleHome />,
   },
   {
+    path: `/articles/trec/trec_eda`,
+    element: <MdArticle subDir={'trec'} title={'trec_eda'} />,
+  },
+  {
     path: `/articles/trec/run_01`,
     element: <MdArticle subDir={'trec'} title={'run_01'} />,
   },
@@ -57,6 +61,10 @@ const router = createBrowserRouter([
   {
     path: `/articles/topic-modeling/02_LDA/pyLDAvis`,
     element: <Navigate to={"/ldavis_prepared_10.html"} />,
+  },
+  {
+    path: `/articles/trivia/lda_trivia`,
+    element: <MdArticle subDir={'trivia'} title={'lda_trivia'} />,
   },
 
    
