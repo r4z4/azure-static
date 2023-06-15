@@ -1,8 +1,17 @@
 import React from 'react'
 import ReactMarkdown from 'react-markdown'
+import { PrismLight as SyntaxHighlighter } from 'react-syntax-highlighter';
+import jsx from 'react-syntax-highlighter/dist/esm/languages/prism/jsx';
+import js from 'react-syntax-highlighter/dist/esm/languages/prism/javascript';
+import python from 'react-syntax-highlighter/dist/esm/languages/prism/python';
+import { dark } from "react-syntax-highlighter/dist/esm/styles/prism";
 import SidePanelImageDisplay from './SidePanelImageDisplay'
 import style from './markdown-styles.module.css';
 import dfHtml from '../utils/Dataframes'
+
+SyntaxHighlighter.registerLanguage('jsx', jsx);
+SyntaxHighlighter.registerLanguage('javascript', js);
+SyntaxHighlighter.registerLanguage('python', python);
 
 interface MdArticleProps {
     title: string;
@@ -53,7 +62,27 @@ function MdArticle({ title, subDir }: MdArticleProps) {
       <div className='grid-container'>
         <div>
           <button className="togglebtn" onClick={() => setExpanded(!expanded)}>☰</button>
-          <ReactMarkdown className={style.reactMarkDown} children={terms} />
+          <ReactMarkdown 
+            className={style.reactMarkDown} 
+            children={terms}
+            components={{
+              code({node, inline, className, children, ...props}) {
+                const match = /language-(\w+)/.exec(className || '')
+                return !inline && match ? (
+                  <SyntaxHighlighter
+                    {...props}
+                    children={String(children).replace(/\n$/, '')}
+                    style={dark}
+                    language={match[1]}
+                    PreTag="div"
+                  />
+                ) : (
+                  <code {...props} className={className}>
+                    {children}
+                  </code>
+                )
+              }
+            }}/>
         </div>
         {expanded ? (
           <div className='flex-container'>
