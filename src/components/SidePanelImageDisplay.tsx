@@ -96,10 +96,10 @@ function SidePanelImageDisplay({ imagesPath, html }: SidePanelImageDisplayProps)
               <li key={index}>
                 <div className='mapped-image'>
                 {/* Wrap LDA image in anchor tag */}
-                {getImage[filename] === TM02 ? <a href="/articles/topic-modeling/02_LDA/pyLDAvis"><img className={'side-panel-image'} src={getImage[filename]} alt={filename} /></a> : 
+                {getImage[filename] === TM02 ? <a href="/articles/topic-modeling/02_LDA/pyLDAvis"><img aria-label={filename} className={'side-panel-image'} src={getImage[filename]} alt={filename} /></a> : 
                   <div className="tooltip">
                     <span aria-label="tooltipText" className="tooltipText">Click to Enlarge</span>
-                    <img onClick={() => setModalOpen(modalOpen === '' ? filename : '')} className={'side-panel-image'} src={getImage[filename]} alt={filename} />
+                    <img onClick={() => setModalOpen(modalOpen === '' ? filename : '')} aria-label='side-panel-image' className={'side-panel-image'} src={getImage[filename]} alt={filename} />
                   </div>
                 }
                 </div>
