@@ -24,13 +24,13 @@ test('renders Markdown Article', () => {
 });
 
 {/* name property refers to 'accessable name of element' - the aria-label (and some others too) */}
-const testImgPaths = ['assets/article_images/trec/run_02.png']
+const testImgsPath = 'assets/article_images/trec/run_01/'
 
 test('renders SidePanel img', () => {
-  render(<SidePanelImageDisplay html={''} imagePaths={testImgPaths} />);
+  render(<SidePanelImageDisplay html={''} imagesPath={testImgsPath} />);
   const heading = screen.getByRole('heading', {name: /Artifacts/i})
   const comp = screen.getByRole('complementary', {name: /sidePanel/i})
-  const img = screen.getByRole('img', {name: "assets/article_images/trec/run_02.png"})
+  const img = screen.getByRole('img', {name: 'side-panel-image'})
   userEvent.hover(img)
   expect(screen.getByText(/Click to Enlarge/i)).toBeInTheDocument()
   expect(heading).toBeInTheDocument();

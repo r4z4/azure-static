@@ -2,6 +2,13 @@ import '../App.css';
 import MdArticlePrev from './MdArticlePrev';
 import CollapsePanel, {PanelData, PanelDocument} from './CollapsePanel'
 
+const runOneDocEda: PanelDocument = {
+  id: 0,
+  filename: 'TREC_EDA',
+  url: '/articles/trec/trec_eda',
+  previewComponent: <MdArticlePrev title={'TREC_EDA'} desc={'Exploratory Data Analysis for the TREC Dataset.'} concepts={['EDA', 'WordCloud']} hangups={['Document Term Matrix & Grouping']} />
+}
+
 const runOneDocOne: PanelDocument = {
   id: 1,
   filename: 'Run 01',
@@ -59,6 +66,13 @@ const TopicModelingDocTwo: PanelDocument = {
   previewComponent: <MdArticlePrev title={'02_LDA'} desc={'Topic Modeling on Trivia Dataset for Surface Trivia App. Using LDA and visualizing with PyLDAvis.'} concepts={['Data Visualization', 'LDA']} hangups={['LDA']} />
 }
 
+const TriviaDocOne: PanelDocument = {
+  id: 9,
+  filename: 'LDA_Trivia',
+  url: '/articles/trivia/lda_trivia',
+  previewComponent: <MdArticlePrev title={'LDA_Trivia'} desc={'Calssification Using Linear Disciminant Analysis - Compare to PCA'} concepts={['LDA', 'PCA']} hangups={['Matplotlib']} />
+}
+
 
 interface ArticleHomeProps {
   active?: boolean;
@@ -71,7 +85,7 @@ function ArticleHome({ active = false }: ArticleHomeProps) {
     date: '05-22-2023',
     desc: 'Initial Run for the Text REtrieval Conference (TREC) Question Classification dataset.',
     category: 'NLP',
-    documents: [runOneDocOne, runOneDocTwo],
+    documents: [runOneDocEda, runOneDocOne, runOneDocTwo],
   }
 
   const runTwoData: PanelData = {
@@ -90,12 +104,21 @@ function ArticleHome({ active = false }: ArticleHomeProps) {
     documents: [TopicModelingDocOne, TopicModelingDocTwo],
   }
 
+  const TriviaData: PanelData = {
+    name: 'Trivia Dataset',
+    date: '04-17-2023',
+    desc: 'Trivia Question Dataset: Classification, Linear Discriminant Analysis',
+    category: 'NLP',
+    documents: [TriviaDocOne],
+  }
+
   return (
     <div className="App">
         <div className={'article-grid-container'}>
           <CollapsePanel panelData={runOneData}></CollapsePanel>
           <CollapsePanel panelData={runTwoData}></CollapsePanel>
           <CollapsePanel panelData={TopicModelingData}></CollapsePanel>
+          <CollapsePanel panelData={TriviaData}></CollapsePanel>
         </div>
     </div>
   );

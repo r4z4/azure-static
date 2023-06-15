@@ -28,7 +28,7 @@ function MdArticle({ title, subDir }: MdArticleProps) {
 
     const [expanded, setExpanded] = React.useState(false);
 
-    const imagePaths = [`../assets/article_images/${subDir}/${title}.png`]
+    const imagesPath = `../assets/article_images/${subDir}/${title}/`
 
     React.useEffect(() => {
         if (subDir === 'glove') { 
@@ -59,7 +59,7 @@ function MdArticle({ title, subDir }: MdArticleProps) {
         </div>
         {expanded ? (
           <div className='flex-container'>
-            <SidePanelImageDisplay html={html} imagePaths={imagePaths} />
+            <SidePanelImageDisplay html={html} imagesPath={imagesPath} />
           </div>  
           ) : null
         }
