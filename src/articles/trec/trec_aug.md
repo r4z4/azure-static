@@ -720,23 +720,23 @@ One very important point to bring up is the attention paid to the issue of how m
 ###### Table 3: Recommended usage parameters.
 ---
 
-| Ntrain | α     | naug |
-| :---   | :---  | :--- |
-| 500    | 0.05  | 16   |
-| 2,000  | 0.05  | 8    |
-| 5,000  | 0.1   | 4    |
-| More   | 0.1   | 4    |
+| Ntrain | &nbsp; α       | &nbsp; naug |
+| :---   |  :----:        | ---:        |
+| 500    | &nbsp; 0.05    | &nbsp; 16   |
+| 2,000  | &nbsp; 0.05    | &nbsp; 8    |
+| 5,000  | &nbsp; 0.1     | &nbsp; 4    |
+| More   | &nbsp; 0.1     | &nbsp; 4    |
 
 ---
 ##### Table 1: Sentences generated using EDA. SR: synonym replacement. RI: random insertion. RS: random swap. RD: random deletion.
 ---
 
-| Operation | Sentence                                                                      |
+| Operation | &nbsp; Sentence                                                                      |
 | :---      | :---                                                                          |
-| None      | A sad, superior human comedy played out on the back roads of life.            |
-| SR        | A lamentable, superior human comedy played out on the backward road of life.  |
-| RI        | A sad, superior human comedy played out on funniness the back roads of life.  |
-| RS        | A sad, superior human comedy played out on roads back the of life.            |
-| RD        | A sad, superior human out on the roads of life.                               |
+| None      | &nbsp; A sad, superior human comedy played out on the back roads of life.            |
+| SR        | &nbsp; A lamentable, superior human comedy played out on the backward road of life.  |
+| RI        | &nbsp; A sad, superior human comedy played out on funniness the back roads of life.  |
+| RS        | &nbsp; A sad, superior human comedy played out on roads back the of life.            |
+| RD        | &nbsp; A sad, superior human out on the roads of life.                               |
 
 ---
