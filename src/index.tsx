@@ -27,6 +27,10 @@ const router = createBrowserRouter([
     element: <MdArticle subDir={'trec'} title={'trec_eda'} />,
   },
   {
+    path: `/articles/trec/trec_aug`,
+    element: <MdArticle subDir={'trec'} title={'trec_aug'} />,
+  },
+  {
     path: `/articles/trec/run_01`,
     element: <MdArticle subDir={'trec'} title={'run_01'} />,
   },
@@ -65,6 +69,10 @@ const router = createBrowserRouter([
   {
     path: `/articles/trivia/lda_trivia`,
     element: <MdArticle subDir={'trivia'} title={'lda_trivia'} />,
+  },
+  {
+    path: `/articles/embeddings/generate`,
+    element: <MdArticle subDir={'embeddings'} title={'generate'} />,
   },
 
    

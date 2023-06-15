@@ -2,11 +2,18 @@ import '../App.css';
 import MdArticlePrev from './MdArticlePrev';
 import CollapsePanel, {PanelData, PanelDocument} from './CollapsePanel'
 
-const runOneDocEda: PanelDocument = {
+const trecEda: PanelDocument = {
   id: 0,
   filename: 'TREC_EDA',
   url: '/articles/trec/trec_eda',
   previewComponent: <MdArticlePrev title={'TREC_EDA'} desc={'Exploratory Data Analysis for the TREC Dataset.'} concepts={['EDA', 'WordCloud']} hangups={['Document Term Matrix & Grouping']} />
+}
+
+const trecAug: PanelDocument = {
+  id: 0,
+  filename: 'TREC_AUG',
+  url: '/articles/trec/trec_aug',
+  previewComponent: <MdArticlePrev title={'TREC_AUG'} desc={'Easy Data Augmentation Techniques'} concepts={['Augmentation']} hangups={['']} />
 }
 
 const runOneDocOne: PanelDocument = {
@@ -58,7 +65,6 @@ const TopicModelingDocOne: PanelDocument = {
   previewComponent: <MdArticlePrev title={'01_Transformers'} desc={'Topic Modeling on Trivia Dataset for Surface Trivia App. Using SentenceTransformers.'} concepts={['Transformers', 'Attention', 'BERT']} hangups={['Input Shape']} />
 }
 
-
 const TopicModelingDocTwo: PanelDocument = {
   id: 8,
   filename: '02_LDA',
@@ -73,6 +79,12 @@ const TriviaDocOne: PanelDocument = {
   previewComponent: <MdArticlePrev title={'LDA_Trivia'} desc={'Calssification Using Linear Disciminant Analysis - Compare to PCA'} concepts={['LDA', 'PCA']} hangups={['Matplotlib']} />
 }
 
+const GenerateEmbeddings: PanelDocument = {
+  id: 10,
+  filename: 'Generate',
+  url: '/articles/embeddings/generate',
+  previewComponent: <MdArticlePrev title={'Generate'} desc={'Use a NN to Genreate Custom Word Embeddings'} concepts={['Embeddings']} hangups={['Vocab Size']} />
+}
 
 interface ArticleHomeProps {
   active?: boolean;
@@ -85,7 +97,7 @@ function ArticleHome({ active = false }: ArticleHomeProps) {
     date: '05-22-2023',
     desc: 'Initial Run for the Text REtrieval Conference (TREC) Question Classification dataset.',
     category: 'NLP',
-    documents: [runOneDocEda, runOneDocOne, runOneDocTwo],
+    documents: [trecEda, trecAug, runOneDocOne, runOneDocTwo],
   }
 
   const runTwoData: PanelData = {
@@ -112,6 +124,14 @@ function ArticleHome({ active = false }: ArticleHomeProps) {
     documents: [TriviaDocOne],
   }
 
+  const WordEmbeddings: PanelData = {
+    name: 'Word Embeddings',
+    date: '04-10-2023',
+    desc: 'All Things Embeddings.',
+    category: 'NLP',
+    documents: [GenerateEmbeddings],
+  }
+
   return (
     <div className="App">
         <div className={'article-grid-container'}>
@@ -119,6 +139,7 @@ function ArticleHome({ active = false }: ArticleHomeProps) {
           <CollapsePanel panelData={runTwoData}></CollapsePanel>
           <CollapsePanel panelData={TopicModelingData}></CollapsePanel>
           <CollapsePanel panelData={TriviaData}></CollapsePanel>
+          <CollapsePanel panelData={WordEmbeddings}></CollapsePanel>
         </div>
     </div>
   );
