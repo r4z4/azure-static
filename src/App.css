@@ -4,6 +4,14 @@
   min-height: 100vh;
 }
 
+a:visited {
+  color: rgb(58, 49, 107);
+}
+
+a {
+  color: rgb(40, 100, 178);
+}
+
 nav {
   text-align: center;
   background-color: #f1e4f9;
@@ -196,6 +204,7 @@ aside {
 
 .side-panel-list {
   padding: 2px;
+  list-style-type: none;
 }
 
 .grid-container {
