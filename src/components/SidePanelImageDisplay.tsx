@@ -37,8 +37,8 @@ const getImage: StringMap = {
   'trec_eda_4.png': TREC_EDA_4,
   'trec_eda_5.png': TREC_EDA_5,
   'trec_eda_6.png': TREC_EDA_6,
-  'lda_trivia_0.png': LDA_TRIVIA_0,
-  'lda_trivia_1.png': LDA_TRIVIA_1
+  'trivia/lda_trivia_0.png': LDA_TRIVIA_0,
+  'trivia/lda_trivia_1.png': LDA_TRIVIA_1
 };
 
 export interface SidePanelImageDisplayProps {
@@ -53,7 +53,7 @@ function SidePanelImageDisplay({ imagesPath, html }: SidePanelImageDisplayProps)
 
   function getFilenames(imagesPath: string) {
     switch(imagesPath) {
-      case '../assets/article_images/trec/eda/':
+      case '../assets/article_images/trec/trec_eda/':
         return ['trec_eda_0.png','trec_eda_1.png','trec_eda_2.png','trec_eda_3.png','trec_eda_4.png','trec_eda_5.png', 'trec_eda_6.png'];
 
       case '../assets/article_images/trec/run_01/':
@@ -91,6 +91,10 @@ function SidePanelImageDisplay({ imagesPath, html }: SidePanelImageDisplayProps)
       <aside aria-label="sidePanel" className='side-panel-aside'>
         <div className='side-panel-container'>
         <h3>Artifacts</h3>
+          <div>
+            {parse(html)}
+          </div>
+          
           <ul className='side-panel-list'>
             {imageFilenames.map((filename: string, index: number) => (
               <li key={index}>
@@ -106,10 +110,6 @@ function SidePanelImageDisplay({ imagesPath, html }: SidePanelImageDisplayProps)
               </li>
             ))}
           </ul>
-
-          <div>
-            {parse(html)}
-          </div>
         </div>
       </aside>
 
