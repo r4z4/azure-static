@@ -30,7 +30,7 @@ test('renders SidePanel img', () => {
   render(<SidePanelImageDisplay html={''} imagesPath={testImgsPath} />);
   const heading = screen.getByRole('heading', {name: /Artifacts/i})
   const comp = screen.getByRole('complementary', {name: /sidePanel/i})
-  const img = screen.getByRole('img', {name: "assets/article_images/trec/run_02.png"})
+  const img = screen.getByRole('img', {name: "assets/article_images/trec/run_01.png"})
   userEvent.hover(img)
   expect(screen.getByText(/Click to Enlarge/i)).toBeInTheDocument()
   expect(heading).toBeInTheDocument();
