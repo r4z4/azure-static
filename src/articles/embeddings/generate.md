@@ -15,7 +15,10 @@ from keras.layers import Dense
 from scipy import sparse
 from utils import text_preprocessing, create_unique_word_dict
 ```
+---
+I also wanted to see about creating our own embeddings and seeing if that experience might help out a little in my attempt to understand these things. Instead of using a fully formed text - which I tried and it ended up being too crowded - I will just start with a random set of text that I found. I belive this was just a post to an srticle about a Champion's League game.
 
+---
 
 ```python
 filename = 'random_text.txt'
@@ -174,3 +177,7 @@ with open(f'{os.getcwd()}/output/embedding.txt', 'w') as f:
             print(f'Cannot write word {key} to dict: {e}')       
 ```
 
+---
+One of the really interesting and useful tools that I came across, and that I use quite regularly - often times for sanity checks, is the [Tensorflow Embedding Projector](https://projector.tensorflow.org/). It just provides a really quick and easy way to do some of the visualization that we have seen already, except you don't have to step through the notebook each time. For example, here is a quick image of a search for the word "Hazard".
+
+---

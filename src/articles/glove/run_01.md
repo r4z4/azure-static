@@ -2,7 +2,7 @@
 
 ---
 
-Here I am using the GloVe (Global Vectors for Word Representation) embeddings from Stanford in 2014.
+Here I am using the [GloVe](https://nlp.stanford.edu/projects/glove/) (Global Vectors for Word Representation) embeddings from Stanford in 2014.
 "GloVe is an unsupervised learning algorithm for obtaining vector representations for words."
 
 ---

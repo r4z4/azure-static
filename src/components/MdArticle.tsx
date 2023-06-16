@@ -5,7 +5,7 @@ import { PrismLight as SyntaxHighlighter } from 'react-syntax-highlighter';
 import jsx from 'react-syntax-highlighter/dist/esm/languages/prism/jsx';
 import js from 'react-syntax-highlighter/dist/esm/languages/prism/javascript';
 import python from 'react-syntax-highlighter/dist/esm/languages/prism/python';
-import { hopscotch } from "react-syntax-highlighter/dist/esm/styles/prism";
+import { dark } from "react-syntax-highlighter/dist/esm/styles/prism";
 import SidePanelImageDisplay from './SidePanelImageDisplay'
 import style from './markdown-styles.module.css';
 import dfHtml from '../utils/Dataframes'
@@ -62,7 +62,7 @@ function MdArticle({ title, subDir }: MdArticleProps) {
     return (
       <div className='grid-container'>
         <div>
-          <button className="togglebtn" onClick={() => setExpanded(!expanded)}>☰</button>
+          <button className="toggle-button" onClick={() => setExpanded(!expanded)}>{expanded ? '>' : '<' }</button>
           <ReactMarkdown 
             className={style.reactMarkDown} 
             children={terms}
@@ -74,7 +74,8 @@ function MdArticle({ title, subDir }: MdArticleProps) {
                   <SyntaxHighlighter
                     {...props}
                     children={String(children).replace(/\n$/, '')}
-                    style={hopscotch}
+                    style={dark}
+                    wrapLines={true}
                     language={match[1]}
                     PreTag="div"
                   />
