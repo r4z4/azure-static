@@ -1,12 +1,12 @@
 import React from 'react';
-import gear from './gear.svg';
+import ml_2 from './ml_2.png';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={gear} className="App-logo" alt="logo" />
+        <img src={ml_2} className="App-logo" alt="logo" />
         <p>
           Various NLP trial runs.
         </p>
