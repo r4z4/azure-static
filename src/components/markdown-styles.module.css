@@ -16,3 +16,7 @@
   display: list-item;
   text-align: -webkit-match-parent;
 }
+
+.rsh {
+  font-size: 50%;
+}

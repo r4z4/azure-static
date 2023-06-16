@@ -15,6 +15,7 @@ import TREC_EDA_5 from '../assets/article_images/trec/eda/trec_eda_5.png'
 import TREC_EDA_6 from '../assets/article_images/trec/eda/trec_eda_6.png'
 import LDA_TRIVIA_0 from '../assets/article_images/trivia/lda_trivia_0.png'
 import LDA_TRIVIA_1 from '../assets/article_images/trivia/lda_trivia_1.png'
+import TF_GIF from '../assets/article_images/embeddings/tf_gif.gif'
 import parse from 'html-react-parser';
 
 type StringMap = { 
@@ -38,7 +39,8 @@ const getImage: StringMap = {
   'trec_eda_5.png': TREC_EDA_5,
   'trec_eda_6.png': TREC_EDA_6,
   'trivia/lda_trivia_0.png': LDA_TRIVIA_0,
-  'trivia/lda_trivia_1.png': LDA_TRIVIA_1
+  'trivia/lda_trivia_1.png': LDA_TRIVIA_1,
+  '/tf_gif.gif': TF_GIF
 };
 
 export interface SidePanelImageDisplayProps {
@@ -78,6 +80,9 @@ function SidePanelImageDisplay({ imagesPath, html }: SidePanelImageDisplayProps)
       case '../assets/article_images/topic-modeling/02_LDA/':
         return ['topic-modeling/02_LDA.png'];
 
+      case '../assets/article_images/embeddings/generate/':
+        return ['/tf_gif.gif'];
+
       default:
         return [''];
     }
@@ -116,12 +121,12 @@ function SidePanelImageDisplay({ imagesPath, html }: SidePanelImageDisplayProps)
       {modalOpen && modalOpen !== '' && (
         <dialog
           className="dialog"
-          style={{ position: 'absolute' }}
+          style={{ position: 'fixed', top: '50%', left: '50%', transform: 'translate(-50%, -50%)' }}
           open
           onClick={() => setModalOpen('')}
         >
           <img
-            className="image"
+            className="modal-image"
             src={getImage[modalOpen]}
             alt="enlargedImg"
           />
