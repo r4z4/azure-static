@@ -36,7 +36,7 @@
     ]
   },
   "jest": {
-    "setupFiles": ["./tests/setup.js"],
+    "setupFiles": ["./tests/setup.js"]
   },
   "browserslist": {
     "production": [
