@@ -35,6 +35,10 @@
       "react-app/jest"
     ]
   },
+  "jest": {
+    "verbose": true,
+    "testEnvironment": "jsdom"
+  },
   "browserslist": {
     "production": [
       ">0.2%",
