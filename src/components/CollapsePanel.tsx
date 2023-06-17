@@ -43,18 +43,21 @@ function CollapsePanel({ panelData }: CollapsePanelProps) {
         <p className='panel-dir-name'>{panelData.name}</p>
       </span>
         <p>Last Updated: {panelData.date}</p>
+        <p>{panelData.desc}</p>
       {expanded ? (
         <div className="expandable">
-            <p>{panelData.desc}</p>
-            <ul className='panel-doc-list'>
-            {panelData.documents.map((doc: PanelDocument) => (
-              <>
-              <div className='file-grid'>
-                <li className="prev-toggle" key={doc.id}><a href={doc.url}><img width={'25px'} src={NotebookSimple} alt='notebookSimpleIcon'/>{doc.filename}</a></li>
-              </div>
-              </>
-            ))}
+          {panelData.documents.map((doc: PanelDocument) => (
+            <div className="dir-grid">
+              <ul className='prev-toggle panel-doc-list'>
+                <div className='file-grid'>
+                  <li key={doc.id}><a href={doc.url}><img width={'25px'} src={NotebookSimple} alt='notebookSimpleIcon'/>{doc.filename}</a></li>
+                </div>
+              </ul>
+              <ul className='panel-doc-prev hide'>
+                <li><div key={doc.previewComponent?.key}>{doc.previewComponent}</div></li>
             </ul>
+          </div>
+          ))}
         </div>
         ) : null
       } 

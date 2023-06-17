@@ -20,7 +20,7 @@ function MdArticle({ title, desc, concepts, hangups }: MdArticlePrevProps) {
     // }, [])
 
   return (
-    <div className={'article-container'}>
+    <div className={'prev-container'}>
       <h4 className={'article-title'}>{title}</h4>
       <div className={'article-body'}>
         <span className={'byline'}>

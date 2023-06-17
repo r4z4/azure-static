@@ -1,5 +1,6 @@
 import React from 'react';
 import ml_2 from './ml_2.png';
+import pb from './assets/p_b.png'
 import './App.css';
 
 function App() {
@@ -7,9 +8,12 @@ function App() {
     <div className="App">
       <header className="App-header">
         <img src={ml_2} className="App-logo" alt="logo" />
-        <p>
-          Various Curated NLP trial runs.
-        </p>
+        <div style={{backgroundImage: `url(${pb})`,backgroundSize:"contain"}}>
+          <p style={{marginTop: '12px'}}>
+            Various Curated NLP trial runs.
+          </p>
+          <p>&nbsp;</p>
+        </div>
         <p className="subText">For now you can just select 'Just For Now' to visit the current page (hosted on GitHub)</p>
         <a
           className="route-link"
