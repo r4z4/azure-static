@@ -18,7 +18,10 @@ import LDA_TRIVIA_1 from '../assets/article_images/trivia/lda_trivia_1.png'
 import TF_GIF from '../assets/article_images/embeddings/tf_gif.gif'
 import G_TSNE from '../assets/article_images/dimred/glove_tsne_3d.png'
 import G_PCA from '../assets/article_images/dimred/glove_pca_3d.png'
+import {graphDiv, data, layout, config} from '../assets/article_images/dimred/glove_pca'
+import Plot from "react-plotly.js";
 import parse from 'html-react-parser';
+
 
 type StringMap = { 
   [id: string]: string; 
@@ -130,11 +133,22 @@ function SidePanelImageDisplay({ imagesPath, html }: SidePanelImageDisplayProps)
           open
           onClick={() => setModalOpen('')}
         >
-          <img
-            className="modal-image"
-            src={getImage[modalOpen]}
-            alt="enlargedImg"
-          />
+          {(modalOpen === G_TSNE || G_PCA) ? (
+            <div id="7ff4b120-179b-4d39-964d-77f50754a7bb" className="plotly-graph-div" style={{height: "1000px", width: "1000px"}}>
+              <Plot
+                graphDiv={graphDiv}
+                data={data}
+                layout={layout}
+                config={config}
+              />
+            </div>
+          ) :
+            <img
+              className="modal-image"
+              src={getImage[modalOpen]}
+              alt="enlargedImg"
+            />
+        }
         </dialog>
       )}
     </>
