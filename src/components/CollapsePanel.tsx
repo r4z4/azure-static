@@ -11,6 +11,8 @@ export interface PanelData {
     name: String;
     date: String;
     desc: String;
+    img?: string;
+    bgColor?: string;
     category: String;
     documents: PanelDocument[];
 }
@@ -33,7 +35,7 @@ function CollapsePanel({ panelData }: CollapsePanelProps) {
   const [expanded, setExpanded] = useState(false);
 
   return (
-    <div className="collapse-panel">
+    <div className="collapse-panel" style={{backgroundColor: panelData.bgColor ? panelData.bgColor : ''}}>
       <span className="show-more" onClick={() => setExpanded(!expanded)}>
         <div className="collapse-img">
           {expanded ? <img width={'35px'} src={FolderOpenIcon} alt='folderClosedIcon'/> : <img width={'35px'} src={FolderClosedIcon} alt='folderOpenIcon'/>}
@@ -49,7 +51,6 @@ function CollapsePanel({ panelData }: CollapsePanelProps) {
               <>
               <div className='file-grid'>
                 <li className="prev-toggle" key={doc.id}><a href={doc.url}><img width={'25px'} src={NotebookSimple} alt='notebookSimpleIcon'/>{doc.filename}</a></li>
-                <div className="hide" key={doc.previewComponent?.key}>{doc.previewComponent}</div>
               </div>
               </>
             ))}
@@ -57,6 +58,8 @@ function CollapsePanel({ panelData }: CollapsePanelProps) {
         </div>
         ) : null
       } 
+
+      {panelData.img ? (<div className="dir-image-div"><img width="100%" height="auto" src={panelData.img} alt="" /></div>) : null}
     </div>
   );
 }
