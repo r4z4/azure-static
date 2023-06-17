@@ -4,7 +4,10 @@
   width: 96%;
   padding: 1px;
   margin: auto;
-  text-indent: 5px;
+}
+
+.reactMarkDown p, h4, hr, h2 {
+  margin-left: 5px;
 }
 
 .reactMarkDown ul {

@@ -96,23 +96,6 @@ function SidePanelImageDisplay({ imagesPath, html }: SidePanelImageDisplayProps)
   }
   const imageFilenames = getFilenames(imagesPath)
 
-  console.log("gFN=", getImage['trec/run_01.png'])
-
-  const modalOrHtml = (filename: string) => {
-    switch (getImage[filename]) {
-      case TM02: return <a href="/articles/topic-modeling/02_LDA/pyLDAvis"><img aria-label={filename} className={'side-panel-image'} src={getImage[filename]} alt={filename} /></a>
-      case G_TSNE: return <a href="/articles/dimred/viz/tsne"><img aria-label={filename} className={'side-panel-image'} src={getImage[filename]} alt={filename} /></a>
-      case G_PCA: return <a href="/articles/dimred/viz/pca"><img aria-label={filename} className={'side-panel-image'} src={getImage[filename]} alt={filename} /></a>
-      default:
-        <div className="tooltip">
-          <span aria-label="tooltipText" className="tooltipText">Click to Enlarge</span>
-          <img onClick={() => setModalOpen(modalOpen === '' ? filename : '')} aria-label='side-panel-image' className={'side-panel-image'} src={getImage[filename]} alt={filename} />
-        </div>
-    }
-  }
-
-
-
   return (
     <>
       <aside aria-label="sidePanel" className='side-panel-aside'>
@@ -126,8 +109,12 @@ function SidePanelImageDisplay({ imagesPath, html }: SidePanelImageDisplayProps)
             {imageFilenames.map((filename: string, index: number) => (
               <li key={index}>
                 <div className='mapped-image'>
-                {/* Wrap Interactive image in anchor tags */}
-                {modalOrHtml(filename)
+                {/* Wrap LDA image in anchor tag */}
+                {getImage[filename] === TM02 ? <a href="/articles/topic-modeling/02_LDA/pyLDAvis"><img aria-label={filename} className={'side-panel-image'} src={getImage[filename]} alt={filename} /></a> : 
+                  <div className="tooltip">
+                    <span aria-label="tooltipText" className="tooltipText">Click to Enlarge</span>
+                    <img onClick={() => setModalOpen(modalOpen === '' ? filename : '')} aria-label='side-panel-image' className={'side-panel-image'} src={getImage[filename]} alt={filename} />
+                  </div>
                 }
                 </div>
               </li>
