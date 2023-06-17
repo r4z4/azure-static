@@ -31,16 +31,6 @@ a {
   border: 1px solid black;
 }
 
-.article-container {
-  background-color: #f1e4f9;
-  width: 300px;
-  border: 15px solid rgb(108, 132, 160);
-  padding: 50px;
-  margin: 20px;
-  align-items: center;
-  justify-content: center;
-}
-
 .article-title {
   color: rgb(108, 132, 160);
 }
@@ -91,6 +81,17 @@ code {
 .dataframe {
   font-size: 80%;
   margin: auto;
+}
+
+.dir-grid {
+  display: inline-grid;
+  width: 100%;
+  grid-row-start: 1;
+  grid-row-end:   3;
+}
+
+.dir-grid-right {
+  width: 100%;
 }
 
 .dir-image-div {
@@ -217,6 +218,21 @@ nav a {
   text-align: left;
   margin: 0px;
   padding: 0px;
+}
+
+.panel-doc-prev {
+  list-style-type: none;
+  margin: 0px;
+  padding: 0px;
+}
+
+.prev-container {
+  background-color: #f1e4f9;
+  font-size: 75%;
+  width: auto;
+  border: 15px solid rgb(108, 132, 160);
+  align-items: center;
+  justify-content: center;
 }
 
 .project-container {
