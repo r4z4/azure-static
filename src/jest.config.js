@@ -1,4 +1,4 @@
-HTMLCanvasElement.prototype.getContext = () => {};
+HTMLCanvasElement.prototype.getContext = jest.fn()
 const config = {
   verbose: true,
 };
