@@ -1,5 +1,5 @@
-export const pcaGraphDiv = document.getElementById("7ff4b120-179b-4d39-964d-77f50754a7bb")
-export const pcaData = [{
+export const tsneGraphDiv = document.getElementById("7ff4b120-179b-4d39-964d-77f50754a7bb")
+export const tsneData = [{
 	"marker": {
 		"color": 2,
 		"opacity": 0.8,
@@ -69,7 +69,7 @@ export const pcaData = [{
 	"type": "scatter3d"
 }]
 
-export const pcaLayout = {
+export const tsneLayout = {
 	"autosize": false,
 	"font": {
 		"family": " Courier New ",
@@ -577,7 +577,7 @@ export const pcaLayout = {
 	}
 }
 
-export const pcaConfig = 
+export const tsneConfig = 
 	function(Plotly) {
 
 	var gd = document.getElementById('7ff4b120-179b-4d39-964d-77f50754a7bb');
