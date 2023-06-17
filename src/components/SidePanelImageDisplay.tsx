@@ -16,6 +16,8 @@ import TREC_EDA_6 from '../assets/article_images/trec/eda/trec_eda_6.png'
 import LDA_TRIVIA_0 from '../assets/article_images/trivia/lda_trivia_0.png'
 import LDA_TRIVIA_1 from '../assets/article_images/trivia/lda_trivia_1.png'
 import TF_GIF from '../assets/article_images/embeddings/tf_gif.gif'
+import G_TSNE from '../assets/article_images/dimred/glove_tsne_3d.png'
+import G_PCA from '../assets/article_images/dimred/glove_pca_3d.png'
 import parse from 'html-react-parser';
 
 type StringMap = { 
@@ -40,7 +42,9 @@ const getImage: StringMap = {
   'trec_eda_6.png': TREC_EDA_6,
   'trivia/lda_trivia_0.png': LDA_TRIVIA_0,
   'trivia/lda_trivia_1.png': LDA_TRIVIA_1,
-  '/tf_gif.gif': TF_GIF
+  '/tf_gif.gif': TF_GIF,
+  '/glove_pca_3d.png': G_PCA,
+  '/glove_tsne_3d.png': G_TSNE
 };
 
 export interface SidePanelImageDisplayProps {
@@ -83,6 +87,9 @@ function SidePanelImageDisplay({ imagesPath, html }: SidePanelImageDisplayProps)
       case '../assets/article_images/embeddings/generate/':
         return ['/tf_gif.gif'];
 
+      case '../assets/article_images/dimred/viz/':
+        return ['/glove_pca_3d.png', '/glove_tsne_3d.png'];
+
       default:
         return [''];
     }
@@ -90,6 +97,21 @@ function SidePanelImageDisplay({ imagesPath, html }: SidePanelImageDisplayProps)
   const imageFilenames = getFilenames(imagesPath)
 
   console.log("gFN=", getImage['trec/run_01.png'])
+
+  const modalOrHtml = (filename: string) => {
+    switch (getImage[filename]) {
+      case TM02: return <a href="/articles/topic-modeling/02_LDA/pyLDAvis"><img aria-label={filename} className={'side-panel-image'} src={getImage[filename]} alt={filename} /></a>
+      case G_TSNE: return <a href="/articles/dimred/viz/tsne"><img aria-label={filename} className={'side-panel-image'} src={getImage[filename]} alt={filename} /></a>
+      case G_PCA: return <a href="/articles/dimred/viz/pca"><img aria-label={filename} className={'side-panel-image'} src={getImage[filename]} alt={filename} /></a>
+      default:
+        <div className="tooltip">
+          <span aria-label="tooltipText" className="tooltipText">Click to Enlarge</span>
+          <img onClick={() => setModalOpen(modalOpen === '' ? filename : '')} aria-label='side-panel-image' className={'side-panel-image'} src={getImage[filename]} alt={filename} />
+        </div>
+    }
+  }
+
+
 
   return (
     <>
@@ -104,12 +126,8 @@ function SidePanelImageDisplay({ imagesPath, html }: SidePanelImageDisplayProps)
             {imageFilenames.map((filename: string, index: number) => (
               <li key={index}>
                 <div className='mapped-image'>
-                {/* Wrap LDA image in anchor tag */}
-                {getImage[filename] === TM02 ? <a href="/articles/topic-modeling/02_LDA/pyLDAvis"><img aria-label={filename} className={'side-panel-image'} src={getImage[filename]} alt={filename} /></a> : 
-                  <div className="tooltip">
-                    <span aria-label="tooltipText" className="tooltipText">Click to Enlarge</span>
-                    <img onClick={() => setModalOpen(modalOpen === '' ? filename : '')} aria-label='side-panel-image' className={'side-panel-image'} src={getImage[filename]} alt={filename} />
-                  </div>
+                {/* Wrap Interactive image in anchor tags */}
+                {modalOrHtml(filename)
                 }
                 </div>
               </li>

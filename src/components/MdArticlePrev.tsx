@@ -21,8 +21,8 @@ function MdArticle({ title, desc, concepts, hangups }: MdArticlePrevProps) {
 
   return (
     <div className={'prev-container'}>
-      <h4 className={'article-title'}>{title}</h4>
-      <div className={'article-body'}>
+      <h4 className={'prev-title'}>{title}</h4>
+      <div className={'prev-body'}>
         <span className={'byline'}>
             <p>{desc}</p>
         </span>
