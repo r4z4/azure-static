@@ -134,11 +134,14 @@ function SidePanelImageDisplay({ imagesPath, html }: SidePanelImageDisplayProps)
           onClick={() => setModalOpen('')}
         >
           {(modalOpen === G_TSNE || G_PCA) ? (
-            <Plot
-              data={data}
-              layout={layout}
-              config={config}
-            />
+            <div id="7ff4b120-179b-4d39-964d-77f50754a7bb" className="plotly-graph-div" style={{height: "1000px", width: "1000px"}}>
+              <Plot
+                graphDiv={graphDiv}
+                data={data}
+                layout={layout}
+                config={config}
+              />
+            </div>
           ) :
             <img
               className="modal-image"
