@@ -8,7 +8,7 @@ function App() {
       <header className="App-header">
         <img src={ml_2} className="App-logo" alt="logo" />
         <p>
-          Various NLP trial runs.
+          Various Curated NLP trial runs.
         </p>
         <p className="subText">For now you can just select 'Just For Now' to visit the current page (hosted on GitHub)</p>
         <a
