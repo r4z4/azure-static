@@ -582,36 +582,28 @@ export const config =
 
 	var gd = document.getElementById('7ff4b120-179b-4d39-964d-77f50754a7bb');
 	var x = new MutationObserver(function(mutations, observer) {
-		{
-			var display = window.getComputedStyle(gd).display;
-			if (!display || display === 'none') {
-				{
-					console.log([gd, 'removed!']);
-					Plotly.purge(gd);
-					observer.disconnect();
-				}
-			}
+
+		var display = window.getComputedStyle(gd).display;
+		if (!display || display === 'none') {
+			console.log([gd, 'removed!']);
+			Plotly.purge(gd);
+			observer.disconnect();
 		}
 	});
 
 	// Listen for the removal of the full notebook cells
 	var notebookContainer = gd.closest('#notebook-container');
 	if (notebookContainer) {
-		{
-			x.observe(notebookContainer, {
-				childList: true
-			});
-		}
+		x.observe(notebookContainer, {
+			childList: true
+		});
 	}
 
 	// Listen for the clearing of the current output cell
 	var outputEl = gd.closest('.output');
 	if (outputEl) {
-		{
-			x.observe(outputEl, {
-				childList: true
-			});
-		}
+		x.observe(outputEl, {
+			childList: true
+		});
 	}
-
 }
