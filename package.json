@@ -36,8 +36,7 @@
     ]
   },
   "jest": {
-    "verbose": true,
-    "testEnvironment": "jsdom"
+    "setupFiles": ["./tests/setup.js"],
   },
   "browserslist": {
     "production": [
