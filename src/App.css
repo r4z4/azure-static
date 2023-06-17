@@ -122,6 +122,11 @@ html, body {
   display: none;
 }
 
+.icon {
+  max-width: 25px;
+  height: auto;
+}
+
 @-webkit-keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -157,9 +162,56 @@ html, body {
   max-height: 100%;
 }
 
+/*
+320px — 480px: Mobile devices
+481px — 768px: iPads, Tablets
+769px — 1024px: Small screens, laptops
+1025px — 1200px: Desktops, large screens
+1201px and more —  Extra large screens, TV
+*/
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    font-size: 70%;
+  }
+  .article-grid-container {
+    padding: 5px;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .icon {
+    width: 15px;
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    font-size: 80%;
+  }
+  .article-grid-container {
+    padding: 10px;
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .icon {
+    width: 20px;
+  }
+}
+
+@media (max-width: 1024px) {
+  body {
+    font-size: 90%;
+  }
+}
+
+/* The Largest */
+@media (min-width: 1201px) {
+  body {
+    font-size: 100%;
   }
 }
 
