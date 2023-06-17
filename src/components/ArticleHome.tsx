@@ -1,6 +1,6 @@
 import '../App.css';
-import CollapsePanel, {PanelData, PanelDocument} from './CollapsePanel'
 import MdArticlePrev from './MdArticlePrev';
+import CollapsePanel, {PanelData, PanelDocument} from './CollapsePanel'
 
 const trecEda: PanelDocument = {
   id: 0,
@@ -86,6 +86,13 @@ const GenerateEmbeddings: PanelDocument = {
   previewComponent: <MdArticlePrev title={'Generate'} desc={'Use a NN to Genreate Custom Word Embeddings'} concepts={['Embeddings']} hangups={['Vocab Size']} />
 }
 
+const EmbeddingViz: PanelDocument = {
+  id: 12,
+  filename: 'Embedding Visualizations',
+  url: '/articles/dimred/viz',
+  previewComponent: <MdArticlePrev title={'Generate'} desc={'Use a NN to Genreate Custom Word Embeddings'} concepts={['Embeddings']} hangups={['Vocab Size']} />
+}
+
 interface ArticleHomeProps {
   active?: boolean;
 }
@@ -137,6 +144,15 @@ function ArticleHome({ active = false }: ArticleHomeProps) {
     documents: [GenerateEmbeddings],
   }
 
+  const DimReduction: PanelData = {
+    name: 'Dimensionality Reduction',
+    date: '06-10-2023',
+    desc: 'Brief Exploration of the various techniques, and why they are needed.',
+    bgColor: '#e0e0eb',
+    category: 'NLP',
+    documents: [EmbeddingViz],
+  }
+
   return (
     <div className="App">
         <div className={'article-grid-container'}>
@@ -145,6 +161,7 @@ function ArticleHome({ active = false }: ArticleHomeProps) {
           <CollapsePanel panelData={TopicModelingData}></CollapsePanel>
           <CollapsePanel panelData={TriviaData}></CollapsePanel>
           <CollapsePanel panelData={WordEmbeddings}></CollapsePanel>
+          <CollapsePanel panelData={DimReduction}></CollapsePanel>
         </div>
     </div>
   );

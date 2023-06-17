@@ -3,6 +3,7 @@
   background-color: #fafdfd;
   min-height: 100vh;
   width: 98%;
+  max-height: 100vh;
 }
 
 a:visited {
@@ -29,10 +30,6 @@ a {
   color: rgb(39, 10, 34);
   border-radius: 10px;
   border: 1px solid black;
-}
-
-.article-title {
-  color: rgb(108, 132, 160);
 }
 
 .article-grid-container {
@@ -62,6 +59,11 @@ aside {
   display: block;
 }
 
+.byline {
+  color: #1a0033;
+  font-style: italic;
+}
+
 code {
   background-color: #E6E6E6;
 }
@@ -86,18 +88,6 @@ code {
 .dir-grid {
   display: inline-grid;
   width: 100%;
-  grid-row-start: 1;
-  grid-row-end:   3;
-}
-
-.dir-grid-right {
-  width: 100%;
-}
-
-.dir-image-div {
-  width: 100%;
-  position: absolute;
-  bottom: 0;
 }
 
 .flex-container {
@@ -203,10 +193,6 @@ nav a {
   position: fixed;
 }
 
-.prev-toggle:hover + .hide {
-  display: block;
-}
-
 .panel-dir-name {
   display: inline;
   font-weight: bold;
@@ -224,15 +210,44 @@ nav a {
   list-style-type: none;
   margin: 0px;
   padding: 0px;
+  width: 50%;
+  float: right;
+}
+
+.prev-title {
+  color: rgb(108, 132, 160);
+}
+
+.prev-div {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+}
+
+.prev-div {
+  padding: 0;
+  margin: 0;
+}
+
+.prev-list ul {
+  list-style: none;
+  padding-left: 0;
+  line-height: normal;
+  margin: 0;
+  padding: 0;
 }
 
 .prev-container {
   background-color: #f1e4f9;
   font-size: 75%;
   width: auto;
-  border: 15px solid rgb(108, 132, 160);
-  align-items: center;
+  border: 5px solid rgb(108, 132, 160);
   justify-content: center;
+}
+
+.prev-container * {
+  padding: 0;
+  margin: 0;
 }
 
 .project-container {
@@ -253,11 +268,6 @@ nav a {
   padding: 15px;
   align-items: center;
   justify-content: center;
-}
-
-.prev-list ul {
-  list-style: none;
-  padding-left: 0;
 }
 
 pre { 

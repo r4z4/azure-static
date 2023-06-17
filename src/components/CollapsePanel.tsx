@@ -21,7 +21,7 @@ export interface PanelDocument {
     id: number;
     filename: String;
     url: string;
-    previewComponent?: JSX.Element;
+    previewComponent: JSX.Element;
 }
 
 // const panelData {
@@ -33,6 +33,7 @@ export interface PanelDocument {
 
 function CollapsePanel({ panelData }: CollapsePanelProps) {
   const [expanded, setExpanded] = useState(false);
+  const [isShown, setIsShown] = useState<JSX.Element>(<></>);
 
   return (
     <div className="collapse-panel" style={{backgroundColor: panelData.bgColor ? panelData.bgColor : ''}}>
@@ -48,21 +49,22 @@ function CollapsePanel({ panelData }: CollapsePanelProps) {
         <div className="expandable">
           {panelData.documents.map((doc: PanelDocument) => (
             <div className="dir-grid">
-              <ul className='prev-toggle panel-doc-list'>
+              <ul className='panel-doc-list'>
                 <div className='file-grid'>
-                  <li key={doc.id}><a href={doc.url}><img width={'25px'} src={NotebookSimple} alt='notebookSimpleIcon'/>{doc.filename}</a></li>
+                  <li 
+                    key={doc.id}
+                    onMouseEnter={() => setIsShown(doc.previewComponent)}
+                    onMouseLeave={() => setIsShown(<></>)}>
+                      <a href={doc.url}><img width={'25px'} src={NotebookSimple} alt='notebookSimpleIcon'/>{doc.filename}</a>
+                  </li>
                 </div>
               </ul>
-              <ul className='panel-doc-prev hide'>
-                <li><div key={doc.previewComponent?.key}>{doc.previewComponent}</div></li>
-            </ul>
           </div>
           ))}
         </div>
         ) : null
       } 
-
-      {panelData.img ? (<div className="dir-image-div"><img width="100%" height="auto" src={panelData.img} alt="" /></div>) : null}
+      {isShown ? (<div className='prev-div' key='prev'>{isShown}</div>) : null}
     </div>
   );
 }

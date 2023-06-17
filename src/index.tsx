@@ -74,8 +74,20 @@ const router = createBrowserRouter([
     path: `/articles/embeddings/generate`,
     element: <MdArticle subDir={'embeddings'} title={'generate'} />,
   },
+  {
+    path: '/articles/dimred/viz',
+    element: <MdArticle subDir={'dimred'} title={'viz'} />,
+  },
+  {
+    path: `/articles/dimred/viz/pca`,
+    element: <Navigate to={"/glove_pca.html"} />,
+  },
+  {
+    path: `/articles/dimred/viz/tsne`,
+    element: <Navigate to={"/glove_tsne.html"} />,
+  },
 
-   
+
 
   {
     path: "/projects",
