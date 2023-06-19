@@ -86,6 +86,27 @@ const router = createBrowserRouter([
     path: `/articles/dimred/viz/tsne`,
     element: <Navigate to={"/glove_tsne.html"} />,
   },
+  {
+    path: `/articles/news/eda`,
+    element: <MdArticle subDir={'news'} title={'eda'} />,
+  },
+  {
+    path: `/articles/news/clean_run_01`,
+    element: <MdArticle subDir={'news'} title={'clean_run_01'} />,
+  },
+  {
+    path: `/articles/news/clean_run_02`,
+    element: <MdArticle subDir={'news'} title={'clean_run_02'} />,
+  },
+  {
+    path: `/articles/news/clean_run_03`,
+    element: <MdArticle subDir={'news'} title={'clean_run_03'} />,
+  },
+  {
+    path: `/articles/news/clean_run_04`,
+    element: <MdArticle subDir={'news'} title={'clean_run_04'} />,
+  },
+
 
 
 

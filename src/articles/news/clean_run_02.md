@@ -53,6 +53,28 @@ print(df.sample(frac=1).reset_index(drop=True).head().to_markdown(tablefmt="grid
     +----+-------------+------------------------------------+
 
 
+---
+
+
+
+|    | newsgroup   | subject                            |
+|----|-------------|------------------------------------|
+|  0 | comp_elec   | w4w publish envelop dj550c 500c    |
+|  1 | sport       | opinion eli denni render           |
+|  2 | autos       | point helmet law point megahertz b |
+|  3 | comp_elec   | centris610 trouble                 |
+|  4 | sport       | cub gritty april 6th               |
+
+
+---
+
+
+| Item         | Price     | # In stock |
+|--------------|-----------|------------|
+| Juicy Apples | 1.99      | *7*        |
+| Bananas      | **1.89**  | 5234       |
+
+
 
 ```python
 all_categories = ['sport', 'autos', 'religion', 'comp_elec', 'sci_med', 'seller', 'politics']

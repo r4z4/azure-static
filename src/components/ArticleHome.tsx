@@ -10,77 +10,77 @@ const trecEda: PanelDocument = {
 }
 
 const trecAug: PanelDocument = {
-  id: 0,
+  id: 1,
   filename: 'TREC_AUG',
   url: '/articles/trec/trec_aug',
   previewComponent: <MdArticlePrev title={'TREC_AUG'} desc={'Easy Data Augmentation Techniques'} concepts={['Augmentation']} hangups={['']} />
 }
 
 const runOneDocOne: PanelDocument = {
-  id: 1,
+  id: 2,
   filename: 'Run 01',
   url: '/articles/trec/run_01',
   previewComponent: <MdArticlePrev title={'Run_01'} desc={'Initial Run for the Text REtrieval Conference (TREC) Question Classification dataset.'} concepts={['Multilabel Confusion Matrix', 'Tokenizer/CountVectorizer']} hangups={['Concat/Merge/Join']} />
 }
 
 const runOneDocTwo: PanelDocument = {
-  id: 2,
+  id: 3,
   filename: 'Run 02',
   url: '/articles/trec/run_02',
   previewComponent: <MdArticlePrev title={'Run_02'} desc={'Second Run for (TREC) Question Classification dataset.'} concepts={['Data Augmentation', 'NLTK']} hangups={['Wordnet']} />
 }
 
 const runTwoDocOne: PanelDocument = {
-  id: 3,
+  id: 4,
   filename: 'Run 01',
   url: '/articles/glove/run_01',
   previewComponent: <MdArticlePrev title={'Run_01'} desc={'Initial Run for 20_Newsgroups dataset using GloVe Embeddings.'} concepts={['GloVe', 'Scaler']} hangups={['Vocab Size']} />
 }
 
 const runTwoDocTwo: PanelDocument = {
-  id: 4,
+  id: 5,
   filename: 'Run 02',
   url: '/articles/glove/run_02',
   previewComponent: <MdArticlePrev title={'Run_02'} desc={'Second Run for 20_Newsgroups dataset using GloVe Embeddings.'} concepts={['Data Augmentation', 'Warm Embedding']} hangups={['Wordnet']} />
 }
 
 const runTwoDocThree: PanelDocument = {
-  id: 5,
+  id: 6,
   filename: 'Run 03',
   url: '/articles/glove/run_03',
   previewComponent: <MdArticlePrev title={'Run_03'} desc={'Third Run for 20_Newsgroups dataset using GloVe Embeddings.'} concepts={['Data Augmentation', 'NLTK']} hangups={['Wordnet']} />
 }
 
 const runTwoDocFour: PanelDocument = {
-  id: 6,
+  id: 7,
   filename: 'Run 04',
   url: '/articles/glove/run_04',
   previewComponent: <MdArticlePrev title={'Run_04'} desc={'Fouth Run for 20_Newsgroups dataset using GloVe Embeddings.'} concepts={['Data Augmentation', 'NLTK']} hangups={['Wordnet']} />
 }
 
 const TopicModelingDocOne: PanelDocument = {
-  id: 7,
+  id: 8,
   filename: '01_Transformers',
   url: '/articles/topic-modeling/01_transformers',
   previewComponent: <MdArticlePrev title={'01_Transformers'} desc={'Topic Modeling on Trivia Dataset for Surface Trivia App. Using SentenceTransformers.'} concepts={['Transformers', 'Attention', 'BERT']} hangups={['Input Shape']} />
 }
 
 const TopicModelingDocTwo: PanelDocument = {
-  id: 8,
+  id: 9,
   filename: '02_LDA',
   url: '/articles/topic-modeling/02_lda',
   previewComponent: <MdArticlePrev title={'02_LDA'} desc={'Topic Modeling on Trivia Dataset for Surface Trivia App. Using LDA and visualizing with PyLDAvis.'} concepts={['Data Visualization', 'LDA']} hangups={['LDA']} />
 }
 
 const TriviaDocOne: PanelDocument = {
-  id: 9,
+  id: 10,
   filename: 'LDA_Trivia',
   url: '/articles/trivia/lda_trivia',
   previewComponent: <MdArticlePrev title={'LDA_Trivia'} desc={'Calssification Using Linear Disciminant Analysis - Compare to PCA'} concepts={['LDA', 'PCA']} hangups={['Matplotlib']} />
 }
 
 const GenerateEmbeddings: PanelDocument = {
-  id: 10,
+  id: 11,
   filename: 'Generate',
   url: '/articles/embeddings/generate',
   previewComponent: <MdArticlePrev title={'Generate'} desc={'Use a NN to Genreate Custom Word Embeddings'} concepts={['Embeddings']} hangups={['Vocab Size']} />
@@ -91,6 +91,41 @@ const EmbeddingViz: PanelDocument = {
   filename: 'Embedding Visualizations',
   url: '/articles/dimred/viz',
   previewComponent: <MdArticlePrev title={'Generate'} desc={'Use a NN to Genreate Custom Word Embeddings'} concepts={['Embeddings']} hangups={['Vocab Size']} />
+}
+
+const NewsgroupEDA: PanelDocument = {
+  id: 13,
+  filename: 'NewsgroupEDA',
+  url: '/articles/news/eda',
+  previewComponent: <MdArticlePrev title={'NewsgroupEDA'} desc={'Preprocessing and EDA for the 20_Newsgroup Dataset'} concepts={['Vocab Size, Stemming']} hangups={['Unstructured Text']} />
+}
+
+const CleanRun01: PanelDocument = {
+  id: 14,
+  filename: '20_Newsgroup Run 01',
+  url: '/articles/news/clean_run_01',
+  previewComponent: <MdArticlePrev title={'Run01'} desc={'Original Runs with Full Body data for 20 Newsgroup Dataset'} concepts={['Preprocessing']} hangups={['Meaning Retention']} />
+}
+
+const CleanRun02: PanelDocument = {
+  id: 15,
+  filename: '20_Newsgroup Run 02',
+  url: '/articles/news/clean_run_02',
+  previewComponent: <MdArticlePrev title={'Run02'} desc={'Original Runs with Full Body data for 20 Newsgroup Dataset'} concepts={['Preprocessing']} hangups={['eaning Retention']} />
+}
+
+const CleanRun03: PanelDocument = {
+  id: 16,
+  filename: '20_Newsgroup Run 03',
+  url: '/articles/news/clean_run_03',
+  previewComponent: <MdArticlePrev title={'Run03'} desc={'Original Runs with Full Body data for 20 Newsgroup Dataset'} concepts={['Preprocessing']} hangups={['eaning Retention']} />
+}
+
+const CleanRun04: PanelDocument = {
+  id: 17,
+  filename: '20_Newsgroup Run 04',
+  url: '/articles/news/clean_run_04',
+  previewComponent: <MdArticlePrev title={'Run04'} desc={'Original Runs with Full Body data for 20 Newsgroup Dataset'} concepts={['Preprocessing']} hangups={['eaning Retention']} />
 }
 
 interface ArticleHomeProps {
@@ -153,6 +188,15 @@ function ArticleHome({ active = false }: ArticleHomeProps) {
     documents: [EmbeddingViz],
   }
 
+  const Newsgroup: PanelData = {
+    name: 'The 20_Newsgroup Data',
+    date: '06-10-2023',
+    desc: 'This is the dataset that we use in the initial GloVe runs. These notebooks are some of the original runs that were done with the dataset and the preprocessing steps as well,',
+    bgColor: '#e0e0eb',
+    category: 'NLP',
+    documents: [NewsgroupEDA, CleanRun01, CleanRun02, CleanRun03, CleanRun04],
+  }
+
   return (
     <div className="App">
         <div className={'article-grid-container'}>
@@ -162,6 +206,7 @@ function ArticleHome({ active = false }: ArticleHomeProps) {
           <CollapsePanel panelData={TriviaData}></CollapsePanel>
           <CollapsePanel panelData={WordEmbeddings}></CollapsePanel>
           <CollapsePanel panelData={DimReduction}></CollapsePanel>
+          <CollapsePanel panelData={Newsgroup}></CollapsePanel>
         </div>
     </div>
   );

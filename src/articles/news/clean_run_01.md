@@ -12,14 +12,6 @@ from keras.preprocessing.text import Tokenizer
 from keras.utils import pad_sequences
 ```
 
-    2023-06-18 03:16:20.828910: I tensorflow/tsl/cuda/cudart_stub.cc:28] Could not find cuda drivers on your machine, GPU will not be used.
-    2023-06-18 03:16:20.894349: I tensorflow/tsl/cuda/cudart_stub.cc:28] Could not find cuda drivers on your machine, GPU will not be used.
-    2023-06-18 03:16:20.895625: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
-    To enable the following instructions: AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
-    2023-06-18 03:16:22.807114: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
-
-
-
 ```python
 import os
 dirpath = 'data/pkl/to_use/'
@@ -124,9 +116,6 @@ mapping = dict(zip(classes, target_categories))
 len(X_train), len(X_test), classes, mapping
 ```
 
-
-
-
     (6171,
      2057,
      array([0, 1, 2, 3, 4, 5, 6]),
@@ -139,8 +128,6 @@ len(X_train), len(X_test), classes, mapping
       6: 'politics'})
 
 
-
-
 ```python
 # model parameters
 vocab_size = 1200
@@ -150,6 +137,7 @@ trunc_type='post'
 padding_type='post'
 oov_tok = "<OOV>"
 ```
+
 
 
 ```python
@@ -293,16 +281,6 @@ utils.plot_history_and_save(history, save_path)
 model_file = 'models/newsgroup_clean_model'
 model.save(model_file)
 ```
-
-    WARNING:absl:Found untraced functions such as _update_step_xla while saving (showing 1 of 1). These functions will not be directly callable after loading.
-
-
-    INFO:tensorflow:Assets written to: models/newsgroup_clean_model/assets
-
-
-    INFO:tensorflow:Assets written to: models/newsgroup_clean_model/assets
-
-
 
 ```python
 # need a sentence to predict on
