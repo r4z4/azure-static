@@ -354,3 +354,5 @@ print(cstm_test_preds)
 
     [6 1 6 1 3]
 
+
+![png](/images/glove/run_02.png)

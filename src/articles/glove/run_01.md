@@ -121,6 +121,7 @@ print("Vocab Size : {}".format(len(tokenizer.word_index)))
 
     Vocab Size : 9734
 
+
 ```python
 path = './glove.6B.50d.txt'
 glove_embeddings = {}
@@ -354,3 +355,6 @@ print(cstm_test_preds)
 
     [6 6 6 1 5]
 
+
+
+![png](/images/glove/run_01.png)

@@ -25,3 +25,24 @@
 .rsh {
   font-size: 50%;
 }
+
+.reactMarkDown table {
+  color: orange;
+  border: 1px solid black;
+}
+
+.reactMarkDown tbody tr th:only-of-type {
+  vertical-align:middle;
+}
+
+.reactMarkDown tbody tr th {
+  vertical-align:top;
+}
+
+.reactMarkDown thead th {
+  text-align:right;
+}
+
+.reactMarkDown tr {
+  text-align:right;
+}
