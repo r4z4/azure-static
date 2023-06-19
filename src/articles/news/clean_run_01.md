@@ -272,7 +272,7 @@ utils.plot_history_and_save(history, save_path)
 ```
 
 
-![png](clean_run_01_files/clean_run_01_17_0.png)
+![png](/images/news/clean_run_01.png)
 
 
 

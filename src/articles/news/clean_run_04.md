@@ -34,18 +34,6 @@ df = pd.read_pickle('data/dataframes/newsgroup_cleaned.pkl')
 
 
 ```python
-nan_rows = df[df['subject'].isnull()]
-print(nan_rows.to_markdown(tablefmt="grid"))
-```
-
-    +-------------+-----------+
-    | newsgroup   | subject   |
-    +=============+===========+
-    +-------------+-----------+
-
-
-
-```python
 df = df.dropna()
 ```
 
@@ -82,19 +70,15 @@ df['subject'] = df['subject'].apply(lambda x: swap_rejoin(x))
 print(df.sample(frac=1).reset_index(drop=True).head().to_markdown(tablefmt="grid"))
 ```
 
-    +----+-------------+--------------------------------------------------+
-    |    | newsgroup   | subject                                          |
-    +====+=============+==================================================+
-    |  0 | seller      | complet aix-ps2 repost manual best offer softwar |
-    +----+-------------+--------------------------------------------------+
-    |  1 | comp_elec   | summari x11r5 xon                                |
-    +----+-------------+--------------------------------------------------+
-    |  2 | sport       | stat al                                          |
-    +----+-------------+--------------------------------------------------+
-    |  3 | comp_elec   | confus doe appl give us whi messag               |
-    +----+-------------+--------------------------------------------------+
-    |  4 | comp_elec   | vga paradis                                      |
-    +----+-------------+--------------------------------------------------+
+
+|    | newsgroup   | subject                                          |
+|----|-------------|--------------------------------------------------|
+|  0 | seller      | complet aix-ps2 repost manual best offer softwar |
+|  1 | comp_elec   | summari x11r5 xon                                |
+|  2 | sport       | stat al                                          |
+|  3 | comp_elec   | confus doe appl give us whi messag               |
+|  4 | comp_elec   | vga paradis                                      |
+
 
 
 
@@ -251,7 +235,7 @@ utils.plot_history_and_save(history, save_path)
 ```
 
 
-![png](clean_run_04_files/clean_run_04_16_0.png)
+![png](/images/news/clean_run_04.png)
 
 
 It does seem to be performing slightly better than our previous run, but this is still certainly nothing to write home about. Now, let's work with some real data and incorporate the body of these message into our next runs. We will save the model file incase we want to use it later in any form.
@@ -263,11 +247,4 @@ model_file = 'models/newsgroup_clean_model'
 model.save(model_file)
 ```
 
-    WARNING:absl:Found untraced functions such as _update_step_xla while saving (showing 1 of 1). These functions will not be directly callable after loading.
-
-
-    INFO:tensorflow:Assets written to: models/newsgroup_clean_model/assets
-
-
-    INFO:tensorflow:Assets written to: models/newsgroup_clean_model/assets
 

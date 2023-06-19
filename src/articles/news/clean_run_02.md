@@ -224,7 +224,7 @@ utils.plot_history_and_save(history, save_path)
 ```
 
 
-![png](clean_run_02_files/clean_run_02_12_0.png)
+![png](/images/news/clean_run_02.png)
 
 
 
@@ -254,11 +254,4 @@ model_file = 'models/newsgroup_clean_model'
 model.save(model_file)
 ```
 
-    WARNING:absl:Found untraced functions such as _update_step_xla while saving (showing 1 of 1). These functions will not be directly callable after loading.
-
-
-    INFO:tensorflow:Assets written to: models/newsgroup_clean_model/assets
-
-
-    INFO:tensorflow:Assets written to: models/newsgroup_clean_model/assets
 

@@ -258,7 +258,7 @@ utils.plot_history_and_save(history, save_path)
 ```
 
 
-![png](clean_run_03_files/clean_run_03_16_0.png)
+![png](/images/news/clean_run_03.png)
 
 
 
@@ -280,19 +280,10 @@ print(model.predict(padded))
     [[0.34423554 0.59764796 0.34918392 0.35519084 0.41514224 0.12569432
       0.41660988]]
 
-
-
 ```python
 # TensorFlow SavedModel format => .keras
 model_file = 'models/newsgroup_clean_model'
 model.save(model_file)
 ```
 
-    WARNING:absl:Found untraced functions such as _update_step_xla while saving (showing 1 of 1). These functions will not be directly callable after loading.
-
-
-    INFO:tensorflow:Assets written to: models/newsgroup_bow_seven_cat_model/assets
-
-
-    INFO:tensorflow:Assets written to: models/newsgroup_bow_seven_cat_model/assets
 
