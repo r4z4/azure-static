@@ -58,7 +58,7 @@ function App() {
           <p style={{marginTop: '12px'}}>
             Various Curated NLP trial runs.
           </p>
-        <p className="subText">Projects - For now you can just select 'Just For Now' to visit the current page (hosted on GitHub)</p>
+        <p className="subText">For now just links to site hosted by GitHub</p>
         <div className={'links-container'}>
         <a
           className="route-link"
