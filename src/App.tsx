@@ -1,6 +1,5 @@
 import React from 'react';
 import ml_2 from './ml_2.png';
-import pb from './assets/p_b.png'
 import './App.css';
 import './HomeAnimation.css'
 
