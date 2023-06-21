@@ -15,8 +15,9 @@ a {
 }
 
 .App-logo {
-  height: 40vmin;
+  height: 20vmin;
   pointer-events: none;
+  margin-right: 1%;
 }
 
 .App-header {
