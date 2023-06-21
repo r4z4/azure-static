@@ -102,30 +102,58 @@ const NewsgroupEDA: PanelDocument = {
 
 const CleanRun01: PanelDocument = {
   id: 14,
-  filename: '20_Newsgroup Run 01',
+  filename: '20_News Run 01',
   url: '/articles/news/clean_run_01',
   previewComponent: <MdArticlePrev title={'Run01'} desc={'Original Runs with Full Body data for 20 Newsgroup Dataset'} concepts={['Preprocessing']} hangups={['Meaning Retention']} />
 }
 
 const CleanRun02: PanelDocument = {
   id: 15,
-  filename: '20_Newsgroup Run 02',
+  filename: '20_News Run 02',
   url: '/articles/news/clean_run_02',
   previewComponent: <MdArticlePrev title={'Run02'} desc={'Original Runs with Full Body data for 20 Newsgroup Dataset'} concepts={['Preprocessing']} hangups={['eaning Retention']} />
 }
 
 const CleanRun03: PanelDocument = {
   id: 16,
-  filename: '20_Newsgroup Run 03',
+  filename: '20_News Run 03',
   url: '/articles/news/clean_run_03',
   previewComponent: <MdArticlePrev title={'Run03'} desc={'Original Runs with Full Body data for 20 Newsgroup Dataset'} concepts={['Preprocessing']} hangups={['eaning Retention']} />
 }
 
 const CleanRun04: PanelDocument = {
   id: 17,
-  filename: '20_Newsgroup Run 04',
+  filename: '20_News Run 04',
   url: '/articles/news/clean_run_04',
   previewComponent: <MdArticlePrev title={'Run04'} desc={'Original Runs with Full Body data for 20 Newsgroup Dataset'} concepts={['Preprocessing']} hangups={['eaning Retention']} />
+}
+
+const BodyCleanRun01: PanelDocument = {
+  id: 14,
+  filename: '20_News Run 01',
+  url: '/articles/news/body_clean_run_01',
+  previewComponent: <MdArticlePrev title={'BodyRun01'} desc={'Original Runs with Full Body data for 20 Newsgroup Dataset'} concepts={['Preprocessing']} hangups={['Meaning Retention']} />
+}
+
+const BodyCleanRun02: PanelDocument = {
+  id: 15,
+  filename: '20_News Run 02',
+  url: '/articles/news/body_clean_run_02',
+  previewComponent: <MdArticlePrev title={'BodyRun02'} desc={'Original Runs with Full Body data for 20 Newsgroup Dataset'} concepts={['Preprocessing']} hangups={['eaning Retention']} />
+}
+
+const BodyCleanRun03: PanelDocument = {
+  id: 16,
+  filename: '20_News Run 03',
+  url: '/articles/news/body_clean_run_03',
+  previewComponent: <MdArticlePrev title={'BodyRun03'} desc={'Original Runs with Full Body data for 20 Newsgroup Dataset'} concepts={['Preprocessing']} hangups={['eaning Retention']} />
+}
+
+const BodyCleanRun04: PanelDocument = {
+  id: 17,
+  filename: '20_News Run 04',
+  url: '/articles/news/body_clean_run_04',
+  previewComponent: <MdArticlePrev title={'BodyRun04'} desc={'Original Runs with Full Body data for 20 Newsgroup Dataset'} concepts={['Preprocessing']} hangups={['eaning Retention']} />
 }
 
 interface ArticleHomeProps {
@@ -194,19 +222,19 @@ function ArticleHome({ active = false }: ArticleHomeProps) {
     desc: 'This is the dataset that we use in the initial GloVe runs. These notebooks are some of the original runs that were done with the dataset and the preprocessing steps as well,',
     bgColor: '#e0e0eb',
     category: 'NLP',
-    documents: [NewsgroupEDA, CleanRun01, CleanRun02, CleanRun03, CleanRun04],
+    documents: [NewsgroupEDA, CleanRun01, CleanRun02, CleanRun03, CleanRun04, BodyCleanRun01, BodyCleanRun02, BodyCleanRun03, BodyCleanRun04],
   }
 
   return (
     <div className="App">
         <div className={'article-grid-container'}>
+          <CollapsePanel panelData={Newsgroup}></CollapsePanel>
           <CollapsePanel panelData={runOneData}></CollapsePanel>
           <CollapsePanel panelData={runTwoData}></CollapsePanel>
           <CollapsePanel panelData={TopicModelingData}></CollapsePanel>
           <CollapsePanel panelData={TriviaData}></CollapsePanel>
           <CollapsePanel panelData={WordEmbeddings}></CollapsePanel>
           <CollapsePanel panelData={DimReduction}></CollapsePanel>
-          <CollapsePanel panelData={Newsgroup}></CollapsePanel>
         </div>
     </div>
   );

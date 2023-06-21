@@ -17,13 +17,6 @@ from keras.preprocessing.text import Tokenizer
 from keras.utils import pad_sequences
 ```
 
-    2023-06-21 00:10:01.012267: I tensorflow/tsl/cuda/cudart_stub.cc:28] Could not find cuda drivers on your machine, GPU will not be used.
-    2023-06-21 00:10:01.144339: I tensorflow/tsl/cuda/cudart_stub.cc:28] Could not find cuda drivers on your machine, GPU will not be used.
-    2023-06-21 00:10:01.146019: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
-    To enable the following instructions: AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
-    2023-06-21 00:10:03.123061: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
-
-
 
 ```python
 # Load model
@@ -37,57 +30,6 @@ model = keras.models.load_model(model_file)
 ```python
 df = pd.read_pickle('../data/dataframes/newsgroup_body_cleaned_exploded.pkl')
 ```
-
-
-    ---------------------------------------------------------------------------
-
-    FileNotFoundError                         Traceback (most recent call last)
-
-    Cell In[3], line 1
-    ----> 1 df = pd.read_pickle('data/dataframes/newsgroup_body_cleaned_exploded.pkl')
-
-
-    File ~/.local/lib/python3.8/site-packages/pandas/io/pickle.py:196, in read_pickle(filepath_or_buffer, compression, storage_options)
-        129 """
-        130 Load pickled pandas object (or any object) from file.
-        131 
-       (...)
-        193 >>> os.remove("./dummy.pkl")
-        194 """
-        195 excs_to_catch = (AttributeError, ImportError, ModuleNotFoundError, TypeError)
-    --> 196 with get_handle(
-        197     filepath_or_buffer,
-        198     "rb",
-        199     compression=compression,
-        200     is_text=False,
-        201     storage_options=storage_options,
-        202 ) as handles:
-        203 
-        204     # 1) try standard library Pickle
-        205     # 2) try pickle_compat (older pandas version) to handle subclass changes
-        206     # 3) try pickle_compat with latin-1 encoding upon a UnicodeDecodeError
-        208     try:
-        209         # TypeError for Cython complaints about object.__new__ vs Tick.__new__
-        210         try:
-
-
-    File ~/.local/lib/python3.8/site-packages/pandas/io/common.py:711, in get_handle(path_or_buf, mode, encoding, compression, memory_map, is_text, errors, storage_options)
-        702         handle = open(
-        703             handle,
-        704             ioargs.mode,
-       (...)
-        707             newline="",
-        708         )
-        709     else:
-        710         # Binary mode
-    --> 711         handle = open(handle, ioargs.mode)
-        712     handles.append(handle)
-        714 # Convert BytesIO or file objects passed with an encoding
-
-
-    FileNotFoundError: [Errno 2] No such file or directory: 'data/dataframes/newsgroup_body_cleaned_exploded.pkl'
-
-
 
 ```python
 df['subject'] = df['subject'].apply(lambda x: utils.replace_rejoin(x))
@@ -281,18 +223,10 @@ print(model.predict(padded))
       0.4187051 ]]
 
 
-
 ```python
 # TensorFlow SavedModel format => .keras
 model_file = 'models/newsgroup_clean_model'
 model.save(model_file)
 ```
 
-    WARNING:absl:Found untraced functions such as _update_step_xla while saving (showing 1 of 1). These functions will not be directly callable after loading.
-
-
-    INFO:tensorflow:Assets written to: models/newsgroup_clean_model/assets
-
-
-    INFO:tensorflow:Assets written to: models/newsgroup_clean_model/assets
 
