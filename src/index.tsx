@@ -106,6 +106,22 @@ const router = createBrowserRouter([
     path: `/articles/news/clean_run_04`,
     element: <MdArticle subDir={'news'} title={'clean_run_04'} />,
   },
+  {
+    path: `/articles/news/body_clean_run_01`,
+    element: <MdArticle subDir={'news'} title={'body_clean_run_01'} />,
+  },
+  {
+    path: `/articles/news/body_clean_run_02`,
+    element: <MdArticle subDir={'news'} title={'body_clean_run_02'} />,
+  },
+  {
+    path: `/articles/news/body_clean_run_03`,
+    element: <MdArticle subDir={'news'} title={'body_clean_run_03'} />,
+  },
+  {
+    path: `/articles/news/body_clean_run_04`,
+    element: <MdArticle subDir={'news'} title={'body_clean_run_04'} />,
+  },
 
 
 
