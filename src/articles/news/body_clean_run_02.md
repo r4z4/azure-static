@@ -17,6 +17,13 @@ from keras.preprocessing.text import Tokenizer
 from keras.utils import pad_sequences
 ```
 
+    2023-06-21 00:10:01.012267: I tensorflow/tsl/cuda/cudart_stub.cc:28] Could not find cuda drivers on your machine, GPU will not be used.
+    2023-06-21 00:10:01.144339: I tensorflow/tsl/cuda/cudart_stub.cc:28] Could not find cuda drivers on your machine, GPU will not be used.
+    2023-06-21 00:10:01.146019: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+    To enable the following instructions: AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+    2023-06-21 00:10:03.123061: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+
+
 
 ```python
 # Load model
@@ -31,24 +38,25 @@ model = keras.models.load_model(model_file)
 df = pd.read_pickle('../data/dataframes/newsgroup_body_cleaned_exploded.pkl')
 ```
 
+
 ```python
-df['subject'] = df['subject'].apply(lambda x: utils.replace_rejoin(x))
-print(df.sample(frac=1).reset_index(drop=True).head().to_markdown(tablefmt="grid"))
+from IPython.display import display, HTML
+display(HTML("<style>.container { width:100% !important; }</style>"))
+df['exploded_body'] = df['exploded_body'].apply(lambda x: utils.replace_rejoin(x))
+print(df.sample(frac=1).reset_index(drop=True).loc[:,['newsgroup', 'exploded_body']].head().to_markdown())
 ```
 
-    +----+-------------+------------------------------------+
-    |    | newsgroup   | subject                            |
-    +====+=============+====================================+
-    |  0 | comp_elec   | w4w publish envelop dj550c 500c    |
-    +----+-------------+------------------------------------+
-    |  1 | sport       | opinion eli denni render           |
-    +----+-------------+------------------------------------+
-    |  2 | autos       | point helmet law point megahertz b |
-    +----+-------------+------------------------------------+
-    |  3 | comp_elec   | centris610 trouble                 |
-    +----+-------------+------------------------------------+
-    |  4 | sport       | cub gritty april 6th               |
-    +----+-------------+------------------------------------+
+
+<style>.container { width:100% !important; }</style>
+
+
+    |    | newsgroup   | exploded_body                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+    |---:|:------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+    |  0 | religion    | apr god promis chronicl fail fill asa said unto pick up ye asa judah benjamin godhead ye ye seek found ye forsak forsak chronicl                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+    |  1 | comp_elec   | page setup notepad previou articl joel jachhawaiiedu joel aycock drop a line struggl margin problem age well final got hold sharewar binari editor beav dug notepadex setup facil forc notepad default margins- hardwir code search chang offend byte et viola guy hardcod option anyway worry whether problem onli rear ugli head certain printers- employment old epson lx- ex- never rememb aloha nto alon get problem panason kpx i trap oterhwis great printer ca nt find driver onli non- version anyon seen rob -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --                                                                                                                    |
+    |  2 | politics    | convict ye survey present accord mr cramer valu call median- one use thi make us believ manly plu sex partner manly less sex partner homosexu purport make onli thi case major peopl plu sex partner heterosexu feel median wa intend word usag littl evid support mr cramer claim gay promiscu hetero promiscu mani netter mr cramer includ often forget american intermediate mere number busi purpos life make money owner stockhold revenu come larg advertis mere want maximum use exposur per dollar intermediate like fast food qualiti food report improv onli custom demand otherwis busi usual -- veri good- thi point                                                                      |
+    |  3 | sci_med     | plato sinc whole enterpris philosophi wa essenti defin although got hi suffice wrong definit identifi import interrogate believe wa descart said philosophi footnot plato choos philosoph made import advanc human knowledg hi lifetim simpl aristotl thi much case mani simpli refer philosoph regard nietzsch one entertain although sinc hi idea fragment sinc hi life wa cut short doubt hi influenc philosoph like veri extens year probabl still read year though modern philosoph would say immanuel kant wa influenti sinc strong influenc almost everyon came unfortun maintain hi error amplifi time would say influenti american philosoph would dewey interrogate philosoph highli regard |
+    |  4 | comp_elec   | dx eisa bu s unused speed local bu -- ani idea andrea dist institut fuer computersystem eth zuerich electronic mail dist infethzch                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 
 
 
@@ -61,7 +69,7 @@ target_categories = ['sport', 'autos', 'religion', 'comp_elec', 'sci_med', 'sell
 
 ```python
 # container for sentences
-X = np.array([s for s in df['subject']])
+X = np.array([s for s in df['exploded_body']])
 # container for sentences
 y = np.array([n for n in df['newsgroup']])
 ```
@@ -89,8 +97,8 @@ len(X_train), len(X_test), classes, mapping
 
 
 
-    (6171,
-     2057,
+    (51882,
+     17295,
      array([0, 1, 2, 3, 4, 5, 6]),
      {0: 'sport',
       1: 'autos',
@@ -141,47 +149,50 @@ history = model.fit(train_padded, y_train,
 pred = model.predict(validation_padded)
 ```
 
+    2023-06-21 00:29:07.052575: W tensorflow/tsl/framework/cpu_allocator_impl.cc:83] Allocation of 17432160 exceeds 10% of free system memory.
+
+
     Epoch 1/20
-    135/135 [==============================] - 2s 7ms/step - loss: 1.8397 - accuracy: 0.4063 - val_loss: 1.8383 - val_accuracy: 0.4228
+    1135/1135 [==============================] - 5s 3ms/step - loss: 2.1807 - accuracy: 0.4020 - val_loss: 1.3669 - val_accuracy: 0.5232
     Epoch 2/20
-    135/135 [==============================] - 0s 3ms/step - loss: 1.7779 - accuracy: 0.4184 - val_loss: 1.7834 - val_accuracy: 0.4303
+    1135/1135 [==============================] - 4s 3ms/step - loss: 1.1810 - accuracy: 0.5877 - val_loss: 0.9958 - val_accuracy: 0.6583
     Epoch 3/20
-    135/135 [==============================] - 1s 4ms/step - loss: 1.7320 - accuracy: 0.4316 - val_loss: 1.7465 - val_accuracy: 0.4357
+    1135/1135 [==============================] - 5s 4ms/step - loss: 0.8793 - accuracy: 0.6990 - val_loss: 0.7855 - val_accuracy: 0.7329
     Epoch 4/20
-    135/135 [==============================] - 0s 3ms/step - loss: 1.7004 - accuracy: 0.4367 - val_loss: 1.7193 - val_accuracy: 0.4368
+    1135/1135 [==============================] - 4s 4ms/step - loss: 0.7055 - accuracy: 0.7607 - val_loss: 0.6652 - val_accuracy: 0.7784
     Epoch 5/20
-    135/135 [==============================] - 0s 3ms/step - loss: 1.6749 - accuracy: 0.4390 - val_loss: 1.6947 - val_accuracy: 0.4482
+    1135/1135 [==============================] - 4s 3ms/step - loss: 0.6038 - accuracy: 0.7972 - val_loss: 0.6038 - val_accuracy: 0.7987
     Epoch 6/20
-    135/135 [==============================] - 1s 4ms/step - loss: 1.6523 - accuracy: 0.4473 - val_loss: 1.6811 - val_accuracy: 0.4395
+    1135/1135 [==============================] - 4s 3ms/step - loss: 0.5404 - accuracy: 0.8177 - val_loss: 0.5597 - val_accuracy: 0.8115
     Epoch 7/20
-    135/135 [==============================] - 0s 3ms/step - loss: 1.6345 - accuracy: 0.4503 - val_loss: 1.6640 - val_accuracy: 0.4471
+    1135/1135 [==============================] - 4s 4ms/step - loss: 0.4974 - accuracy: 0.8321 - val_loss: 0.5313 - val_accuracy: 0.8202
     Epoch 8/20
-    135/135 [==============================] - 1s 4ms/step - loss: 1.6184 - accuracy: 0.4533 - val_loss: 1.6462 - val_accuracy: 0.4509
+    1135/1135 [==============================] - 4s 4ms/step - loss: 0.4664 - accuracy: 0.8427 - val_loss: 0.5147 - val_accuracy: 0.8280
     Epoch 9/20
-    135/135 [==============================] - 1s 4ms/step - loss: 1.6045 - accuracy: 0.4543 - val_loss: 1.6334 - val_accuracy: 0.4579
+    1135/1135 [==============================] - 4s 4ms/step - loss: 0.4438 - accuracy: 0.8496 - val_loss: 0.5014 - val_accuracy: 0.8297
     Epoch 10/20
-    135/135 [==============================] - 0s 3ms/step - loss: 1.5903 - accuracy: 0.4568 - val_loss: 1.6230 - val_accuracy: 0.4654
+    1135/1135 [==============================] - 4s 3ms/step - loss: 0.4244 - accuracy: 0.8560 - val_loss: 0.4904 - val_accuracy: 0.8353
     Epoch 11/20
-    135/135 [==============================] - 1s 4ms/step - loss: 1.5772 - accuracy: 0.4587 - val_loss: 1.6107 - val_accuracy: 0.4584
+    1135/1135 [==============================] - 4s 4ms/step - loss: 0.4088 - accuracy: 0.8627 - val_loss: 0.4824 - val_accuracy: 0.8359
     Epoch 12/20
-    135/135 [==============================] - 1s 6ms/step - loss: 1.5707 - accuracy: 0.4605 - val_loss: 1.6066 - val_accuracy: 0.4552
+    1135/1135 [==============================] - 4s 4ms/step - loss: 0.3961 - accuracy: 0.8648 - val_loss: 0.4782 - val_accuracy: 0.8382
     Epoch 13/20
-    135/135 [==============================] - 1s 4ms/step - loss: 1.5534 - accuracy: 0.4628 - val_loss: 1.5983 - val_accuracy: 0.4509
+    1135/1135 [==============================] - 4s 4ms/step - loss: 0.3851 - accuracy: 0.8675 - val_loss: 0.4762 - val_accuracy: 0.8373
     Epoch 14/20
-    135/135 [==============================] - 0s 3ms/step - loss: 1.5410 - accuracy: 0.4654 - val_loss: 1.5805 - val_accuracy: 0.4746
+    1135/1135 [==============================] - 4s 3ms/step - loss: 0.3761 - accuracy: 0.8711 - val_loss: 0.4723 - val_accuracy: 0.8421
     Epoch 15/20
-    135/135 [==============================] - 0s 3ms/step - loss: 1.5291 - accuracy: 0.4693 - val_loss: 1.5743 - val_accuracy: 0.4627
+    1135/1135 [==============================] - 4s 3ms/step - loss: 0.3679 - accuracy: 0.8736 - val_loss: 0.4753 - val_accuracy: 0.8421
     Epoch 16/20
-    135/135 [==============================] - 0s 3ms/step - loss: 1.5170 - accuracy: 0.4705 - val_loss: 1.5635 - val_accuracy: 0.4746
+    1135/1135 [==============================] - 4s 3ms/step - loss: 0.3606 - accuracy: 0.8758 - val_loss: 0.4741 - val_accuracy: 0.8422
     Epoch 17/20
-    135/135 [==============================] - 1s 4ms/step - loss: 1.5050 - accuracy: 0.4774 - val_loss: 1.5585 - val_accuracy: 0.4746
+    1135/1135 [==============================] - 4s 3ms/step - loss: 0.3546 - accuracy: 0.8789 - val_loss: 0.4749 - val_accuracy: 0.8427
     Epoch 18/20
-    135/135 [==============================] - 0s 3ms/step - loss: 1.4916 - accuracy: 0.4774 - val_loss: 1.5420 - val_accuracy: 0.4741
+    1135/1135 [==============================] - 4s 4ms/step - loss: 0.3496 - accuracy: 0.8804 - val_loss: 0.4749 - val_accuracy: 0.8424
     Epoch 19/20
-    135/135 [==============================] - 0s 3ms/step - loss: 1.4766 - accuracy: 0.4807 - val_loss: 1.5353 - val_accuracy: 0.4741
+    1135/1135 [==============================] - 4s 4ms/step - loss: 0.3430 - accuracy: 0.8823 - val_loss: 0.4765 - val_accuracy: 0.8430
     Epoch 20/20
-    135/135 [==============================] - 1s 5ms/step - loss: 1.4636 - accuracy: 0.4853 - val_loss: 1.5238 - val_accuracy: 0.4779
-    65/65 [==============================] - 0s 2ms/step
+    1135/1135 [==============================] - 4s 3ms/step - loss: 0.3397 - accuracy: 0.8823 - val_loss: 0.4821 - val_accuracy: 0.8353
+    541/541 [==============================] - 1s 1ms/step
 
 
 
@@ -190,7 +201,7 @@ import os
 
 file_name = 'run_02'
 plot_type = 'history'
-model_name = 'newsgroup_clean'
+model_name = 'newsgroup_body_clean'
 #####
 os.makedirs(f"images/{plot_type}", exist_ok=True)
 os.makedirs(f"images/{plot_type}/{model_name}", exist_ok=True)
@@ -223,10 +234,18 @@ print(model.predict(padded))
       0.4187051 ]]
 
 
+
 ```python
 # TensorFlow SavedModel format => .keras
-model_file = 'models/newsgroup_clean_model'
+model_file = 'models/newsgroup_body_clean_model'
 model.save(model_file)
 ```
 
+    WARNING:absl:Found untraced functions such as _update_step_xla while saving (showing 1 of 1). These functions will not be directly callable after loading.
+
+
+    INFO:tensorflow:Assets written to: models/newsgroup_body_clean_model/assets
+
+
+    INFO:tensorflow:Assets written to: models/newsgroup_body_clean_model/assets
 
