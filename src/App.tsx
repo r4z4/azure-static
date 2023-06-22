@@ -54,20 +54,20 @@ function App() {
             <div className='circle'></div>
         </div>
       </div>
-          <p style={{marginTop: '12px'}}>
+          <p className="text-glow text-gradient" style={{marginTop: '12px'}}>
             Various Curated NLP trial runs.
           </p>
         <p className="subText">For now just links to site hosted by GitHub</p>
         <div className={'links-container'}>
         <a
-          className="route-link"
+          className="route-link text-glow text-gradient"
           href="/articles"
           rel="noopener noreferrer"
         >
           Articles
         </a>
         <a
-          className="route-link"
+          className="route-link text-glow text-gradient-fire"
           href="https://r4z4.github.io"
           target="_blank"
           rel="noopener noreferrer"

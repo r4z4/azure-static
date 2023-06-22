@@ -129,28 +129,28 @@ const CleanRun04: PanelDocument = {
 }
 
 const BodyCleanRun01: PanelDocument = {
-  id: 14,
+  id: 18,
   filename: '20_News Run 01',
   url: '/articles/news/body_clean_run_01',
   previewComponent: <MdArticlePrev title={'BodyRun01'} desc={'Original Runs with Full Body data for 20 Newsgroup Dataset'} concepts={['Preprocessing']} hangups={['Meaning Retention']} />
 }
 
 const BodyCleanRun02: PanelDocument = {
-  id: 15,
+  id: 19,
   filename: '20_News Run 02',
   url: '/articles/news/body_clean_run_02',
   previewComponent: <MdArticlePrev title={'BodyRun02'} desc={'Original Runs with Full Body data for 20 Newsgroup Dataset'} concepts={['Preprocessing']} hangups={['eaning Retention']} />
 }
 
 const BodyCleanRun03: PanelDocument = {
-  id: 16,
+  id: 20,
   filename: '20_News Run 03',
   url: '/articles/news/body_clean_run_03',
   previewComponent: <MdArticlePrev title={'BodyRun03'} desc={'Original Runs with Full Body data for 20 Newsgroup Dataset'} concepts={['Preprocessing']} hangups={['eaning Retention']} />
 }
 
 const BodyCleanRun04: PanelDocument = {
-  id: 17,
+  id: 21,
   filename: '20_News Run 04',
   url: '/articles/news/body_clean_run_04',
   previewComponent: <MdArticlePrev title={'BodyRun04'} desc={'Original Runs with Full Body data for 20 Newsgroup Dataset'} concepts={['Preprocessing']} hangups={['eaning Retention']} />
@@ -166,7 +166,7 @@ function ArticleHome({ active = false }: ArticleHomeProps) {
     name: 'TREC Dataset',
     date: '05-22-2023',
     desc: 'Initial Run for the Text REtrieval Conference (TREC) Question Classification dataset.',
-    bgColor: '#fee6dd',
+    bgColor: '#b3b300',
     category: 'NLP',
     documents: [trecEda, trecAug, runOneDocOne, runOneDocTwo],
   }
@@ -175,7 +175,7 @@ function ArticleHome({ active = false }: ArticleHomeProps) {
     name: 'GloVe',
     date: '05-29-2023',
     desc: 'Several Runs Using GloVe (2014) Word Embeddings.',
-    bgColor: '#effedd',
+    bgColor: '#002699',
     category: 'NLP',
     documents: [runTwoDocOne, runTwoDocTwo, runTwoDocThree, runTwoDocFour],
   }
@@ -184,7 +184,7 @@ function ArticleHome({ active = false }: ArticleHomeProps) {
     name: 'Topic Modeling',
     date: '05-11-2023',
     desc: 'Topic Modeling Techniques: Transformers, LDA, SKMeans',
-    bgColor: '#fbddfe',
+    bgColor: '#801a00',
     category: 'NLP',
     documents: [TopicModelingDocOne, TopicModelingDocTwo],
   }
@@ -193,7 +193,7 @@ function ArticleHome({ active = false }: ArticleHomeProps) {
     name: 'Trivia Dataset',
     date: '04-17-2023',
     desc: 'Trivia Question Dataset: Classification, Linear Discriminant Analysis',
-    bgColor: '#fefddd',
+    bgColor: '#4d3900',
     category: 'NLP',
     documents: [TriviaDocOne],
   }
@@ -202,7 +202,7 @@ function ArticleHome({ active = false }: ArticleHomeProps) {
     name: 'Word Embeddings',
     date: '04-10-2023',
     desc: 'All Things Embeddings.',
-    bgColor: '#ddfefc',
+    bgColor: '#001a09',
     category: 'NLP',
     documents: [GenerateEmbeddings],
   }
@@ -211,7 +211,7 @@ function ArticleHome({ active = false }: ArticleHomeProps) {
     name: 'Dimensionality Reduction',
     date: '06-10-2023',
     desc: 'Brief Exploration of the various techniques, and why they are needed.',
-    bgColor: '#e0e0eb',
+    bgColor: '#33001a',
     category: 'NLP',
     documents: [EmbeddingViz],
   }
@@ -220,7 +220,7 @@ function ArticleHome({ active = false }: ArticleHomeProps) {
     name: 'The 20_Newsgroup Data',
     date: '06-10-2023',
     desc: 'This is the dataset that we use in the initial GloVe runs. These notebooks are some of the original runs that were done with the dataset and the preprocessing steps as well,',
-    bgColor: '#e0e0eb',
+    bgColor: '#4d2600',
     category: 'NLP',
     documents: [NewsgroupEDA, CleanRun01, CleanRun02, CleanRun03, CleanRun04, BodyCleanRun01, BodyCleanRun02, BodyCleanRun03, BodyCleanRun04],
   }
