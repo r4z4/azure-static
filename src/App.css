@@ -1,17 +1,30 @@
+:root {
+  /* violet */
+  --primary-color: 111, 76, 255;
+
+  /* white */
+  --text-color: 256, 256, 256;
+}
+
+#root {
+  background-color: #111;
+}
+
 .App {
   padding: 2px;
-  background-color: #fafdfd;
   min-height: 100vh;
+  margin: auto;
   width: 98%;
   max-height: 100vh;
 }
 
 a:visited {
-  color: rgb(58, 49, 107);
+  color: rgb(229, 205, 238);
 }
 
 a {
   color: rgb(40, 100, 178);
+  text-decoration: none;
 }
 
 .App-logo {
@@ -21,14 +34,14 @@ a {
 }
 
 .App-header {
-  background-color: #f1e4f9;
+  background-color: #100218;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: rgb(39, 10, 34);
+  color: #eee;
   border-radius: 10px;
   border: 1px solid black;
 }
@@ -36,7 +49,7 @@ a {
 .article-grid-container {
   display: inline-grid;
   padding: 15px;
-  background-color:rgb(247, 237, 249);
+  background-color: #100218;
   min-height: 100vh;
   width: 100%;
   grid-template-columns: repeat(4, 1fr);
@@ -44,14 +57,6 @@ a {
   row-gap: 5%;
   /* align-items: center;
   justify-content: center; */
-}
-
-.article-grid-item {
-  background-color: #f1e4f9;
-  border: 1px solid rgba(0, 0, 0, 0.8);
-  padding: 20px;
-  font-size: 30px;
-  text-align: center;
 }
 
 aside {
@@ -70,11 +75,26 @@ code {
 }
 
 .collapse-panel {
+  color: #eee;
   width: 100%;
   text-align: center;
-  border: 1px solid black;
+  border: 1px solid #eee;;
   border-radius: 10px;
   position: relative;
+  background: radial-gradient(
+    circle at 50% 0,
+    rgba(86, 17, 88, 0.5),
+    rgba(197, 47, 187, 0) 70.71%
+  ), radial-gradient(
+    circle at 6.7% 75%,
+    rgba(81, 23, 79, 0.5),
+    rgba(76, 4, 74, 0) 70.71%
+  ),
+  radial-gradient(
+      circle at 93.3% 75%,
+      rgba(92, 16, 127, 0.75),
+      rgba(234, 0, 255, 0) 70.71%
+    ) rgb(6, 0, 7);
 }
 
 .collapse-img {
@@ -105,6 +125,10 @@ code {
   padding: 0px;
 }
 
+.glow:hover {
+  box-shadow: rgba(var(--primary-color), 0.5) 0px 0px 20px 0px;
+}
+
 .grid-container {
   display: flex;
 }
@@ -126,6 +150,11 @@ html, body {
 .icon {
   max-width: 25px;
   height: auto;
+}
+
+.white-filter {
+  -webkit-filter: brightness(0) invert(1);
+  filter: brightness(0) invert(1);
 }
 
 @-webkit-keyframes App-logo-spin {
@@ -223,9 +252,9 @@ html, body {
 
 nav {
   text-align: center;
-  background-color: #f1e4f9;
+  background-color: #100218;
   border-radius: 10px;
-  border: 1px solid black;
+  border: 1px solid white;
   width: 80%;
   margin: auto;
 }
@@ -234,6 +263,7 @@ nav a {
   padding: 0px 10px;
   text-decoration: none;
   padding: 3px;
+  color: #eee;
 }
 
 .openbtn {
@@ -257,6 +287,10 @@ nav a {
   text-align: left;
   margin: 0px;
   padding: 0px;
+}
+
+.panel-doc-list a {
+  font-weight: bold;
 }
 
 .panel-doc-prev {
@@ -338,10 +372,17 @@ pre {
 .route-link {
   color: #260a2649;
   text-decoration: none;
+  transition: all 0.3s ease;
+  border-radius: 5px;
+  color: #eee;
+}
+
+.route-link:hover {
+  transition: all 0.3s ease;
 }
 
 .route-link:visited {
-  color: rgb(58, 49, 107);
+  color: rgb(214, 212, 228);
 }
 
 .side-panel-aside {
@@ -381,6 +422,31 @@ pre {
 
 .subText {
   font-size: 50%;
+}
+
+.text-glow {
+  text-shadow: 0 0 80px rgb(192 219 255 / 50%), 0 0 32px rgb(65 120 255 / 49%);
+}
+
+.text-gradient {
+  background: linear-gradient(to right, #30CFD0, #c43ad6);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-fire {
+  background: linear-gradient(to right, #db2303, #f9bb6b);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-ash {
+  background: linear-gradient(to left, #eaf3f5, #b0b0b0e6);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .toggle-button {

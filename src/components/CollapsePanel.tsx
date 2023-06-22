@@ -39,7 +39,7 @@ function CollapsePanel({ panelData }: CollapsePanelProps) {
     <div className="collapse-panel" style={{backgroundColor: panelData.bgColor ? panelData.bgColor : ''}}>
       <span className="show-more" onClick={() => setExpanded(!expanded)}>
         <div className="collapse-img">
-          {expanded ? <img width={'35px'} src={FolderOpenIcon} alt='folderClosedIcon'/> : <img width={'35px'} src={FolderClosedIcon} alt='folderOpenIcon'/>}
+          {expanded ? <img width={'35px'} className="white-filter" src={FolderOpenIcon} alt='folderClosedIcon'/> : <img width={'35px'} className="white-filter" src={FolderClosedIcon} alt='folderOpenIcon'/>}
         </div>
         <p className='panel-dir-name'>{panelData.name}</p>
       </span>
@@ -55,7 +55,7 @@ function CollapsePanel({ panelData }: CollapsePanelProps) {
                     key={doc.id}
                     onMouseEnter={() => setIsShown(doc.previewComponent)}
                     onMouseLeave={() => setIsShown(<></>)}>
-                      <a href={doc.url}><img className="icon" src={NotebookSimple} alt='notebookSimpleIcon'/>{doc.filename}</a>
+                      <a className="text-gradient-ash" href={doc.url}><img className="icon white-filter" src={NotebookSimple} alt='notebookSimpleIcon'/>{doc.filename}</a>
                   </li>
                 </div>
               </ul>
