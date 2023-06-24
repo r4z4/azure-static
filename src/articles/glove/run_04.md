@@ -1,3 +1,11 @@
+# GloVe Run 04
+
+---
+
+This will be the final run here with the GloVe embeddings and the last stage in the augmentation. So far we have not really seen to much improvement and I anticipate that will be the case here, but nevertheless let's go ahead and complete the cycle.
+
+---
+
 ```python
 import numpy as np
 import regex as re
@@ -152,11 +160,15 @@ word_embeddings[1][:10]
             0.37075001, -0.75874001, -0.44722   ,  0.22563   ,  0.10208   ])
 
 
+---
+
 
 ### Approach 1: GloVe Embeddings Flattened (Max Tokens=50, Embedding Length=300) 
 
 ### Load previously trained model
 
+
+---
 
 ```python
 # Load model
@@ -287,8 +299,13 @@ skplt.metrics.plot_confusion_matrix([target_categories[i] for i in y_test], [tar
                                     );
 plt.xticks(rotation=90);
 ```
+---
+
+![png](/images/glove/run_04.png#img-thumbnail)
 
 ### Custom Test
+
+---
 
 
 ```python
@@ -352,4 +369,3 @@ print(cstm_test_preds)
 
 
 
-![png](/images/glove/run_04.png)

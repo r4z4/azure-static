@@ -155,3 +155,5 @@ with open(LDAvis_data_filepath, 'rb') as f:
 pyLDAvis.save_html(LDAvis_prepared, './results/ldavis_prepared_'+ str(num_topics) +'.html')
 LDAvis_prepared
 ```
+
+![png](/images/topic-modeling/02_LDA.png#img-thumbnail)

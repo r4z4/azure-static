@@ -1,3 +1,9 @@
+# TREC Dataset with EDA - Easy Data Augmentation - Methods
+
+---
+
+This is another dataset where we have a relatively small dataset, and so we'll be using the EDA methods for some simple data augmentation, which will allow us to quickly and easily maximize the size of the data that we have. We will use the Synonym Repalcement, Random Insertion and Random Swap methods and see where that will take us.
+
 ```python
 import pandas as pd
 import random
@@ -390,9 +396,11 @@ replace_rejoin_rs('What is the total land mass of the continent of africa')
 ```python
 df['question_cleaned_rs'] = df['question_cleaned'].apply(lambda x: replace_rejoin_rs(x))
 ```
+---
 
 For our particular case here we will not be using the Random Deletion. We can still perform the augmentation though and add it to our dataframe for reference, and I belive you will see why there is really no need for us to use this method here.
 
+---
 
 ```python
 ########################################################################

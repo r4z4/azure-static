@@ -1,3 +1,11 @@
+# Newsgroup 20 Dataset with Body - Clean Run 02
+
+---
+
+After seeing some pretty lackluster results from the subject only dataset, lets now go ahead and use the body for the text that we will train on. This should offer us a lot more data, but it was a struggle wrangling it all into the dataframes. I chose to go ahead and start from the text files themselves, and I will incode some snippets of the transformations below.
+
+---
+
 ```python
 import numpy as np
 import regex as re
@@ -16,13 +24,6 @@ from sklearn.preprocessing import LabelEncoder
 from keras.preprocessing.text import Tokenizer
 from keras.utils import pad_sequences
 ```
-
-    2023-06-21 00:10:01.012267: I tensorflow/tsl/cuda/cudart_stub.cc:28] Could not find cuda drivers on your machine, GPU will not be used.
-    2023-06-21 00:10:01.144339: I tensorflow/tsl/cuda/cudart_stub.cc:28] Could not find cuda drivers on your machine, GPU will not be used.
-    2023-06-21 00:10:01.146019: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
-    To enable the following instructions: AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
-    2023-06-21 00:10:03.123061: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
-
 
 
 ```python
@@ -50,13 +51,13 @@ print(df.sample(frac=1).reset_index(drop=True).loc[:,['newsgroup', 'exploded_bod
 <style>.container { width:100% !important; }</style>
 
 
-    |    | newsgroup   | exploded_body                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-    |---:|:------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-    |  0 | religion    | apr god promis chronicl fail fill asa said unto pick up ye asa judah benjamin godhead ye ye seek found ye forsak forsak chronicl                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-    |  1 | comp_elec   | page setup notepad previou articl joel jachhawaiiedu joel aycock drop a line struggl margin problem age well final got hold sharewar binari editor beav dug notepadex setup facil forc notepad default margins- hardwir code search chang offend byte et viola guy hardcod option anyway worry whether problem onli rear ugli head certain printers- employment old epson lx- ex- never rememb aloha nto alon get problem panason kpx i trap oterhwis great printer ca nt find driver onli non- version anyon seen rob -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --                                                                                                                    |
-    |  2 | politics    | convict ye survey present accord mr cramer valu call median- one use thi make us believ manly plu sex partner manly less sex partner homosexu purport make onli thi case major peopl plu sex partner heterosexu feel median wa intend word usag littl evid support mr cramer claim gay promiscu hetero promiscu mani netter mr cramer includ often forget american intermediate mere number busi purpos life make money owner stockhold revenu come larg advertis mere want maximum use exposur per dollar intermediate like fast food qualiti food report improv onli custom demand otherwis busi usual -- veri good- thi point                                                                      |
-    |  3 | sci_med     | plato sinc whole enterpris philosophi wa essenti defin although got hi suffice wrong definit identifi import interrogate believe wa descart said philosophi footnot plato choos philosoph made import advanc human knowledg hi lifetim simpl aristotl thi much case mani simpli refer philosoph regard nietzsch one entertain although sinc hi idea fragment sinc hi life wa cut short doubt hi influenc philosoph like veri extens year probabl still read year though modern philosoph would say immanuel kant wa influenti sinc strong influenc almost everyon came unfortun maintain hi error amplifi time would say influenti american philosoph would dewey interrogate philosoph highli regard |
-    |  4 | comp_elec   | dx eisa bu s unused speed local bu -- ani idea andrea dist institut fuer computersystem eth zuerich electronic mail dist infethzch                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+|    | newsgroup   | exploded_body                                                                                                       |
+|---:|:------------|:--------------------------------------------------------------------------------------------------------------------|
+|  0 | religion    | apr god promis chronicl fail fill asa said unto pick up ye asa judah benjamin godhead ye ye seek found ye forsak fo |
+|  1 | comp_elec   | page setup notepad previou articl joel jachhawaiiedu joel aycock drop a line struggl margin problem age well final  |
+|  2 | politics    | convict ye survey present accord mr cramer valu call median- one use thi make us believ manly plu sex partner manly |
+|  3 | sci_med     | plato sinc whole enterpris philosophi wa essenti defin although got hi suffice wrong definit identifi import intee  |
+|  4 | comp_elec   | dx eisa bu s unused speed local bu -- ani idea andrea dist institut fuer computersystem eth zuerich electronic ma   |
 
 
 
@@ -240,12 +241,4 @@ print(model.predict(padded))
 model_file = 'models/newsgroup_body_clean_model'
 model.save(model_file)
 ```
-
-    WARNING:absl:Found untraced functions such as _update_step_xla while saving (showing 1 of 1). These functions will not be directly callable after loading.
-
-
-    INFO:tensorflow:Assets written to: models/newsgroup_body_clean_model/assets
-
-
-    INFO:tensorflow:Assets written to: models/newsgroup_body_clean_model/assets
 

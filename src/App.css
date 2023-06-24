@@ -7,7 +7,7 @@
 }
 
 #root {
-  background-color: #111;
+  background-color: #130111;
 }
 
 .App {
@@ -252,7 +252,7 @@ html, body {
 
 nav {
   text-align: center;
-  background-color: #100218;
+  background-color: #130111;
   border-radius: 10px;
   border: 1px solid white;
   width: 80%;
@@ -361,7 +361,7 @@ pre {
   font-family: Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", Monaco, "Courier New", Courier, monospace;
   font-size:85%;
   width: min-content;
-  margin-left: 3%;
+  margin-left: 4%;
   tab-size: 4; 
   padding: 4px;
   border: 0.5px solid #d3d3d3;

@@ -181,3 +181,5 @@ with open(f'{os.getcwd()}/output/embedding.txt', 'w') as f:
 One of the really interesting and useful tools that I came across, and that I use quite regularly - often times for sanity checks, is the [Tensorflow Embedding Projector](https://projector.tensorflow.org/). It just provides a really quick and easy way to do some of the visualization that we have seen already, except you don't have to step through the notebook each time. For example, here is a quick image of a search for the word "Hazard".
 
 ---
+
+![gif](/images/embeddings/tf_gif.gif#img-thumbnail)

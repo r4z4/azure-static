@@ -1,4 +1,4 @@
-#### GloVe Run 01
+# GloVe Run 01
 
 ---
 
@@ -295,6 +295,7 @@ skplt.metrics.plot_confusion_matrix([target_categories[i] for i in y_test], [tar
                                     );
 plt.xticks(rotation=90);
 ```
+![png](/images/glove/run_01.png#img-thumbnail)
 
 ### Custom Test
 
@@ -357,4 +358,3 @@ print(cstm_test_preds)
 
 
 
-![png](/images/glove/run_01.png)
