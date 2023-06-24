@@ -159,6 +159,9 @@ plt.show()
 ```
 
 
+![png](/images/trivia/lda_trivia_0.png#img-thumbnail)
+
+
 
 ```python
 from sklearn.decomposition import PCA
@@ -195,6 +198,8 @@ data_plot[1,1]
 ```
 
     0.11961195950953266
+
+![png](/images/trivia/lda_trivia_1.png#img-thumbnail)
 
 ```python
 print(data_plot)

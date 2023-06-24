@@ -1,3 +1,11 @@
+# Newsgroup 20 Dataset with Body - Clean Run 04
+
+---
+
+After seeing some pretty lackluster results from the subject only dataset, lets now go ahead and use the body for the text that we will train on. This should offer us a lot more data, but it was a struggle wrangling it all into the dataframes. I chose to go ahead and start from the text files themselves, and I will incode some snippets of the transformations below.
+
+---
+
 ```python
 import numpy as np
 import json
@@ -21,12 +29,6 @@ from keras.utils import pad_sequences, to_categorical
 from sklearn.naive_bayes import MultinomialNB
 ```
 
-    2023-06-21 00:47:39.297891: I tensorflow/tsl/cuda/cudart_stub.cc:28] Could not find cuda drivers on your machine, GPU will not be used.
-    2023-06-21 00:47:39.898066: I tensorflow/tsl/cuda/cudart_stub.cc:28] Could not find cuda drivers on your machine, GPU will not be used.
-    2023-06-21 00:47:39.899722: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
-    To enable the following instructions: AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
-    2023-06-21 00:47:43.555617: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
-
 
 
 ```python
@@ -48,8 +50,8 @@ nan_rows = df[df['exploded_body'].isnull()]
 print(nan_rows.to_markdown())
 ```
 
-    | newsgroup   | body   | exploded_body   |
-    |-------------|--------|-----------------|
+| newsgroup   | body   | exploded_body   |
+|-------------|--------|-----------------|
 
 
 
@@ -93,16 +95,13 @@ print(df.sample(frac=1).reset_index(drop=True).loc[:,['newsgroup', 'exploded_bod
 ```
 
 
-<style>.container { width:100% !important; }</style>
-
-
-    |    | newsgroup   | exploded_body                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-    |---:|:------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-    |  0 | religion    | search illeg weapon also arrest warrant illeg weapon found thi case no-knock warrant wa call difficult flush gun toilet atf could surround compound mark polic car could driven entranc uniform offic could knock serv rcander usual way thi happen koresh refus warrant drove cop gun point tpg folk would kept quiet -- rod anderson nnzo think unit state govern boulder co respons fact bunch warrant nyxcsduedu fanat decid kill themselv satellit nnzo ao- slick willi compassion                                                                                                                                              |
-    |  1 | politics    | took nth degre idea move peopl around abus often kill sole becaus ethnic abhorr thing especi troublesom area peopl differ ethnic group live side side long togeth think stand think wrong talk today troubl region wa happi see violenc croat muslim bosnia subsid thi morn think make progress front go serbian ethnic cleans qualit differ conflict within former yugoslavia part region q mr presid ani count good week presid tragedi waco defeat stimulu bill standoff bosnia wrong go differ look thing reassess laughter presid nt stimulu believ situat bosnia -- good week world nt know administr could made differ realli |
-    |  2 | politics    | armenia azerbaijan two view articl may seassmuedu pt seassmuedu paul thompson schreiber post pt armenia azerbaijan two view pt pt washington report middl east -- pt aprilmay vol xi pt pt -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- affair -- -- -- pt pt pt life blockad yerevan pt -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- pt nanci najarian ms najarian wrote person observ somebodi wish counter realiti                                                                                                                                                                |
-    |  3 | religion    | latest branch davidian articl apr genevarutgersedu conditt tsdarlututexasedu paul conditt wrote think realli sad mani peopl put faith mere man even claim son later andor prophet christ said hi return say desert say wilder believ lightn flash east west shall come son man paraphras - think vers somewher john jon -- -- -- -- -- -- -- -- sig file broken pleas tri god -- -- -- -- -- -- -- --                                                                                                                                                                                                                                |
-    |  4 | politics    | frankli never met woman worth kill anyway ar- chrome barrel worth kill - much thi ha ruin caus recoveri near futur find martial come arm one help danger think crimin thi fault doe thi pinhead know someth rest us nt worri feder martial come get gun govern ca nt seem keep violent crimin jail sinc nt enough prison space legal system over- burden anyway go put million gun-own wo nt fork weapon mayb like volunt servic humbl abod sinc obvious feel sooooo strongli thi nd amend dead accept thi feder anoth way argument ha render useless accept thi find anoth                                                          |
+|    | newsgroup   | exploded_body                                                                                                                                                                  |
+|---:|:------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|  0 | religion    | search illeg weapon also arrest warrant illeg weapon found thi case no-knock warrant wa call difficult flush gun toilet atf could surround compound mark polic car could driv  |
+|  1 | politics    | took nth degre idea move peopl around abus often kill sole becaus ethnic abhorr thing especi troublesom area peopl differ ethnic group live side side long togeth think stand  |
+|  2 | politics    | armenia azerbaijan two view articl may seassmuedu pt seassmuedu paul thompson schreiber post pt armenia azerbaijan two view pt pt washington report middl east -- pt aprilmay  |
+|  3 | religion    | latest branch davidian articl apr genevarutgersedu conditt tsdarlututexasedu paul conditt wrote think realli sad mani peopl put faith mere man even claim son later andor proph|
+|  4 | politics    | frankli never met woman worth kill anyway ar- chrome barrel worth kill - much thi ha ruin caus recoveri near futur find martial come arm one help danger think crimin thi fault|
 
 
 
@@ -127,8 +126,6 @@ df.drop(bad_indices, inplace = True)
 ```python
 df.shape
 ```
-
-
 
 
     (69021, 3)
@@ -295,12 +292,4 @@ It does seem to be performing slightly better than our previous run, but this is
 model_file = 'models/newsgroup_body_clean_model'
 model.save(model_file)
 ```
-
-    WARNING:absl:Found untraced functions such as _update_step_xla while saving (showing 1 of 1). These functions will not be directly callable after loading.
-
-
-    INFO:tensorflow:Assets written to: models/newsgroup_body_clean_model/assets
-
-
-    INFO:tensorflow:Assets written to: models/newsgroup_body_clean_model/assets
 

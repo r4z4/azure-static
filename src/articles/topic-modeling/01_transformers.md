@@ -1,4 +1,4 @@
-#### Topic Modeling on Surface Trivia Question Dataset
+# Topic Modeling on Surface Trivia Question Dataset
 
 ---
 
@@ -82,7 +82,7 @@ plt.colorbar()
 
 
 
-![png](/article_images/topic-modeling/01_transformers.png)
+![png](/images/topic-modeling/01_transformers.png#img-thumbnail)
 
 
 

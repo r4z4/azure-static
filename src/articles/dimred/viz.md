@@ -1,3 +1,11 @@
+# Dimensionality Reduction & Visualization
+
+---
+
+One of the more important steps for actually gaining a sense of intuition about this sort of stuff is using all the visualization libraries out there. It goes hand in hand with what we are doing here with the datasets and actually taking the time to understand the data and see what different combinations can yeld. When you take a step back and combine that with some quality visualizatons, you can really start to spot some patterns, and it can often reveal something about the results or your data that you may not have otherwise noticed. One that comes to mind immediately is when we used the word clouds and discoered that we definitely forgot to remove the stopwords.
+
+---
+
 ```python
 import numpy as np
 from scipy import spatial
@@ -174,7 +182,8 @@ import numpy as np
 import plotly.graph_objs as go
 from sklearn.manifold import TSNE
 
-def display_tsne_scatterplot_3D(model, user_input=None, words=None, label=None, color_map=None, perplexity = 0, learning_rate = 0, iteration = 0, topn=5, sample=10):
+def display_tsne_scatterplot_3D(model, user_input=None, words=None, label=None, color_map=None, 
+                                perplexity = 0, learning_rate = 0, iteration = 0, topn=5, sample=10):
 
     if words == None:
         if sample > 0:
@@ -184,11 +193,13 @@ def display_tsne_scatterplot_3D(model, user_input=None, words=None, label=None, 
     
     word_vectors = np.array([model[w] for w in words])
     
-    three_dim = TSNE(n_components = 3, random_state=0, perplexity = perplexity, learning_rate = learning_rate, n_iter = iteration).fit_transform(word_vectors)[:,:3]
+    three_dim = TSNE(n_components = 3, random_state=0, perplexity = perplexity, 
+                    learning_rate = learning_rate, n_iter = iteration).fit_transform(word_vectors)[:,:3]
 
 
     # For 2D, change the three_dim variable into something like two_dim like the following:
-    # two_dim = TSNE(n_components = 2, random_state=0, perplexity = perplexity, learning_rate = learning_rate, n_iter = iteration).fit_transform(word_vectors)[:,:2]
+    # two_dim = TSNE(n_components = 2, random_state=0, perplexity = perplexity, 
+    #                learning_rate = learning_rate, n_iter = iteration).fit_transform(word_vectors)[:,:2]
 
     data = []
 
