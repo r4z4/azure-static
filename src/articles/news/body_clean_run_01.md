@@ -118,7 +118,8 @@ df['exploded_body'][3]
 
 
 
-    ['analges diuret sometim see otc prepar muscl achesback ach combin aspirin diuret idea seem reduc inflamm get rid fluid doe thi actual work thank -larri c']
+    ['analges diuret sometim see otc prepar muscl achesback ach combin aspirin diuret 
+    idea seem reduc inflamm get rid fluid doe thi actual work thank -larri c']
 
 
 
@@ -460,7 +461,7 @@ utils.plot_history_and_save(history, save_path)
 ```
 
 
-![png](clean_run_01_files/clean_run_01_30_0.png)
+![png](/images/news/body_clean_run_01.png)
 
 
 
@@ -470,18 +471,7 @@ model_file = 'models/newsgroup_body_clean_model'
 model.save(model_file)
 ```
 
-    WARNING:absl:Found untraced functions such as _update_step_xla while saving (showing 1 of 1). These functions will not be directly callable after loading.
-
-
-    INFO:tensorflow:Assets written to: models/newsgroup_body_clean_model/assets
-
-
-    INFO:tensorflow:Assets written to: models/newsgroup_body_clean_model/assets
-
-
 That just warms me up a bit. Now, lets take a look at what some augmentation can do. I am not expecting too much of a change here to be honest, and am actually curious if we will experience any setbacks and what some of the initial runs are like in the epochs.
 
 
-```python
 
-```

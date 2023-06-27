@@ -2,7 +2,7 @@
 
 ---
 
-After seeing some pretty lackluster results from the subject only dataset, lets now go ahead and use the body for the text that we will train on. This should offer us a lot more data, but it was a struggle wrangling it all into the dataframes. I chose to go ahead and start from the text files themselves, and I will incode some snippets of the transformations below.
+We'll keep the same pattern here and continnue with some simple data augmentation. Since this is run #3, that means we'll do the simple insertion.
 
 ---
 
@@ -266,7 +266,7 @@ utils.plot_history_and_save(history, save_path)
 ```
 
 
-![png](clean_run_03_files/clean_run_03_17_0.png)
+![png](/images/news/body_clean_run_03.png)
 
 
 

@@ -1,3 +1,9 @@
+# Newsgroup 20 Dataset - Subject Only - Run 04
+
+---
+
+
+
 ```python
 import numpy as np
 import json
@@ -177,7 +183,8 @@ pred = model.predict(validation_padded)
 ```
 
     Epoch 1/20
-      1/135 [..............................] - ETA: 0s - loss: 0.9555 - accuracy: 0.6562135/135 [==============================] - 1s 5ms/step - loss: 1.0733 - accuracy: 0.6182 - val_loss: 1.2396 - val_accuracy: 0.5575
+      1/135 [..............................] - ETA: 0s - loss: 0.9555 - accuracy: 0.6562135/135 [==============================] - 
+                                               1s 5ms/step - loss: 1.0733 - accuracy: 0.6182 - val_loss: 1.2396 - val_accuracy: 0.5575
     Epoch 2/20
     135/135 [==============================] - 0s 4ms/step - loss: 1.0597 - accuracy: 0.6221 - val_loss: 1.2284 - val_accuracy: 0.5656
     Epoch 3/20
@@ -236,6 +243,9 @@ utils.plot_history_and_save(history, save_path)
 
 
 ![png](/images/news/clean_run_04.png)
+
+
+---
 
 
 It does seem to be performing slightly better than our previous run, but this is still certainly nothing to write home about. Now, let's work with some real data and incorporate the body of these message into our next runs. We will save the model file incase we want to use it later in any form.

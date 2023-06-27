@@ -26,18 +26,6 @@ function MdArticle({ title, desc, concepts, hangups }: MdArticlePrevProps) {
         <span className={'byline'}>
             <p>{desc}</p>
         </span>
-      <div className={'prev-list'}>
-        <h6>Concepts</h6>
-        <ul>
-          {concepts.map((concept: string, index: number)=><li key={index}>{concept}</li>)}
-        </ul>
-      </div>
-      <div className={'prev-list'}>
-        <h6>HangUps</h6>
-        <ul>
-          {hangups.map((hangup: string, index: number)=><li key={index}>{hangup}</li>)}
-        </ul>
-      </div>
       </div>
     </div>
     )
