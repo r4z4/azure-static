@@ -281,10 +281,8 @@ utils.plot_history_and_save(history, save_path)
 ```
 
 
-![png](clean_run_04_files/clean_run_04_18_0.png)
+![png](/images/news/body_clean_run_04.png)
 
-
-It does seem to be performing slightly better than our previous run, but this is still certainly nothing to write home about. Now, let's work with some real data and incorporate the body of these message into our next runs. We will save the model file incase we want to use it later in any form.
 
 
 ```python

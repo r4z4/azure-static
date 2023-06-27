@@ -1,3 +1,8 @@
+# Categorization using Linear Discriminant Analysis
+
+---
+
+
 ```python
 import numpy as np
 import regex as re

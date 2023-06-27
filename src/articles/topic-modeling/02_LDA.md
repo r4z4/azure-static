@@ -1,5 +1,5 @@
-#### Topic Modeling on Surface Trivia Question Dataset
-###### Run 2: Latent Dirichlet Allocation
+# Topic Modeling on Surface Trivia Question Dataset
+## Run 2: Latent Dirichlet Allocation
 
 ---
 

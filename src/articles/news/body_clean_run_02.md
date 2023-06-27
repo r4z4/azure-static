@@ -2,7 +2,7 @@
 
 ---
 
-After seeing some pretty lackluster results from the subject only dataset, lets now go ahead and use the body for the text that we will train on. This should offer us a lot more data, but it was a struggle wrangling it all into the dataframes. I chose to go ahead and start from the text files themselves, and I will incode some snippets of the transformations below.
+We'll keep the same pattern here and continnue with some simple data augmentation. Since this is run #3, that means we'll do the simple insertion.
 
 ---
 
@@ -43,12 +43,11 @@ df = pd.read_pickle('../data/dataframes/newsgroup_body_cleaned_exploded.pkl')
 ```python
 from IPython.display import display, HTML
 display(HTML("<style>.container { width:100% !important; }</style>"))
+# Replace Rejoin
 df['exploded_body'] = df['exploded_body'].apply(lambda x: utils.replace_rejoin(x))
 print(df.sample(frac=1).reset_index(drop=True).loc[:,['newsgroup', 'exploded_body']].head().to_markdown())
 ```
 
-
-<style>.container { width:100% !important; }</style>
 
 
 |    | newsgroup   | exploded_body                                                                                                       |
@@ -212,7 +211,10 @@ utils.plot_history_and_save(history, save_path)
 ```
 
 
-![png](clean_run_02_files/clean_run_02_12_0.png)
+![png](/images/news/body_clean_run_02.png)
+
+
+---
 
 
 
