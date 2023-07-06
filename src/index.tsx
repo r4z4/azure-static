@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import ArticleHome from './components/ArticleHome';
+import AboutHome from './components/AboutHome';
 import ProjectHome from './components/ProjectHome';
 import MdArticle from './components/MdArticle';
 import {
@@ -17,6 +18,10 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <App />
+  },
+  {
+    path: "/about",
+    element: <AboutHome />,
   },
   {
     path: "/articles",
@@ -151,6 +156,8 @@ root.render(
       <a href="/projects">Projects</a>
       {' '}
       <a href="/articles">Articles</a>
+      {' '}
+      <a href="/about">About</a>
     </nav>
     <RouterProvider router={router} />
   </React.StrictMode>
