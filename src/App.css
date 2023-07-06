@@ -101,6 +101,16 @@ code {
   display: inline;
 }
 
+.cv-container {
+  display: inline-grid;
+  padding: 15px;
+  background-color: #100218;
+  min-height: 100vh;
+  width: 100%;
+  /* align-items: center;
+  justify-content: center; */
+}
+
 .dataframe {
   font-size: 80%;
   margin: auto;
@@ -444,6 +454,44 @@ pre {
 
 .text-gradient-ash {
   background: linear-gradient(to left, #eaf3f5, #b0b0b0e6);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-emerald {
+  background: linear-gradient(to left, #03fc07, #e5f505e6);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-elixir {
+  background: linear-gradient(to left, #f5d7f3, #ec74f7e6);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.text-gradient-sun {
+  /* A gradient at the center of its container,
+     starting red, changing to blue, and finishing green */
+    background: radial-gradient(at 0% 30%, red 10px, yellow 50%, #1e90ff 30%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+.text-gradient-elm {
+/* A gradient at the center of its container,
+   starting red, changing to blue, and finishing green */
+  background: radial-gradient(circle at center, rgb(206, 242, 96) 0, rgb(103, 210, 237), green 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-sky {
+  background: linear-gradient(to left, #03afff, #014660e6);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;

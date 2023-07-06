@@ -54,8 +54,9 @@ function App() {
             <div className='circle'></div>
         </div>
       </div>
-          <p className="text-glow text-gradient" style={{marginTop: '12px'}}>
-            Various Curated NLP trial runs.
+          <p style={{marginTop: '12px', textAlign: 'center'}}>
+            <span className="text-glow text-gradient-elm">Various Curated NLP trial runs.</span><br />
+            <span className="text-glow text-gradient-elixir">Ventures Into Mojo (AI First)</span>
           </p>
         <p className="subText">For now just links to site hosted by GitHub</p>
         <div className={'links-container'}>
@@ -73,6 +74,13 @@ function App() {
           rel="noopener noreferrer"
         >
           Projects
+        </a>
+        <a
+          className="route-link text-glow text-gradient-emerald"
+          href="/about"
+          rel="noopener noreferrer"
+        >
+          About
         </a>
         </div>
       </header>
