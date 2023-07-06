@@ -168,13 +168,14 @@ body {
 .animation-example > .center > .circle:nth-child(1) {
     height: 100%;
     width: 100%;
+    border: 1px solid #78f776;
     background: radial-gradient(
         circle at 50% 0,
         rgba(86, 17, 88, 0.5),
         rgba(46, 6, 43, 0) 70.71%
       ), radial-gradient(
         circle at 6.7% 75%,
-        rgba(42, 4, 41, 0.5),
+        rgba(79, 22, 77, 0.5),
         rgba(163, 103, 161, 0) 70.71%
       ),
       radial-gradient(

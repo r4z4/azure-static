@@ -1,5 +1,5 @@
 import '../App.css';
-import CVPanel, {CVPanelData, CVPanelDocument} from './CVPanel'
+import CVPanel, {CVPanelData} from './CVPanel'
 
 interface AboutHomeProps {
   active?: boolean;
