@@ -3,6 +3,7 @@ import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import { PrismLight as SyntaxHighlighter } from 'react-syntax-highlighter';
 import jsx from 'react-syntax-highlighter/dist/esm/languages/prism/jsx';
+import tsx from 'react-syntax-highlighter/dist/esm/languages/prism/tsx';
 import js from 'react-syntax-highlighter/dist/esm/languages/prism/javascript';
 import python from 'react-syntax-highlighter/dist/esm/languages/prism/python';
 import { dark } from "react-syntax-highlighter/dist/esm/styles/prism";
@@ -11,8 +12,11 @@ import style from './markdown-styles.module.css';
 import dfHtml from '../utils/Dataframes'
 
 SyntaxHighlighter.registerLanguage('jsx', jsx);
+SyntaxHighlighter.registerLanguage('tsx', tsx);
 SyntaxHighlighter.registerLanguage('javascript', js);
 SyntaxHighlighter.registerLanguage('python', python);
+// We'll Use Python syntax highligh for now
+SyntaxHighlighter.registerLanguage('mojo', python);
 
 interface MdArticleProps {
     title: string;
@@ -62,7 +66,7 @@ function MdArticle({ title, subDir }: MdArticleProps) {
     return (
       <div className='grid-container'>
         <div>
-          <button className="toggle-button" onClick={() => setExpanded(!expanded)}>{expanded ? '>' : '<' }</button>
+          {subDir !== 'mojo' && <button className="toggle-button" onClick={() => setExpanded(!expanded)}>{expanded ? '>' : '<' }</button>}
           <ReactMarkdown 
             className={style.reactMarkDown} 
             children={terms}
@@ -70,6 +74,7 @@ function MdArticle({ title, subDir }: MdArticleProps) {
             components={{
               code({node, inline, className, children, ...props}) {
                 const match = /language-(\w+)/.exec(className || '')
+                console.log(`match is ${match} & className is ${className}`)
                 return !inline && match ? (
                   <SyntaxHighlighter
                     {...props}
