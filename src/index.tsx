@@ -122,6 +122,14 @@ const router = createBrowserRouter([
     path: `/articles/news/body_clean_run_04`,
     element: <MdArticle subDir={'news'} title={'body_clean_run_04'} />,
   },
+  {
+    path: `/articles/mojo/intro`,
+    element: <MdArticle subDir={'mojo'} title={'intro'} />,
+  },
+  {
+    path: `/articles/mojo/generate`,
+    element: <MdArticle subDir={'mojo'} title={'generate'} />,
+  },
 
 
 

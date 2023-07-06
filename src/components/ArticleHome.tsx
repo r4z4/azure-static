@@ -153,7 +153,21 @@ const BodyCleanRun04: PanelDocument = {
   id: 21,
   filename: 'NewsB_04',
   url: '/articles/news/body_clean_run_04',
-  previewComponent: <MdArticlePrev title={'BodyRun04'} desc={'Original Runs with Full Body data for 20 Newsgroup Dataset'} concepts={['Preprocessing']} hangups={['eaning Retention']} />
+  previewComponent: <MdArticlePrev title={'BodyRun04'} desc={'Original Runs with Full Body data for 20 Newsgroup Dataset'} concepts={['Preprocessing']} hangups={['Leaning Retention']} />
+}
+
+const MojoIntro: PanelDocument = {
+  id: 22,
+  filename: 'Mojo_Intro.🔥',
+  url: '/articles/mojo/intro',
+  previewComponent: <MdArticlePrev title={'MojoIntro'} desc={'Intro to the Mojo Programming Language. AI First.'} concepts={['Lvalue, Rvalue, LLVM, Clang, AutoDiff']} hangups={['A Whole Bunch of C++ Concepts']} />
+}
+
+const MojoGen: PanelDocument = {
+  id: 23,
+  filename: 'Mojo_Gen.🔥',
+  url: '/articles/mojo/generate',
+  previewComponent: <MdArticlePrev title={'MojoGen'} desc={'A Generate Embedding Run Using the Mojo Syntax. Way More Difficult Than I Thought :)'} concepts={['Lvalue, Rvalue, LLVM, Clang, AutoDiff']} hangups={['A Whole Bunch of C++ Concepts']} />
 }
 
 interface ArticleHomeProps {
@@ -225,9 +239,19 @@ function ArticleHome({ active = false }: ArticleHomeProps) {
     documents: [NewsgroupEDA, CleanRun01, CleanRun02, CleanRun03, CleanRun04, BodyCleanRun01, BodyCleanRun02, BodyCleanRun03, BodyCleanRun04],
   }
 
+  const MojoRuns: PanelData = {
+    name: 'Mojo 🔥 Runs',
+    date: '07-04-2023',
+    desc: 'Mojo is a superset of Python. It is the programming language for the full stack AI architecture from Modular. This one will take some time.',
+    bgColor: '#001a09',
+    category: 'NLP',
+    documents: [MojoIntro, MojoGen],
+  }
+
   return (
     <div className="App">
         <div className={'article-grid-container'}>
+          <CollapsePanel panelData={MojoRuns}></CollapsePanel>
           <CollapsePanel panelData={Newsgroup}></CollapsePanel>
           <CollapsePanel panelData={runOneData}></CollapsePanel>
           <CollapsePanel panelData={runTwoData}></CollapsePanel>
