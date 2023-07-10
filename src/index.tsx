@@ -135,6 +135,14 @@ const router = createBrowserRouter([
     path: `/articles/mojo/generate`,
     element: <MdArticle subDir={'mojo'} title={'generate'} />,
   },
+  {
+    path: `/articles/elixir/benchmark`,
+    element: <MdArticle subDir={'elixir'} title={'benchmark'} />,
+  },
+  {
+    path: `/articles/elixir/zip_with`,
+    element: <MdArticle subDir={'elixir'} title={'zipWith'} />,
+  },
 
 
 

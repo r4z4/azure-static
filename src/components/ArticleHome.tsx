@@ -170,6 +170,20 @@ const MojoGen: PanelDocument = {
   previewComponent: <MdArticlePrev title={'MojoGen'} desc={'A Generate Embedding Run Using the Mojo Syntax. Way More Difficult Than I Thought :)'} concepts={['Lvalue, Rvalue, LLVM, Clang, AutoDiff']} hangups={['A Whole Bunch of C++ Concepts']} />
 }
 
+const Benchmarking: PanelDocument = {
+  id: 24,
+  filename: 'Benchmark',
+  url: '/articles/elixir/benchmark',
+  previewComponent: <MdArticlePrev title={'Benchmark'} desc={'Benchmarking our Function Calls using Benchee'} concepts={['Benchmark, Profile']} hangups={['.exs Script']} />
+}
+
+const zipWith: PanelDocument = {
+  id: 25,
+  filename: 'zipWith',
+  url: '/articles/elixir/zip_with',
+  previewComponent: <MdArticlePrev title={'zipWith'} desc={'Utilizing the Enum.zip_with Fucntion'} concepts={['Enum, Zip']} hangups={['Haskell']} />
+}
+
 interface ArticleHomeProps {
   active?: boolean;
 }
@@ -248,6 +262,15 @@ function ArticleHome({ active = false }: ArticleHomeProps) {
     documents: [MojoIntro, MojoGen],
   }
 
+  const ElixirArticles: PanelData = {
+    name: 'Elixir Articles',
+    date: '07-08-2023',
+    desc: 'Using Benchee Library to Benchmark function calls. Particularly interested here in the peformance of using Lists versus Tuples.',
+    bgColor: '#001a09',
+    category: 'Elixir',
+    documents: [Benchmarking, zipWith],
+  }
+
   return (
     <div className="App">
         <div className={'article-grid-container'}>
@@ -259,6 +282,7 @@ function ArticleHome({ active = false }: ArticleHomeProps) {
           <CollapsePanel panelData={TriviaData}></CollapsePanel>
           <CollapsePanel panelData={WordEmbeddings}></CollapsePanel>
           <CollapsePanel panelData={DimReduction}></CollapsePanel>
+          <CollapsePanel panelData={ElixirArticles}></CollapsePanel>
         </div>
     </div>
   );

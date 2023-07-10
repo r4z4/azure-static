@@ -6,6 +6,9 @@ import jsx from 'react-syntax-highlighter/dist/esm/languages/prism/jsx';
 import tsx from 'react-syntax-highlighter/dist/esm/languages/prism/tsx';
 import js from 'react-syntax-highlighter/dist/esm/languages/prism/javascript';
 import python from 'react-syntax-highlighter/dist/esm/languages/prism/python';
+import elixir from 'react-syntax-highlighter/dist/esm/languages/prism/elixir';
+import erlang from 'react-syntax-highlighter/dist/esm/languages/prism/erlang';
+import shellSession from 'react-syntax-highlighter/dist/esm/languages/prism/shell-session';
 import { dark } from "react-syntax-highlighter/dist/esm/styles/prism";
 import SidePanelImageDisplay from './SidePanelImageDisplay'
 import style from './markdown-styles.module.css';
@@ -15,6 +18,9 @@ SyntaxHighlighter.registerLanguage('jsx', jsx);
 SyntaxHighlighter.registerLanguage('tsx', tsx);
 SyntaxHighlighter.registerLanguage('javascript', js);
 SyntaxHighlighter.registerLanguage('python', python);
+SyntaxHighlighter.registerLanguage('elixir', elixir);
+SyntaxHighlighter.registerLanguage('erlang', erlang);
+SyntaxHighlighter.registerLanguage('shell-session', shellSession);
 // We'll Use Python syntax highligh for now
 SyntaxHighlighter.registerLanguage('mojo', python);
 
@@ -70,6 +76,7 @@ function MdArticle({ title, subDir }: MdArticleProps) {
           <ReactMarkdown 
             className={style.reactMarkDown} 
             children={terms}
+            linkTarget="_blank"
             remarkPlugins={[[remarkGfm, {tableCellPadding: true, tablePipeAlign: true}]]}
             components={{
               code({node, inline, className, children, ...props}) {

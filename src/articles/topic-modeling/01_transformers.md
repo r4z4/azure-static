@@ -77,9 +77,6 @@ plt.colorbar()
 ```
 
 
-    <matplotlib.colorbar.Colorbar at 0x7f386ad9a940>
-
-
 
 
 ![png](/images/topic-modeling/01_transformers.png#img-thumbnail)
