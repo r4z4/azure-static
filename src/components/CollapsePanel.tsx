@@ -2,10 +2,9 @@ import { useState } from "react";
 import FolderClosedIcon from '../assets/folder_closed.svg'
 import FolderOpenIcon from '../assets/folder_open.svg'
 import NotebookSimple from '../assets/notebook_simple.svg'
-import FolderPython from '../assets/folder_python.svg'
-import FolderPythonOpen from '../assets/folder_python_open.svg'
+// import FolderPython from '../assets/folder_python.svg'
+// import FolderPythonOpen from '../assets/folder_python_open.svg'
 import ElixirLogo from '../assets/elixir_logo.svg'
-import { getAllJSDocTagsOfKind } from "typescript";
 
 export interface CollapsePanelProps {
     panelData: PanelData;
@@ -26,17 +25,6 @@ export interface PanelDocument {
     filename: String;
     url: string;
     previewComponent: JSX.Element;
-}
-
-const getLogo = (cat: String) => {
-  switch(cat) {
-    case 'Elixir':
-      return <img className="icon" src={ElixirLogo} />
-    case 'NLP':
-      return null
-    default:
-      return null
-  }
 }
 
 const getNbIcon = (cat: String) => {
