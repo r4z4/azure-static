@@ -2,6 +2,9 @@ import { useState } from "react";
 import FolderClosedIcon from '../assets/folder_closed.svg'
 import FolderOpenIcon from '../assets/folder_open.svg'
 import NotebookSimple from '../assets/notebook_simple.svg'
+// import FolderPython from '../assets/folder_python.svg'
+// import FolderPythonOpen from '../assets/folder_python_open.svg'
+import ElixirLogo from '../assets/elixir_logo.svg'
 
 export interface CollapsePanelProps {
     panelData: PanelData;
@@ -24,6 +27,17 @@ export interface PanelDocument {
     previewComponent: JSX.Element;
 }
 
+const getNbIcon = (cat: String) => {
+  switch(cat) {
+    case 'Elixir':
+      return <img className="icon" src={ElixirLogo} alt='elixirLogoIcon'/>
+    case 'NLP':
+      return <img className="icon white-filter" src={NotebookSimple} alt='notebookSimpleIcon'/>
+    default:
+      return null
+  }
+}
+
 // const panelData {
 //     name = 'Panel Name',
 //     date = '05-22-2020',
@@ -42,6 +56,7 @@ function CollapsePanel({ panelData }: CollapsePanelProps) {
           {expanded ? <img width={'35px'} className="white-filter" src={FolderOpenIcon} alt='folderClosedIcon'/> : <img width={'35px'} className="white-filter" src={FolderClosedIcon} alt='folderOpenIcon'/>}
         </div>
         <p className='panel-dir-name'>{panelData.name}</p>
+        {/*{getLogo(panelData.category)}*/}
       </span>
         <p>Last Updated: {panelData.date}</p>
         <p>{panelData.desc}</p>
@@ -55,7 +70,9 @@ function CollapsePanel({ panelData }: CollapsePanelProps) {
                     key={doc.id}
                     onMouseEnter={() => setIsShown(doc.previewComponent)}
                     onMouseLeave={() => setIsShown(<></>)}>
-                      <a className="text-gradient-ash" href={doc.url}><img className="icon white-filter" src={NotebookSimple} alt='notebookSimpleIcon'/>{doc.filename}</a>
+                      <a className="text-gradient-ash" href={doc.url}>{getNbIcon(panelData.category)}
+                        {doc.filename}
+                      </a>
                   </li>
                 </div>
               </ul>
