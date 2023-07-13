@@ -5,6 +5,7 @@ import NotebookSimple from '../assets/notebook_simple.svg'
 // import FolderPython from '../assets/folder_python.svg'
 // import FolderPythonOpen from '../assets/folder_python_open.svg'
 import ElixirLogo from '../assets/elixir_logo.svg'
+import BeamLogo from '../assets/BEAM.svg'
 
 export interface CollapsePanelProps {
     panelData: PanelData;
@@ -23,14 +24,18 @@ export interface PanelData {
 export interface PanelDocument {
     id: number;
     filename: String;
+    subcat?: string;
     url: string;
     previewComponent: JSX.Element;
 }
 
 const getNbIcon = (cat: String) => {
+  console.log(cat)
   switch(cat) {
     case 'Elixir':
       return <img className="icon" src={ElixirLogo} alt='elixirLogoIcon'/>
+    case 'ElixirBeam':
+      return <img className="icon" src={BeamLogo} alt='beamLogoIcon'/>
     case 'NLP':
       return <img className="icon white-filter" src={NotebookSimple} alt='notebookSimpleIcon'/>
     default:
@@ -70,7 +75,7 @@ function CollapsePanel({ panelData }: CollapsePanelProps) {
                     key={doc.id}
                     onMouseEnter={() => setIsShown(doc.previewComponent)}
                     onMouseLeave={() => setIsShown(<></>)}>
-                      <a className="text-gradient-ash" href={doc.url}>{getNbIcon(panelData.category)}
+                      <a className="text-gradient-ash" href={doc.url}>{getNbIcon(`${panelData.category}${doc.subcat ? doc.subcat : ''}`)}
                         {doc.filename}
                       </a>
                   </li>

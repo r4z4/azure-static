@@ -184,6 +184,14 @@ const zipWith: PanelDocument = {
   previewComponent: <MdArticlePrev title={'zipWith'} desc={'Utilizing the Enum.zip_with Fucntion'} concepts={['Enum, Zip']} hangups={['Haskell']} />
 }
 
+const Concuerror: PanelDocument = {
+  id: 26,
+  filename: 'Concuerror',
+  subcat: 'Beam',
+  url: '/articles/elixir/Concuerror',
+  previewComponent: <MdArticlePrev title={'Concuerror'} desc={'Concurrency Testing w/ Concuerror'} concepts={['Interleaving, Preemption Bound']} hangups={['Erlang']} />
+}
+
 interface ArticleHomeProps {
   active?: boolean;
 }
@@ -268,7 +276,7 @@ function ArticleHome({ active = false }: ArticleHomeProps) {
     desc: 'Using Benchee Library to Benchmark function calls. Particularly interested here in the peformance of using Lists versus Tuples.',
     bgColor: '#001a09',
     category: 'Elixir',
-    documents: [Benchmarking, zipWith],
+    documents: [Benchmarking, zipWith, Concuerror],
   }
 
   return (
