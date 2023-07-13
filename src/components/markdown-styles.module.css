@@ -117,6 +117,28 @@
   margin: 4% auto;
 }
 
+.reactMarkDown img[src$='#md-img-bright'] { 
+  display: inherit;
+  width: 20%;
+  height: auto;
+  margin: 1% auto;
+  filter: brightness(0.6);
+}
+
+.reactMarkDown img[src$='#md-img'] { 
+  display: inherit;
+  width: 20%;
+  height: auto;
+  margin: 1% auto;
+}
+
+.reactMarkDown img[src$='#md-img-inline'] { 
+  display: inline;
+  width: 20%;
+  height: auto;
+  margin: 1% auto;
+}
+
 .reactMarkDown img[src$='#wordcloud'] { 
   width: 30%;
 }

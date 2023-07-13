@@ -143,6 +143,10 @@ const router = createBrowserRouter([
     path: `/articles/elixir/zip_with`,
     element: <MdArticle subDir={'elixir'} title={'zipWith'} />,
   },
+  {
+    path: `/articles/elixir/Concuerror`,
+    element: <MdArticle subDir={'elixir'} title={'Concuerror'} />,
+  },
 
 
 
